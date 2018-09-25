@@ -37,13 +37,13 @@ To install the latest development version from the Poisson drat
     
     To cite package 'dts' in publications use:
     
-      Joe Thorley (NA). dts: Manipulate DateTime-Series data frames. R
+      Joe Thorley (NA). dts: Manipulate DateTime-Series Data Frames. R
       package version 0.0.0.9000.
     
     A BibTeX entry for LaTeX users is
     
       @Manual{,
-        title = {dts: Manipulate DateTime-Series data frames},
+        title = {dts: Manipulate DateTime-Series Data Frames},
         author = {Joe Thorley},
         note = {R package version 0.0.0.9000},
       }

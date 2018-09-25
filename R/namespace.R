@@ -1,2 +1,2 @@
-#' @import err checkr ggplot2
+#' @import err checkr dttr ggplot2
 NULL

@@ -32,8 +32,8 @@
 
 <meta property="og:title" content="Check DateTime-Series Data Frame — check_dts" />
 
-<meta property="og:description" content="A dts data frame is a data frame with a column of non-missing POSIXct values
-and a column of numeric values." />
+<meta property="og:description" content="A dts data frame is a data frame with a column of non-missing Date or POSIXct values and
+at least one column of numeric values." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,14 +100,15 @@ and a column of numeric values." />
 
     <div class="ref-description">
     
-    <p>A dts data frame is a data frame with a column of non-missing POSIXct values
-and a column of numeric values.</p>
+    <p>A dts data frame is a data frame with a column of non-missing Date or POSIXct values and
+at least one column of numeric values.</p>
     
     </div>
 
     <pre class="usage"><span class='fu'>check_dts</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>key</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>sorted</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>complete</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='fu'>substitute</span>(<span class='no'>x</span>), <span class='kw'>error</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+  <span class='kw'>sorted</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>date_time</span>]]), <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>),
+  <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='fu'>substitute</span>(<span class='no'>x</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -118,19 +119,15 @@ and a column of numeric values.</p>
     </tr>
     <tr>
       <th>date_time</th>
-      <td><p>A string specifying the column with the POSIXct values.</p></td>
+      <td><p>A string specifying the column with the Date or POSIXct values.</p></td>
     </tr>
     <tr>
       <th>value</th>
-      <td><p>A string specifying the column with the numeric values.</p></td>
+      <td><p>A string specifying the column with the double values.</p></td>
     </tr>
     <tr>
       <th>nrow</th>
       <td><p>A flag indicating whether x should have rows (versus no rows) or a missing value indicating no requirements or a count or count range of the number of rows.</p></td>
-    </tr>
-    <tr>
-      <th>key</th>
-      <td><p>A character vector of the columns that represent a unique key.</p></td>
     </tr>
     <tr>
       <th>sorted</th>
@@ -141,12 +138,16 @@ and a column of numeric values.</p>
       <td><p>A flag indicating whether the DateTime values must be complete.</p></td>
     </tr>
     <tr>
-      <th>x_name</th>
-      <td><p>A string of the name of the object.</p></td>
+      <th>units</th>
+      <td><p>A string of the time units.</p></td>
     </tr>
     <tr>
-      <th>error</th>
-      <td><p>A flag indicating whether to throw an informative error or immediately generate an informative message if the check fails.</p></td>
+      <th>key</th>
+      <td><p>A character vector of the columns that represent a unique key.</p></td>
+    </tr>
+    <tr>
+      <th>x_name</th>
+      <td><p>A string of the name of the object.</p></td>
     </tr>
     </table>
     

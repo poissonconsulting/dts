@@ -5,34 +5,35 @@
 \title{Check DateTime-Series Data Frame}
 \usage{
 check_dts(x, date_time = "DateTime", value = "Value", nrow = NA,
-  key = "DateTime", sorted = FALSE, complete = TRUE,
-  x_name = substitute(x), error = TRUE)
+  sorted = FALSE, complete = FALSE,
+  units = dttr::dtt_units(x[[date_time]]), key = character(0),
+  x_name = substitute(x))
 }
 \arguments{
 \item{x}{The object to check.}
 
-\item{date_time}{A string specifying the column with the POSIXct values.}
+\item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A string specifying the column with the numeric values.}
+\item{value}{A string specifying the column with the double values.}
 
 \item{nrow}{A flag indicating whether x should have rows (versus no rows) or a missing value indicating no requirements or a count or count range of the number of rows.}
-
-\item{key}{A character vector of the columns that represent a unique key.}
 
 \item{sorted}{A flag indicating whether the DateTime values must be sorted (in ascending order).}
 
 \item{complete}{A flag indicating whether the DateTime values must be complete.}
 
-\item{x_name}{A string of the name of the object.}
+\item{units}{A string of the time units.}
 
-\item{error}{A flag indicating whether to throw an informative error or immediately generate an informative message if the check fails.}
+\item{key}{A character vector of the columns that represent a unique key.}
+
+\item{x_name}{A string of the name of the object.}
 }
 \value{
 An invisible copy of x (if it doesn't throw an error).
 }
 \description{
-A dts data frame is a data frame with a column of non-missing POSIXct values
-and a column of numeric values.
+A dts data frame is a data frame with a column of non-missing Date or POSIXct values and
+at least one column of numeric values.
 }
 \examples{
 check_dts(dts_data)
