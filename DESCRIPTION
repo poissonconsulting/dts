@@ -8,12 +8,13 @@ Description: Manipulates data frames with a POSIXct column and
 License: MIT + file LICENSE
 Depends: R (>= 3.4.0)
 Imports: 
-    checkr,
     err,
-    dttr,
-    ggplot2
+    checkr,
+    dttr
 Suggests: 
+    ggplot2,
     testthat,
+    tibble,
     covr
 Remotes:
   poissonconsulting/err,

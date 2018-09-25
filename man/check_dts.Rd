@@ -10,7 +10,7 @@ check_dts(x, date_time = "DateTime", value = "Value", nrow = NA,
   x_name = substitute(x))
 }
 \arguments{
-\item{x}{The object to check.}
+\item{x}{A dts data frame}
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 

@@ -3,9 +3,10 @@
 #' A dts data frame is a data frame with a column of non-missing Date or POSIXct values and
 #' at least one column of numeric values.
 #'
-#' @inheritParams checkr::check_data
+#' @param x A dts data frame
 #' @param date_time A string specifying the column with the Date or POSIXct values.
 #' @param value A string specifying the column with the double values.
+#' @inheritParams checkr::check_data
 #' @param sorted A flag indicating whether the DateTime values must be sorted (in ascending order).
 #' @param complete A flag indicating whether the DateTime values must be complete.
 #' @param units A string of the time units.
