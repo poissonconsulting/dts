@@ -10,7 +10,8 @@ Depends: R (>= 3.4.0)
 Imports: 
     err,
     checkr,
-    dttr
+    dttr,
+    stats
 Suggests: 
     ggplot2,
     testthat,

@@ -21,7 +21,7 @@ check_dts <- function(x, date_time = "DateTime", value = "Value",
                       key = character(0),
                       x_name = substitute(x)) {
   x_name <- deparse(x_name)
-  
+
   check_string(date_time)
   check_string(value)
   check_flag(sorted)
@@ -48,7 +48,7 @@ check_dts <- function(x, date_time = "DateTime", value = "Value",
   if(sorted)
     check_sorted(x[[date_time]], x_name = paste0("column '", date_time, "' of ", x_name))
 
-  if(complete && !dtt_complete(x[[date_time]], units = units))
+  if(complete && !dtt_completed(x[[date_time]], units = units))
     err("column '", date_time, "' of ", x_name, " must be complete")
   
   invisible(x)
