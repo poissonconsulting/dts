@@ -25,8 +25,14 @@ dts_interpolate <- function(x, date_time = "DateTime", value = "Value",
     return(x)
   
   gap <- size_gaps(is.na(x[[value]]))
-  x[[value]] <- stats::approx(x[[value]], xout = 1:length(x[[value]]), 
+  xout <- gap <= max_gap
+  known <- which(gap == 0)
+  if(length(known) < 2) return(x)
+  known <- range(known)
+  xout[-(known[1]:known[2])] <- FALSE
+  if(!any(xout)) return(x)
+  
+  x[[value]][xout] <- stats::approx(x[[value]], xout = which(xout), 
                               method = method, f = step)$y
-  is.na(x[[value]][gap > max_gap]) <- TRUE
   x
 }
