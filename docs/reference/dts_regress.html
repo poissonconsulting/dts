@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot DateTime Series — dts_plot • dts</title>
+<title>Regress — dts_regress • dts</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Plot DateTime Series — dts_plot" />
+<meta property="og:title" content="Regress — dts_regress" />
 
-<meta property="og:description" content="Plot DateTime Series" />
+<meta property="og:description" content="Fill in missing values by linear regression." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,41 +92,68 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot DateTime Series</h1>
+    <h1>Regress</h1>
     
-    <div class="hidden name"><code>dts_plot.Rd</code></div>
+    <div class="hidden name"><code>dts_regress.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Plot DateTime Series</p>
+    <p>Fill in missing values by linear regression.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dts_plot</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>)</pre>
+    <pre class="usage"><span class='fu'>dts_regress</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>,
+  <span class='kw'>predictor</span> <span class='kw'>=</span> <span class='st'>"Value2"</span>, <span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>min_gap</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
+  <span class='kw'>min_n</span> <span class='kw'>=</span> <span class='fl'>4L</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A data frame with</p></td>
+      <td><p>A dts data frame</p></td>
     </tr>
     <tr>
       <th>date_time</th>
-      <td><p>A string specifying the column with the POSIXct values</p></td>
+      <td><p>A string specifying the column with the Date or POSIXct values.</p></td>
     </tr>
     <tr>
       <th>value</th>
-      <td><p>A string specifying the column with the time series values</p></td>
+      <td><p>A string specifying the column with the double values.</p></td>
+    </tr>
+    <tr>
+      <th>predictor</th>
+      <td><p>A string of the double column to use as a predictor variable.</p></td>
+    </tr>
+    <tr>
+      <th>intercept</th>
+      <td><p>A flag indicating whether an intercept should be estimated (or fixed at 0)</p></td>
+    </tr>
+    <tr>
+      <th>min_gap</th>
+      <td><p>An integer of the minimum gap to leave between regressed and existing values.</p></td>
+    </tr>
+    <tr>
+      <th>min_n</th>
+      <td><p>A count of the minimum of data points to require.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A ggplot object</p>
+    <p>A data frame</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>dts_regress</span>(<span class='no'>dts_data</span>, <span class='kw'>min_gap</span> <span class='kw'>=</span> <span class='fl'>0L</span>)[<span class='fl'>1</span>:<span class='fl'>5</span>,]</div><div class='output co'>#&gt; # A tibble: 5 x 4
+#&gt;   DateTime            Value Value2 Value3
+#&gt;   &lt;dttm&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+#&gt; 1 1999-11-29 22:00:00  -9     20.1   4.10
+#&gt; 2 1999-11-29 23:00:00  10.2   20.3   4.07
+#&gt; 3 1999-11-30 00:00:00  10.0   19.9   4.10
+#&gt; 4 1999-11-30 01:00:00  10.4   20.5   4.11
+#&gt; 5 1999-11-30 02:00:00  10.3   20.4   4.12</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -134,7 +161,9 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

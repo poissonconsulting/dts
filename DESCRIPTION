@@ -1,10 +1,11 @@
 Package: dts
-Title: Manipulate DateTime-Series Data Frames
-Version: 0.0.0.9000
+Title: Manipulate Date/POSIXct Time Series Data Frames
+Version: 0.0.0.9001
+Date: 2018-09-27
 Authors@R: 
     person("Joe", "Thorley", role = c("aut", "cre"), email = "joe@poissonconsulting.ca", comment = c(ORCID = "0000-0002-7683-4592"))
-Description: Manipulates data frames with a POSIXct column and 
-    double column(s) representing time series values.
+Description: Manipulates data frames with a Date or POSIXct column and one or more
+    double columns representing time series values.
 License: MIT + file LICENSE
 Depends: R (>= 3.4.0)
 Imports: 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot DateTime Series — dts_plot • dts</title>
+<title>Bound — dts_complete • dts</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Plot DateTime Series — dts_plot" />
+<meta property="og:title" content="Bound — dts_complete" />
 
-<meta property="og:description" content="Plot DateTime Series" />
+<meta property="og:description" content="Values outside the bounds are set to missing values." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,41 +92,53 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot DateTime Series</h1>
+    <h1>Bound</h1>
     
-    <div class="hidden name"><code>dts_plot.Rd</code></div>
+    <div class="hidden name"><code>dts_complete.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Plot DateTime Series</p>
+    <p>Values outside the bounds are set to missing values.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dts_plot</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>)</pre>
+    <pre class="usage"><span class='fu'>dts_complete</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>,
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>date_time</span>]]))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A data frame with</p></td>
+      <td><p>A dts data frame</p></td>
     </tr>
     <tr>
       <th>date_time</th>
-      <td><p>A string specifying the column with the POSIXct values</p></td>
+      <td><p>A string specifying the column with the Date or POSIXct values.</p></td>
     </tr>
     <tr>
       <th>value</th>
-      <td><p>A string specifying the column with the time series values</p></td>
+      <td><p>A string specifying the column with the double values.</p></td>
+    </tr>
+    <tr>
+      <th>units</th>
+      <td><p>A string of the time units.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A ggplot object</p>
+    <p>A data frame</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>dts_complete</span>(<span class='no'>dts_data</span>[<span class='fu'>c</span>(<span class='fl'>1</span>,<span class='fl'>3</span>),])</div><div class='output co'>#&gt; # A tibble: 3 x 2
+#&gt;   DateTime            Value
+#&gt;   &lt;dttm&gt;              &lt;dbl&gt;
+#&gt; 1 1999-11-29 22:00:00    -9
+#&gt; 2 1999-11-30 00:00:00    NA
+#&gt; 3 1999-11-29 23:00:00    NA</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -134,7 +146,9 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

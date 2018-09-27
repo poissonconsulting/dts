@@ -6,7 +6,7 @@
 \usage{
 dts_regress2(x, date_time = "DateTime", value = "Value",
   predictor = "Value2", predictor2 = "Value3", intercept = TRUE,
-  min_gap = 10L)
+  min_gap = 10L, min_n = 5L)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -22,6 +22,8 @@ dts_regress2(x, date_time = "DateTime", value = "Value",
 \item{intercept}{A flag indicating whether an intercept should be estimated (or fixed at 0)}
 
 \item{min_gap}{An integer of the minimum gap to leave between regressed and existing values.}
+
+\item{min_n}{A count of the minimum of data points to require.}
 }
 \value{
 A data frame

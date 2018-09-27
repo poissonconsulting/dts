@@ -4,10 +4,10 @@
 \name{dts-package}
 \alias{dts}
 \alias{dts-package}
-\title{dts: Manipulate DateTime-Series Data Frames}
+\title{dts: Manipulate Date/POSIXct Time Series Data Frames}
 \description{
-Manipulates data frames with a POSIXct column and 
-    double column(s) representing time series values.
+Manipulates data frames with a Date or POSIXct column and one or more
+    double columns representing time series values.
 }
 \author{
 \strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (0000-0002-7683-4592)

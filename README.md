@@ -13,6 +13,10 @@ status](https://codecov.io/gh/poissonconsulting/dts/branch/master/graph/badge.sv
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+`dts` is a light-weight R package to manipulate data frames with a Date
+or POSIXct column and one or more double columns representing time
+series values.
+
 ## Installation
 
 To install the latest development version from
@@ -30,23 +34,22 @@ To install the latest development version from the Poisson drat
 
 ## Citation
 
-    Warning in citation(package = "dts"): no date field in DESCRIPTION file of
-    package 'dts'
-    Warning in citation(package = "dts"): could not determine year for 'dts'
-    from package DESCRIPTION file
-    
-    To cite package 'dts' in publications use:
-    
-      Joe Thorley (NA). dts: Manipulate DateTime-Series Data Frames. R
-      package version 0.0.0.9000.
-    
-    A BibTeX entry for LaTeX users is
-    
-      @Manual{,
-        title = {dts: Manipulate DateTime-Series Data Frames},
-        author = {Joe Thorley},
-        note = {R package version 0.0.0.9000},
-      }
+``` 
+
+To cite package 'dts' in publications use:
+
+  Joe Thorley (2018). dts: Manipulate DateTime-Series Data Frames.
+  R package version 0.0.0.9001.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {dts: Manipulate DateTime-Series Data Frames},
+    author = {Joe Thorley},
+    year = {2018},
+    note = {R package version 0.0.0.9001},
+  }
+```
 
 ## Contribution
 
