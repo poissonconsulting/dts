@@ -27,5 +27,5 @@ A data frame
 Fill in missing values by linear regression.
 }
 \examples{
-dts_regress(dts_data[c(1,2,3),])
+dts_regress(dts_data, min_gap = 0L)[1:5,]
 }

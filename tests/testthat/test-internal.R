@@ -1,6 +1,6 @@
 context("internal")
 
-test_that("size_gaps", {
+test_that("which_replace", {
   expect_identical(which_replace(logical(0)), integer(0))
   expect_identical(which_replace(1), integer(0))
   expect_identical(which_replace(NA_real_), 1L)
@@ -16,4 +16,5 @@ test_that("size_gaps", {
   expect_identical(which_replace(c(1, NA, NA, NA, 1), min_gap = 2), integer(0))
   expect_identical(which_replace(c(NA, 1, NA, 1, NA)), c(1L, 3L, 5L))
   expect_identical(which_replace(c(NA, 1, NA, 1, NA), ends = FALSE), 3L)
+  expect_identical(length(which_replace(dts_data, min_gap = 0L)), 203L)
 })

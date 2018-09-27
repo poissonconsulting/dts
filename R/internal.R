@@ -3,7 +3,8 @@ agg <- function(x, .fun, ...) {
   x[1,]
 }
 
-which_replace <- function(x, max_span = 10L, min_gap = 0L, ends = TRUE) {
+which_replace <- function(x, max_span = .Machine$integer.max, 
+                          min_gap = 0L, ends = TRUE) {
   x <- is.na(x)
   if(!any(x)) return(integer(0))
   x <- diff(c(FALSE, x, FALSE))
@@ -25,7 +26,7 @@ which_replace <- function(x, max_span = 10L, min_gap = 0L, ends = TRUE) {
 
   df$end <- df$end - 1L
   which <- mapply(seq, df$start, df$end, USE.NAMES = FALSE)
-  which <- as.vector(which)
+  which <- unlist(which)
   which <- sort(which)
   which
 }

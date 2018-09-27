@@ -28,5 +28,5 @@ A data frame
 Fill in missing values by linear interpolation.
 }
 \examples{
-dts_interpolate(dts_data[c(1,2,3),])
+dts_interpolate(dts_data[1:5,])
 }

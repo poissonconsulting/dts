@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' dts_interpolate(dts_data[c(1,2,3),])
+#' dts_interpolate(dts_data[1:5,])
 dts_interpolate <- function(x, date_time = "DateTime", value = "Value", 
                               max_span = 10L, method = "linear", step = 0.5) {
   check_dts(x, date_time = date_time, value = value, sorted = TRUE, 
