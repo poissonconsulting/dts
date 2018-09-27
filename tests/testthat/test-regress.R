@@ -6,6 +6,13 @@ test_that("regress", {
   expect_identical(dts_regress(dts_data[1:5,]), dts_data[1:5,])
   expect_identical(dts_regress(dts_data)[1:5,], dts_data[1:5,])
   expect_equal(dts_regress(dts_data, min_gap = 0L)$Value[1:5], 
-                   c(-9.00000, 10.24542, 10.02246, 10.35344, 10.26348),
+                   c(-9.00000, 10.24685, 10.02504, 10.35431, 10.26348),
                 tolerance = 1e-06)
+  expect_equal(dts_regress(dts_data, min_gap = 1L)$Value[1:5], 
+                   c(-9.00000, NA, 10.02504, NA, 10.26348),
+                tolerance = 1e-06)
+  expect_equal(dts_regress(dts_data, min_gap = 0L, intercept = FALSE)$Value[1:5], 
+                   c(-9.00000, 10.26092, 10.05124, 10.36250, 10.26348),
+                tolerance = 1e-06)
+  
 })
