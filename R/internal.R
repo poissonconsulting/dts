@@ -3,33 +3,29 @@ agg <- function(x, .fun, ...) {
   x[1,]
 }
 
-size_gaps <- function (x) 
-{
-    stopifnot(is.logical(x))
-    stopifnot(all(!is.na(x)))
-    if (!length(x)) 
-        return(integer(0))
-    gaps <- rep(0L, length(x))
-    which <- which(x)
-    if (!length(which)) 
-        return(gaps)
-    contin <- c(diff(which), 2L) == 1L
-    n <- length(contin)
-    gap <- rep(1L, n)
-    i <- 1L
-    while (i <= n) {
-        if (contin[i]) {
-            j <- i + 1L
-            while (contin[j]) {
-                j <- j + 1L
-            }
-            gap[i:j] <- j - i + 1L
-            i <- j + 1L
-        }
-        else {
-            i <- i + 1L
-        }
-    }
-    gaps[which] <- gap
-    gaps
+which_replace <- function(x, max_span = 10L, min_gap = 0L, ends = TRUE) {
+  x <- is.na(x)
+  if(!any(x)) return(integer(0))
+  x <- diff(c(FALSE, x, FALSE))
+  df <- data.frame(start = which(x == 1))
+  df$end = which(x == -1)
+  
+  if(!ends) {
+    if(df$start[1] == 1) df <- df[-1,]
+    if(df$end[nrow(df)] == length(x)) df <- df[-nrow(df),]
+  }
+
+  df <- df[df$end - df$start <=  max_span,]
+  if(!nrow(df)) return(integer(0))
+  
+  df$start <- df$start + min_gap
+  df$end <- df$end - min_gap
+  df <- df[df$end - df$start > 0,]
+  if(!nrow(df)) return(integer(0))
+
+  df$end <- df$end - 1L
+  which <- mapply(seq, df$start, df$end, USE.NAMES = FALSE)
+  which <- as.vector(which)
+  which <- sort(which)
+  which
 }

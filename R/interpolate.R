@@ -3,7 +3,7 @@
 #' Fill in missing values by linear interpolation.
 #' 
 #' @inheritParams check_dts
-#' @param max_gap An integer of the maximum gap to interpolate by.
+#' @param max_span An integer of the maximum span to interpolate.
 #' @param method A string of "linear" or "constant" indicating the method to use.
 #' @param step A proportion specifing the compromise between 
 #' left- and right- continuous step function.
@@ -14,25 +14,17 @@
 #' @examples
 #' dts_interpolate(dts_data[c(1,2,3),])
 dts_interpolate <- function(x, date_time = "DateTime", value = "Value", 
-                              max_gap = 10L, method = "linear", step = 0.5) {
+                              max_span = 10L, method = "linear", step = 0.5) {
   check_dts(x, date_time = date_time, value = value, sorted = TRUE, 
             complete = TRUE, key = date_time)
-  max_gap <- check_count(max_gap, coerce = TRUE)
+  check_scalar(max_span, c(1L, .Machine$integer.max))
   check_scalar(method, c("linear", "constant", "constant"))
   check_prop(step)
   
-  if (nrow(x) < 2L || max_gap == 0L) 
-    return(x)
+  which <- which_replace(x[[value]], max_span = max_span, ends = FALSE)
+  if(!length(which)) return(x)
   
-  gap <- size_gaps(is.na(x[[value]]))
-  xout <- gap <= max_gap
-  known <- which(gap == 0)
-  if(length(known) < 2) return(x)
-  known <- range(known)
-  xout[-(known[1]:known[2])] <- FALSE
-  if(!any(xout)) return(x)
-  
-  x[[value]][xout] <- stats::approx(x[[value]], xout = which(xout), 
+  x[[value]][which] <- stats::approx(x[[value]], xout = which, 
                               method = method, f = step)$y
   x
 }
