@@ -1,26 +1,19 @@
 context("fill-dayte-time")
 
 test_that("fill-dayte-time", {
-  filled <- dts_fill_dayte_time(dts_data, min_gap = 0L)
-  expect_identical(colnames(filled), colnames(dts_data))
-  expect_identical(filled$DateTime, dts_data$DateTime)
-  expect_equal(filled$Value[1:5], 
-               c(-9.000000,  1.055405, 10.686807, 10.686807, 10.263481),
-               tolerance = 1e-07)
-  expect_equal(
-    dts_fill_dayte_time(dts_data, min_gap = 0L, units = "days")$Value[1:5], 
-    c(-9.00000, 10.29834, 10.29834, 10.29834, 10.26348),
-    tolerance = 1e-06)
-  expect_equal(
-    dts_fill_dayte_time(dts_data, min_gap = 1L, units = "days")$Value[1:5], 
-    c(-9.00000, NA, 10.29834, NA, 10.26348),
-    tolerance = 1e-06)
-  expect_equal(
-    dts_fill_dayte_time(dts_data, min_n = 3L, min_gap = 0L, units = "days")$Value[1:5], 
-    c(-9.00000, 10.29834, 10.29834, 10.29834, 10.26348),
-    tolerance = 1e-06)
-  expect_equal(
-    dts_fill_dayte_time(dts_data, min_n = 3L, min_gap = 0L)$Value[1:5], 
-    c(-9.00000, NA, NA, NA, 10.26348),
-    tolerance = 1e-06)
+  data <- data.frame(DateTime = as.Date(c("2000-01-01", "2001-01-01", "2002-01-01", "2003-01-01", "2004-01-01")),
+                     Value = c(NA, 20, 10, 16, NA))
+  expect_equal(dts_fill_dayte_time(data)$Value, c(15.33333, 20.00000, 10.00000, 16.00000, 15.33333),
+               tolerance = 1e-06)
+  expect_equal(dts_fill_dayte_time(data, min_gap = 1L)$Value, c(NA, 20.00000, 10.00000, 16.00000, NA),
+               tolerance = 1e-06)
+  expect_equal(dts_fill_dayte_time(data)$Value, c(15.33333, 20.00000, 10.00000, 16.00000, 15.33333),
+               tolerance = 1e-06)
+})
+
+test_that("fill-dayte-time", {
+  data <- data.frame(DateTime = seq(as.Date("2000-01-01"), as.Date("2003-01-01"), by = "days"))
+  data$Value <- dttr::dtt_days(data$DateTime)
+  data$Value[1:5] <- NA
+  expect_identical(dts_fill_dayte_time(data)$Value[1:5], as.double(1:5))
 })

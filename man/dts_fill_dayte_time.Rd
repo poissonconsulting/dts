@@ -5,7 +5,7 @@
 \title{Fill Date or DateTime of the Year}
 \usage{
 dts_fill_dayte_time(x, date_time = "DateTime", value = "Value",
-  min_gap = 10L, min_n = 2L, units = dttr::dtt_units(x[[date_time]]),
+  min_gap = 0L, min_n = 2L, units = dttr::dtt_units(x[[date_time]]),
   .fun = mean, ...)
 }
 \arguments{

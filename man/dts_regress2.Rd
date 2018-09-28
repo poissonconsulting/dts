@@ -6,7 +6,7 @@
 \usage{
 dts_regress2(x, date_time = "DateTime", value = "Value",
   predictor = "Value2", predictor2 = "Value3", intercept = TRUE,
-  min_gap = 10L, min_n = 5L)
+  min_gap = 0L, min_n = 5L)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -32,5 +32,5 @@ A data frame
 Fill in missing values by multiple regression.
 }
 \examples{
-dts_regress2(dts_data, min_gap = 0L)[1:5,]
+dts_regress2(dts_data)[1:5,]
 }

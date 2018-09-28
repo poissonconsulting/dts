@@ -5,8 +5,7 @@
 \title{Regress}
 \usage{
 dts_regress(x, date_time = "DateTime", value = "Value",
-  predictor = "Value2", intercept = TRUE, min_gap = 10L,
-  min_n = 4L)
+  predictor = "Value2", intercept = TRUE, min_gap = 0L, min_n = 4L)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -30,5 +29,5 @@ A data frame
 Fill in missing values by linear regression.
 }
 \examples{
-dts_regress(dts_data, min_gap = 0L)[1:5,]
+dts_regress(dts_data)[1:5,]
 }

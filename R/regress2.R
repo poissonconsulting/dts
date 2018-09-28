@@ -10,10 +10,10 @@
 #' @export
 #'
 #' @examples
-#' dts_regress2(dts_data, min_gap = 0L)[1:5,]
+#' dts_regress2(dts_data)[1:5,]
 dts_regress2 <- function(x, date_time = "DateTime", value = "Value", 
                         predictor = "Value2", predictor2 = "Value3",
-                        intercept = TRUE, min_gap = 10L, min_n = 5L) {
+                        intercept = TRUE, min_gap = 0L, min_n = 5L) {
   check_dts(x, date_time = date_time, value = value, sorted = TRUE, 
             complete = TRUE, key = date_time)
   check_dts(x, date_time = date_time, value = predictor)

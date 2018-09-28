@@ -5,7 +5,7 @@
 \title{Interpolate}
 \usage{
 dts_interpolate(x, date_time = "DateTime", value = "Value",
-  max_span = 10L, method = "linear", step = 0.5)
+  max_span = .Machine$integer.max, method = "linear", step = 0.5)
 }
 \arguments{
 \item{x}{A dts data frame}

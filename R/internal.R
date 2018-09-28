@@ -19,8 +19,8 @@ which_replace <- function(x, max_span = .Machine$integer.max,
   df <- df[df$end - df$start <=  max_span,]
   if(!nrow(df)) return(integer(0))
   
-  df$start <- df$start + min_gap
-  df$end <- df$end - min_gap
+  df$start[df$start != 1] <- df$start[df$start != 1] + min_gap
+  df$end[df$end != length(x)] <- df$end[df$end != length(x)] - min_gap
   df <- df[df$end - df$start > 0,]
   if(!nrow(df)) return(integer(0))
 
