@@ -2,12 +2,10 @@ context("fill-dayte-time")
 
 test_that("fill-dayte-time", {
   data <- data.frame(DateTime = as.Date(c("2000-01-01", "2001-01-01", "2002-01-01", "2003-01-01", "2004-01-01")),
-                     Value = c(NA, 20, 10, 16, NA))
-  expect_equal(dts_fill_dayte_time(data)$Value, c(15.33333, 20.00000, 10.00000, 16.00000, 15.33333),
+                     Value = c(NA, NA, 10, 16, NA))
+  expect_equal(dts_fill_dayte_time(data)$Value, c(13, 13, 10, 16, 13),
                tolerance = 1e-06)
-  expect_equal(dts_fill_dayte_time(data, min_gap = 1L)$Value, c(NA, 20.00000, 10.00000, 16.00000, NA),
-               tolerance = 1e-06)
-  expect_equal(dts_fill_dayte_time(data)$Value, c(15.33333, 20.00000, 10.00000, 16.00000, 15.33333),
+  expect_equal(dts_fill_dayte_time(data, min_gap = 1L)$Value, c(13, NA, 10, 16, NA),
                tolerance = 1e-06)
 })
 

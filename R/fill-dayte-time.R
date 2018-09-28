@@ -35,7 +35,7 @@ dts_fill_dayte_time <- function(x, date_time = "DateTime", value = "Value",
   data <- dts_aggregate(data, units = units, .fun = .fun, ...)
   data <- data[n$Value >= min_n,]
   if(!nrow(data)) return(x)
- 
+  
   x$..DayteTime <- x[[date_time]]
   dtt_years(x$..DayteTime) <- 1972L
   x$..DayteTime <- dtt_floor(x$..DayteTime, units = units)
