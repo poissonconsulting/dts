@@ -5,7 +5,7 @@
 \title{Check DateTime-Series Data Frame}
 \usage{
 check_dts(x, date_time = "DateTime", value = "Value", nrow = NA,
-  sorted = FALSE, complete = FALSE,
+  sorted = FALSE, complete = FALSE, values = NULL,
   units = dttr::dtt_units(x[[date_time]]), key = character(0),
   x_name = substitute(x))
 }
@@ -21,6 +21,8 @@ check_dts(x, date_time = "DateTime", value = "Value", nrow = NA,
 \item{sorted}{A flag indicating whether the DateTime values must be sorted (in ascending order).}
 
 \item{complete}{A flag indicating whether the DateTime values must be complete.}
+
+\item{values}{An optional vector specifying the permitted values.}
 
 \item{units}{A string of the time units.}
 
