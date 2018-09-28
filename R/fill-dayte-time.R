@@ -52,7 +52,7 @@ dts_fill_dayte_time <- function(x, date_time = "DateTime", value = "Value",
   x[[value]][which] <- x$..Value[which]
   x$..DayteTime <- NULL
   x$..Value <- NULL
-  x <- dts_as_tibble(x)
+  if(requireNamespace("tibble", quietly = TRUE)) x <- tibble::as_tibble(x)
   rownames(x) <- NULL
   x
 }

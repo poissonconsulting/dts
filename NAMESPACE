@@ -2,7 +2,6 @@
 
 export(check_dts)
 export(dts_aggregate)
-export(dts_as_tibble)
 export(dts_bound)
 export(dts_complete)
 export(dts_fill_dayte_time)
