@@ -31,18 +31,15 @@ check_dts <- function(x, date_time = "DateTime", value = "Value",
   if(identical(date_time, value))
     err("arguments 'date_time' and 'value' must specify different columns")
   
-  if(anyNA(x[[date_time]]))
-    err("column '", date_time, "' of ", x_name, "must not include missing values")
-  
   checkor(
     check_vector(
       x[[date_time]], Sys.Date(), x_name = 
-        paste0("column '", date_time, "' of ", x_name, " must be class Date")),
+        paste0("column '", date_time, "' of ", x_name)),
     check_vector(
       x[[date_time]], Sys.time(), x_name = 
-        paste0("column '", date_time, "' of ", x_name, " must be class POSIXct"))
+        paste0("column '", date_time, "' of ", x_name))
   )
-  
+
   check_data(x, nrow = nrow, key = key, x_name = x_name)
   
   if(sorted)
