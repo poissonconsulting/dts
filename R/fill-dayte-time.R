@@ -21,6 +21,7 @@ dts_fill_dayte_time <- function(x, date_time = "DateTime", value = "Value",
   check_count(min_gap)
   check_scalar(min_n, c(1L, .Machine$integer.max))
   check_missing_colnames(x, c("..DayteTime", "..Value"))
+  units <- force(units)
   
   which <- which_replace(x[[value]], min_gap = min_gap)
   if(!length(which)) return(x)
@@ -47,11 +48,10 @@ dts_fill_dayte_time <- function(x, date_time = "DateTime", value = "Value",
     dtt_days(x$..DayteTime[dtt_months(x$..DayteTime) == 2L & dtt_days(x$..DayteTime) == 29L]) <- 28L 
   }
   x <- merge(x, data, by = "..DayteTime", all.x = TRUE, sort = FALSE)
-  which <- which_replace(x[[value]], min_gap = min_gap)
+  x <- x[order(x[[date_time]]),]
   x[[value]][which] <- x$..Value[which]
   x$..DayteTime <- NULL
   x$..Value <- NULL
-  x <- x[order(x[[date_time]]),]
   if(requireNamespace("tibble", quietly = TRUE))
     x <- tibble::as_tibble(x)
   rownames(x) <- NULL
