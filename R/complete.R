@@ -20,8 +20,7 @@ dts_complete <- function(x, date_time = "DateTime", value = "Value",
   x <- data.frame(seq, c(x[[value]], rep(NA_real_, length(seq) - nrow(x))))
   
   names(x) <- c(date_time, value)
-  if(requireNamespace("tibble", quietly = TRUE))
-    x <- tibble::as_tibble(x)
+  x <- dts_as_tibble(x)
   rownames(x) <- NULL
   x
 }
