@@ -5,7 +5,7 @@
 \title{Interpolate}
 \usage{
 dts_interpolate(x, date_time = "DateTime", value = "Value",
-  max_span = .Machine$integer.max, method = "linear", step = 0.5)
+  max_span = .Machine$integer.max)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -14,11 +14,7 @@ dts_interpolate(x, date_time = "DateTime", value = "Value",
 
 \item{value}{A string specifying the column with the double values.}
 
-\item{max_span}{An integer of the maximum span to interpolate.}
-
-\item{method}{A string of "linear" or "constant" indicating the method to use.}
-
-\item{step}{A proportion specifing the compromise between 
+\item{max_span}{An integer of the maximum span to interpolate.
 left- and right- continuous step function.}
 }
 \value{
