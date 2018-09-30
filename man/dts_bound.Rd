@@ -5,7 +5,7 @@
 \title{Bound}
 \usage{
 dts_bound(x, date_time = "DateTime", value = "Value",
-  bounds = c(-Inf, Inf))
+  bounds = c(-Inf, Inf), adjust = FALSE)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -15,6 +15,9 @@ dts_bound(x, date_time = "DateTime", value = "Value",
 \item{value}{A string specifying the column with the double values.}
 
 \item{bounds}{A sorted double vector of the lower and upper permitted bounds.}
+
+\item{adjust}{A flag indicating whether to adjust values outside the bounds to the permitted bounds
+or whether to set to NA (the default).}
 }
 \value{
 A data frame
