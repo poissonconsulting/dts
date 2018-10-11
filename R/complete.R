@@ -31,9 +31,8 @@ dts_complete <- function(x, date_time = "DateTime", value = "Value",
   if(dts_completed(x, date_time = date_time, value = value, units = units))
     return(x[c(date_time, value)])
   
-  seq <- dtt_complete(x[[date_time]])
+  seq <- dtt_complete(x[[date_time]], units = units)
   x <- data.frame(seq, c(x[[value]], rep(NA_real_, length(seq) - nrow(x))))
-  
   names(x) <- c(date_time, value)
   x <- x[order(x[[date_time]]),]
   if(requireNamespace("tibble", quietly = TRUE)) x <- tibble::as_tibble(x)
