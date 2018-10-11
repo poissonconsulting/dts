@@ -5,5 +5,5 @@ test_that("complete", {
   complete <- dts_data[c(1,3,2),c("DateTime", "Value")]
   complete$Value[3] <- NA
   rownames(complete) <- NULL
-  expect_equal(dts_complete(dts_data[c(1,3),]), complete)
+  expect_equal(dts_complete(dts_data[c(1,3),]), complete[order(complete$DateTime),])
 })
