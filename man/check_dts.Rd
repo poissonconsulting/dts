@@ -4,38 +4,49 @@
 \alias{check_dts}
 \title{Check DateTime-Series Data Frame}
 \usage{
-check_dts(x, date_time = "DateTime", value = "Value", nrow = NA,
-  sorted = FALSE, complete = FALSE, values = NULL,
-  units = dttr::dtt_units(x[[date_time]]), key = character(0),
-  x_name = substitute(x))
+check_dts(x, date_time = "DateTime", value = character(0), nrow = NA,
+  floored = TRUE, sorted = FALSE, unique = FALSE, complete = FALSE,
+  units = dttr::dtt_units(x[[date_time]]),
+  tz = dttr::dtt_tz(x[[date_time]]), exclusive = FALSE,
+  order = FALSE, key = character(0), x_name = substitute(x),
+  error = TRUE)
 }
 \arguments{
 \item{x}{A dts data frame}
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A string specifying the column with the double values.}
+\item{value}{A character vector specifying the column(s) with the other values.}
 
 \item{nrow}{A flag indicating whether x should have rows (versus no rows) or a missing value indicating no requirements or a count or count range of the number of rows.}
 
-\item{sorted}{A flag indicating whether the DateTime values must be sorted (in ascending order).}
+\item{floored}{A flag indicating whether x should be floored.}
 
-\item{complete}{A flag indicating whether the DateTime values must be complete.}
+\item{sorted}{A flag indicating whether the vector must be sorted.}
 
-\item{values}{An optional vector specifying the permitted values.}
+\item{unique}{A flag indicating whether the values must be unique.}
 
-\item{units}{A string of the time units.}
+\item{complete}{A flag indicating whether x should be complete.}
+
+\item{units}{A string of the units.}
+
+\item{tz}{A string of the time zone.}
+
+\item{exclusive}{A flag indicating whether other columns are not permitted.}
+
+\item{order}{A flag indicating whether the columns have to occur in the same order as values.}
 
 \item{key}{A character vector of the columns that represent a unique key.}
 
 \item{x_name}{A string of the name of the object.}
+
+\item{error}{A flag indicating whether to throw an informative error or immediately generate an informative message if the check fails.}
 }
 \value{
 An invisible copy of x (if it doesn't throw an error).
 }
 \description{
-A dts data frame is a data frame with a column of non-missing Date or POSIXct values and
-at least one column of numeric values.
+A dts data frame is a data frame with a column of Date or POSIXct values.
 }
 \examples{
 check_dts(dts_data)

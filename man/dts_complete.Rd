@@ -5,6 +5,7 @@
 \title{Completes a data time series}
 \usage{
 dts_complete(x, date_time = "DateTime", value = "Value",
+  floor = TRUE, sort = TRUE, unique = TRUE,
   units = dttr::dtt_units(x[[date_time]]))
 }
 \arguments{
@@ -12,12 +13,14 @@ dts_complete(x, date_time = "DateTime", value = "Value",
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A string specifying the column with the double values.}
+\item{value}{A character vector specifying the column(s) with the other values.}
 
-\item{units}{A string of the time units.}
+\item{unique}{A flag indicating whether the values must be unique.}
+
+\item{units}{A string of the units.}
 }
 \value{
-A data frame
+The completed data time series.
 }
 \description{
 Completes a data time series

@@ -1,7 +1,6 @@
 #' Aggregate
 #'
-#' @inheritParams dts_bound
-#' @param units A string of the time units.
+#' @inheritParams dts_check
 #' @param .fun A function which returns a scalar.
 #' @param ... Optional Additional arguments passed to .fun.
 #'

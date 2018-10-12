@@ -8,14 +8,6 @@ dts_aggregate(x, date_time = "DateTime", value = "Value",
   units = dttr::dtt_units(x[[date_time]]), .fun = mean, ...)
 }
 \arguments{
-\item{x}{A dts data frame}
-
-\item{date_time}{A string specifying the column with the Date or POSIXct values.}
-
-\item{value}{A string specifying the column with the double values.}
-
-\item{units}{A string of the time units.}
-
 \item{.fun}{A function which returns a scalar.}
 
 \item{...}{Optional Additional arguments passed to .fun.}

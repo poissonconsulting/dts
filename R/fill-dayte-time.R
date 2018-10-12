@@ -16,6 +16,7 @@ dts_fill_dayte_time <- function(x, date_time = "DateTime", value = "Value",
                          min_gap = 0L, min_n = 2L, 
                          units = dttr::dtt_units(x[[date_time]]), .fun = mean, ...) {
   
+  check_string(value)
   check_dts(x, date_time = date_time, value = value, sorted = TRUE, 
             complete = TRUE, key = date_time)
   check_count(min_gap)

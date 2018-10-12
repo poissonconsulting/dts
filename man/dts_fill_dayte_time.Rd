@@ -13,13 +13,13 @@ dts_fill_dayte_time(x, date_time = "DateTime", value = "Value",
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A string specifying the column with the double values.}
+\item{value}{A character vector specifying the column(s) with the other values.}
 
 \item{min_gap}{An integer of the minimum gap to leave between existing values.}
 
 \item{min_n}{A count of the minimum of data points to require.}
 
-\item{units}{A string of the time units.}
+\item{units}{A string of the units.}
 
 \item{.fun}{A function which returns a scalar.}
 

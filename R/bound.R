@@ -14,14 +14,16 @@
 #' dts_bound(dts_data[1:5,], bounds = c(0,Inf))
 dts_bound <- function(x, date_time = "DateTime", value = "Value",
                       bounds = c(-Inf, Inf), adjust = FALSE) {
+  check_string(value)
   check_dts(x, date_time = date_time, value = value)
-  check_vector(bounds, c(-Inf, Inf), length = 2L, sorted = TRUE)
-  check_sorted(bounds)
+  check_vector(bounds, length = 2L)
   check_flag(adjust)
   
+  bounds <- sort(bounds)
+  
   if(!adjust) {
-    x[[value]][x[[value]] < bounds[1]] <- NA_real_
-    x[[value]][x[[value]] > bounds[2]] <- NA_real_
+    x[[value]][x[[value]] < bounds[1]] <- NA
+    x[[value]][x[[value]] > bounds[2]] <- NA
   } else {
     x[[value]][x[[value]] < bounds[1]] <- bounds[1]
     x[[value]][x[[value]] > bounds[2]] <- bounds[2]

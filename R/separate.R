@@ -19,9 +19,8 @@ dts_separate_date <- function(
   x, date_time = "DateTime", year = TRUE, month = TRUE, day = TRUE, dayte = FALSE,
   doy = FALSE, prefix = "", suffix = "") {
   
-  check_string(date_time)
-  check_data(x, date_time)
-  
+  check_dts(x, date_time)
+
   check_flag(year)
   check_flag(month)
   check_flag(day)
@@ -70,8 +69,7 @@ dts_separate_date_time <- function(
   doy = FALSE, dayte_time = FALSE, 
   prefix = "", suffix = "") {
   
-  check_string(date_time)
-  check_data(x, date_time)
+  check_dts(x, date_time)
   
   check_flag(year)
   check_flag(month)

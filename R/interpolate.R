@@ -13,6 +13,7 @@
 #' dts_interpolate(dts_data[1:5,])
 dts_interpolate <- function(x, date_time = "DateTime", value = "Value", 
                             max_span = .Machine$integer.max) {
+  check_string(value)
   check_dts(x, date_time = date_time, value = value, sorted = TRUE, 
             complete = TRUE, key = date_time)
   check_scalar(max_span, c(1L, .Machine$integer.max))

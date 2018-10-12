@@ -12,7 +12,7 @@ dts_bound(x, date_time = "DateTime", value = "Value",
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A string specifying the column with the double values.}
+\item{value}{A character vector specifying the column(s) with the other values.}
 
 \item{bounds}{A sorted double vector of the lower and upper permitted bounds.}
 

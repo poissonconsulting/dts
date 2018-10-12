@@ -4,20 +4,15 @@
 \alias{dts_regress2}
 \title{Regress2}
 \usage{
-dts_regress2(x, date_time = "DateTime", value = "Value",
-  predictor = "Value2", predictor2 = "Value3", intercept = TRUE,
-  min_gap = 0L, min_n = 5L)
+dts_regress2(x, date_time = "DateTime", value = c("Value", "Value2",
+  "Value3"), intercept = TRUE, min_gap = 0L, min_n = 5L)
 }
 \arguments{
 \item{x}{A dts data frame}
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A string specifying the column with the double values.}
-
-\item{predictor}{A string of the double column to use as a predictor variable.}
-
-\item{predictor2}{A string of the double column to use as the second predictor variable.}
+\item{value}{A character vector specifying the column(s) with the other values.}
 
 \item{intercept}{A flag indicating whether an intercept should be estimated (or fixed at 0)}
 
