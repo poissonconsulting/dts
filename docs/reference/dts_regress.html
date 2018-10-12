@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dts</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9001</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9004</span>
       </span>
     </div>
 
@@ -104,8 +104,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>dts_regress</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>,
-  <span class='kw'>predictor</span> <span class='kw'>=</span> <span class='st'>"Value2"</span>, <span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>min_gap</span> <span class='kw'>=</span> <span class='fl'>10L</span>,
-  <span class='kw'>min_n</span> <span class='kw'>=</span> <span class='fl'>4L</span>)</pre>
+  <span class='kw'>predictor</span> <span class='kw'>=</span> <span class='st'>"Value2"</span>, <span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>min_gap</span> <span class='kw'>=</span> <span class='fl'>0L</span>, <span class='kw'>min_n</span> <span class='kw'>=</span> <span class='fl'>4L</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,7 +145,7 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dts_regress</span>(<span class='no'>dts_data</span>, <span class='kw'>min_gap</span> <span class='kw'>=</span> <span class='fl'>0L</span>)[<span class='fl'>1</span>:<span class='fl'>5</span>,]</div><div class='output co'>#&gt; # A tibble: 5 x 4
+    <pre class="examples"><div class='input'><span class='fu'>dts_regress</span>(<span class='no'>dts_data</span>)[<span class='fl'>1</span>:<span class='fl'>5</span>,]</div><div class='output co'>#&gt; # A tibble: 5 x 4
 #&gt;   DateTime            Value Value2 Value3
 #&gt;   &lt;dttm&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
 #&gt; 1 1999-11-29 22:00:00  -9     20.1   4.10

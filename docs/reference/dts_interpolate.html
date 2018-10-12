@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dts</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9001</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9004</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>dts_interpolate</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>,
-  <span class='kw'>max_span</span> <span class='kw'>=</span> <span class='fl'>10L</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"linear"</span>, <span class='kw'>step</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</pre>
+  <span class='kw'>max_span</span> <span class='kw'>=</span> <span class='no'>.Machine</span>$<span class='no'>integer.max</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -123,15 +123,7 @@
     </tr>
     <tr>
       <th>max_span</th>
-      <td><p>An integer of the maximum span to interpolate.</p></td>
-    </tr>
-    <tr>
-      <th>method</th>
-      <td><p>A string of "linear" or "constant" indicating the method to use.</p></td>
-    </tr>
-    <tr>
-      <th>step</th>
-      <td><p>A proportion specifing the compromise between 
+      <td><p>An integer of the maximum span to interpolate.
 left- and right- continuous step function.</p></td>
     </tr>
     </table>
