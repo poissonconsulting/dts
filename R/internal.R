@@ -1,5 +1,3 @@
-is_min_n <- function(x, min_n) sum(!is.na(x)) >= min_n
-
 agg <- function(x, .fun, ...) {
   x[2:ncol(x)] <- lapply(x[2:ncol(x)], .fun, ...)
   x[1,]

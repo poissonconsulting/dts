@@ -1,4 +1,4 @@
-#' Fill Date or DateTime of the Year
+#' Fill Date or POSIXct of the Year
 #'
 #' Fills in missing values based on Date or DateTime of year.
 #' 
@@ -10,16 +10,13 @@
 #'
 #' @return A data frame
 #' @export
-#'
-#' @examples
-#' dts_fill_dayte_time(dts_data, min_gap = 0L)[1:5,]
-dts_fill_dayte_time <- function(x, date_time = "DateTime", colname = dts_colnames(x), 
-                                min_gap = 0L, min_n = 2L, feb29_to_28 = TRUE, 
+dts_fill_dayte <- function(x, date_time = "DateTime", colname = dts_colnames(x), 
+                                min_gap = 0L, min_n = 1L, feb29_to_28 = TRUE, 
                                 .fun = mean, ...) {
-  check_dts(x, date_time = date_time, colname = colname, complete = TRUE, unique = TRUE)
+  check_dts(x, date_time = date_time, colname = colname, unique = TRUE)
   check_missing_colnames(x, dot(c(date_time, colname)))
   check_count(min_gap)
-  check_scalar(min_n, c(1L, chk_max_integer()))
+  check_count(min_n)
   check_flag(feb29_to_28)
 
   if(!nrow(x) || !length(colname)) return(x)
@@ -37,9 +34,15 @@ dts_fill_dayte_time <- function(x, date_time = "DateTime", colname = dts_colname
   }
   
   n <- dts_aggregate(data, date_time = dot(date_time), 
-                     colname = dot(colname), .fun = is_min_n, min_n = min_n)
+                     colname = dot(colname), .fun = function(x) sum(!is.na(x)))
   data <- dts_aggregate(data, date_time = dot(date_time), 
                         colname = dot(colname), .fun = .fun, ...)
+  
+  stopifnot(identical(n[[dot(date_time)]], data[[dot(date_time)]]))
+  
+  for(col in colname)
+    is.na(data[[dot(col)]][n[[dot(col)]] < min_n]) <- TRUE
+  rm(n)
 
   x <- merge(x, data, by = dot(date_time), all = TRUE, sort = FALSE)
   rm(data)
@@ -47,7 +50,6 @@ dts_fill_dayte_time <- function(x, date_time = "DateTime", colname = dts_colname
   
   for(col in colname) {
     wch <- which_replace(x[[col]], min_gap = min_gap)
-    
     if(length(wch)) x[[col]][wch] <- x[[dot(col)]][wch]
   }
   x[dot(c(date_time, colname))] <- NULL
