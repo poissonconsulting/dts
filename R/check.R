@@ -18,7 +18,6 @@ check_dts <- function(x, date_time = "DateTime", colname = character(0),
                       units = dttr::dtt_units(x[[date_time]]),
                       tz = dttr::dtt_tz(x[[date_time]]),
                       exclusive = FALSE, order = FALSE,
-                      key = character(0),
                       x_name = substitute(x), error = TRUE) {
   x_name <- chk_deparse(x_name)
   
@@ -26,7 +25,7 @@ check_dts <- function(x, date_time = "DateTime", colname = character(0),
   check_vector(colname, "")
 
   check_data(x, c(date_time, colname), nrow = nrow, 
-             exclusive = exclusive, order = order, key = key, x_name = x_name, 
+             exclusive = exclusive, order = order, x_name = x_name, 
              error = TRUE)
   
   check_dtt(x[[date_time]], floored = floored, sorted = sorted, 

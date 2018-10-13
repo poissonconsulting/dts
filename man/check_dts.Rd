@@ -8,8 +8,7 @@ check_dts(x, date_time = "DateTime", colname = character(0),
   nrow = NA, floored = TRUE, sorted = FALSE, unique = FALSE,
   complete = FALSE, units = dttr::dtt_units(x[[date_time]]),
   tz = dttr::dtt_tz(x[[date_time]]), exclusive = FALSE,
-  order = FALSE, key = character(0), x_name = substitute(x),
-  error = TRUE)
+  order = FALSE, x_name = substitute(x), error = TRUE)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -35,8 +34,6 @@ check_dts(x, date_time = "DateTime", colname = character(0),
 \item{exclusive}{A flag indicating whether other columns are not permitted.}
 
 \item{order}{A flag indicating whether the columns have to occur in the same order as values.}
-
-\item{key}{A character vector of the columns that represent a unique key.}
 
 \item{x_name}{A string of the name of the object.}
 
