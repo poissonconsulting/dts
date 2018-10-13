@@ -39,3 +39,12 @@ interpolate <- function(x, max_span) {
   x[which] <- stats::approx(x, xout = which)$y
   x
 }
+
+extrapolate <- function(x) {
+  wch <- which(!is.na(x))
+  if(!length(wch)) return(x)
+  wch <- wch[c(1L, length(wch))]
+  x[1:wch[1]] <- x[wch[1]]
+  x[wch[2]:length(x)] <- x[wch[2]]
+  x
+}

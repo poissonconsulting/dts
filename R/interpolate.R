@@ -18,6 +18,6 @@ dts_interpolate <- function(x, dtt = "DateTime", colname = dts_colnames(x),
   check_scalar(max_span, c(1L, .Machine$integer.max))
 
   if(!length(colname)) return(x)
-  x[2:ncol(x)] <- lapply(x[2:ncol(x)], interpolate, max_span)
+  x[colname] <- lapply(x[colname], interpolate, max_span)
   x
 }
