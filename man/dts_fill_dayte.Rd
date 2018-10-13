@@ -4,13 +4,13 @@
 \alias{dts_fill_dayte}
 \title{Fill Date or POSIXct of the Year}
 \usage{
-dts_fill_dayte(x, date_time = "DateTime", colname = dts_colnames(x),
+dts_fill_dayte(x, dtt = "DateTime", colname = dts_colnames(x),
   min_gap = 0L, min_n = 1L, feb29_to_28 = TRUE, .fun = mean, ...)
 }
 \arguments{
 \item{x}{A dts data frame}
 
-\item{date_time}{A string specifying the column with the Date or POSIXct values.}
+\item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
 \item{colname}{A character vector specifying the column(s) with the other values.}
 

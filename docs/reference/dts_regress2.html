@@ -103,9 +103,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>dts_regress2</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>,
-  <span class='kw'>predictor</span> <span class='kw'>=</span> <span class='st'>"Value2"</span>, <span class='kw'>predictor2</span> <span class='kw'>=</span> <span class='st'>"Value3"</span>, <span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>min_gap</span> <span class='kw'>=</span> <span class='fl'>0L</span>, <span class='kw'>min_n</span> <span class='kw'>=</span> <span class='fl'>5L</span>)</pre>
+    <pre class="usage"><span class='fu'>dts_regress2</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"Value"</span>, <span class='st'>"Value2"</span>,
+  <span class='st'>"Value3"</span>), <span class='kw'>intercept</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>min_gap</span> <span class='kw'>=</span> <span class='fl'>0L</span>, <span class='kw'>min_n</span> <span class='kw'>=</span> <span class='fl'>5L</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -115,20 +114,12 @@
       <td><p>A dts data frame</p></td>
     </tr>
     <tr>
-      <th>date_time</th>
+      <th>dtt</th>
       <td><p>A string specifying the column with the Date or POSIXct values.</p></td>
     </tr>
     <tr>
-      <th>value</th>
-      <td><p>A string specifying the column with the double values.</p></td>
-    </tr>
-    <tr>
-      <th>predictor</th>
-      <td><p>A string of the double column to use as a predictor variable.</p></td>
-    </tr>
-    <tr>
-      <th>predictor2</th>
-      <td><p>A string of the double column to use as the second predictor variable.</p></td>
+      <th>colname</th>
+      <td><p>A character vector specifying the column(s) with the other values.</p></td>
     </tr>
     <tr>
       <th>intercept</th>

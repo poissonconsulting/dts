@@ -4,13 +4,13 @@
 \alias{dts_regress}
 \title{Regress}
 \usage{
-dts_regress(x, date_time = "DateTime", colname = c("Value", "Value2"),
+dts_regress(x, dtt = "DateTime", colname = c("Value", "Value2"),
   intercept = TRUE, min_gap = 0L, min_n = 4L)
 }
 \arguments{
 \item{x}{A dts data frame}
 
-\item{date_time}{A string specifying the column with the Date or POSIXct values.}
+\item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
 \item{colname}{A character vector specifying the column(s) with the other values.}
 

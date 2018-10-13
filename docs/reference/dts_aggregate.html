@@ -103,8 +103,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>dts_aggregate</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>,
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>date_time</span>]]), <span class='kw'>.fun</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dts_aggregate</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>),
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]), <span class='kw'>.fun</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -114,16 +114,16 @@
       <td><p>A dts data frame</p></td>
     </tr>
     <tr>
-      <th>date_time</th>
+      <th>dtt</th>
       <td><p>A string specifying the column with the Date or POSIXct values.</p></td>
     </tr>
     <tr>
-      <th>value</th>
-      <td><p>A string specifying the column with the double values.</p></td>
+      <th>colname</th>
+      <td><p>A character vector specifying the column(s) with the other values.</p></td>
     </tr>
     <tr>
       <th>units</th>
-      <td><p>A string of the time units.</p></td>
+      <td><p>A string of the units.</p></td>
     </tr>
     <tr>
       <th>.fun</th>
@@ -141,12 +141,12 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dts_aggregate</span>(<span class='no'>dts_data</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"years"</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 3 x 2
-#&gt;   DateTime            Value
-#&gt;   &lt;dttm&gt;              &lt;dbl&gt;
-#&gt; 1 1999-01-01 00:00:00  10.3
-#&gt; 2 2000-01-01 00:00:00  10.4
-#&gt; 3 2001-01-01 00:00:00  11.2</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>dts_aggregate</span>(<span class='no'>dts_data</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"years"</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 3 x 4
+#&gt;   DateTime            Value Value2 Value3
+#&gt;   &lt;dttm&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+#&gt; 1 1999-01-01 00:00:00  10.3   20.6   4.15
+#&gt; 2 2000-01-01 00:00:00  10.4   20.7   4.18
+#&gt; 3 2001-01-01 00:00:00  11.2   22.0   4.52</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

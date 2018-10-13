@@ -10,11 +10,11 @@
 #'
 #' @examples
 #' dts_regress2(dts_data)[1:5,]
-dts_regress2 <- function(x, date_time = "DateTime", 
+dts_regress2 <- function(x, dtt = "DateTime", 
                          colname = c("Value", "Value2", "Value3"),
                         intercept = TRUE, min_gap = 0L, min_n = 5L) {
   check_vector(colname, "", length = 3L)
-  check_dts(x, date_time = date_time, colname = colname)
+  check_dts(x, dtt = dtt, colname = colname)
   check_flag(intercept)
   check_count(min_gap)
   check_scalar(min_n, c(5L, .Machine$integer.max))

@@ -4,14 +4,14 @@
 \alias{dts_separate}
 \title{Separates the Date or POSIXct column of a data frame into its component parts.}
 \usage{
-dts_separate(x, date_time = "DateTime", year = TRUE, month = TRUE,
+dts_separate(x, dtt = "DateTime", year = TRUE, month = TRUE,
   day = TRUE, hour = FALSE, minute = FALSE, second = FALSE,
   dayte = TRUE, prefix = "", suffix = "")
 }
 \arguments{
 \item{x}{A data frame with a Date or POSIXct column.}
 
-\item{date_time}{A string specifying the column with the Date or POSIXct values.}
+\item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
 \item{year}{A flag indicating whether to add a Year column.}
 

@@ -8,11 +8,11 @@
 #'
 #' @examples
 #' dts_completed(dts_data[c(1,3),])
-dts_completed <- function(x, date_time = "DateTime", 
+dts_completed <- function(x, dtt = "DateTime", 
                           floored = TRUE, unique = TRUE, sorted = TRUE, 
-                          units = dttr::dtt_units(x[[date_time]])) {
-  check_dts(x, date_time = date_time)
+                          units = dttr::dtt_units(x[[dtt]])) {
+  check_dts(x, dtt = dtt)
 
-  dtt_completed(x[[date_time]], floored = floored, sorted = sorted, 
+  dtt_completed(x[[dtt]], floored = floored, sorted = sorted, 
                 unique = unique, units = units)
 }

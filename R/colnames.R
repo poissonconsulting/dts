@@ -6,9 +6,9 @@
 #'
 #' @examples
 #' dts_colnames(dts_data)
-dts_colnames <- function(x, date_time = "DateTime") {
-  check_dts(x, date_time)
+dts_colnames <- function(x, dtt = "DateTime") {
+  check_dts(x, dtt)
   colnames <- colnames(x)
-  colnames <- setdiff(colnames, date_time)
+  colnames <- setdiff(colnames, dtt)
   colnames
 }

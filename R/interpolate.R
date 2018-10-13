@@ -11,9 +11,9 @@
 #'
 #' @examples
 #' dts_interpolate(dts_data[1:5,])
-dts_interpolate <- function(x, date_time = "DateTime", colname = dts_colnames(x), 
+dts_interpolate <- function(x, dtt = "DateTime", colname = dts_colnames(x), 
                             max_span = .Machine$integer.max) {
-  check_dts(x, date_time = date_time, colname = colname, sorted = TRUE,
+  check_dts(x, dtt = dtt, colname = colname, sorted = TRUE,
             unique = TRUE, complete = TRUE)
   check_scalar(max_span, c(1L, .Machine$integer.max))
 

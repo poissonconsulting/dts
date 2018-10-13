@@ -10,49 +10,49 @@
 #'
 #' @return A data frame
 #' @export
-dts_fill_dayte <- function(x, date_time = "DateTime", colname = dts_colnames(x), 
+dts_fill_dayte <- function(x, dtt = "DateTime", colname = dts_colnames(x), 
                                 min_gap = 0L, min_n = 1L, feb29_to_28 = TRUE, 
                                 .fun = mean, ...) {
-  check_dts(x, date_time = date_time, colname = colname, unique = TRUE)
-  check_missing_colnames(x, dot(c(date_time, colname)))
+  check_dts(x, dtt = dtt, colname = colname, unique = TRUE)
+  check_missing_colnames(x, dot(c(dtt, colname)))
   check_count(min_gap)
   check_count(min_n)
   check_flag(feb29_to_28)
 
   if(!nrow(x) || !length(colname)) return(x)
 
-  x[[dot(date_time)]] <- x[[date_time]]
-  dtt_years(x[[dot(date_time)]]) <- 1972L
+  x[[dot(dtt)]] <- x[[dtt]]
+  dtt_years(x[[dot(dtt)]]) <- 1972L
   
-  data <- x[c(date_time, colname)]
+  data <- x[c(dtt, colname)]
   colnames(data) <- dot(colnames(data))
-  dtt_years(data[[dot(date_time)]]) <- 1972L
+  dtt_years(data[[dot(dtt)]]) <- 1972L
   
   if(feb29_to_28) {
-    data[[dot(date_time)]] <- dtt_feb29_to_28(data[[dot(date_time)]])
-    x[[dot(date_time)]] <- dtt_feb29_to_28(x[[dot(date_time)]])
+    data[[dot(dtt)]] <- dtt_feb29_to_28(data[[dot(dtt)]])
+    x[[dot(dtt)]] <- dtt_feb29_to_28(x[[dot(dtt)]])
   }
   
-  n <- dts_aggregate(data, date_time = dot(date_time), 
+  n <- dts_aggregate(data, dtt = dot(dtt), 
                      colname = dot(colname), .fun = function(x) sum(!is.na(x)))
-  data <- dts_aggregate(data, date_time = dot(date_time), 
+  data <- dts_aggregate(data, dtt = dot(dtt), 
                         colname = dot(colname), .fun = .fun, ...)
   
-  stopifnot(identical(n[[dot(date_time)]], data[[dot(date_time)]]))
+  stopifnot(identical(n[[dot(dtt)]], data[[dot(dtt)]]))
   
   for(col in colname)
     is.na(data[[dot(col)]][n[[dot(col)]] < min_n]) <- TRUE
   rm(n)
 
-  x <- merge(x, data, by = dot(date_time), all = TRUE, sort = FALSE)
+  x <- merge(x, data, by = dot(dtt), all = TRUE, sort = FALSE)
   rm(data)
-  x <- x[order(x[[date_time]]),]
+  x <- x[order(x[[dtt]]),]
   
   for(col in colname) {
     wch <- which_replace(x[[col]], min_gap = min_gap)
     if(length(wch)) x[[col]][wch] <- x[[dot(col)]][wch]
   }
-  x[dot(c(date_time, colname))] <- NULL
+  x[dot(c(dtt, colname))] <- NULL
   if(requireNamespace("tibble", quietly = TRUE)) x <- tibble::as_tibble(x)
   rownames(x) <- NULL
   x

@@ -9,16 +9,16 @@
 #'
 #' @examples
 #' dts_aggregate(dts_data, units = "years", na.rm = TRUE)
-dts_aggregate <- function(x, date_time = "DateTime", colname = dts_colnames(x), 
-                          units = dttr::dtt_units(x[[date_time]]), .fun = mean, ...) {
-  check_dts(x, date_time = date_time, colname = colname)
-  x <- x[c(date_time, colname)]
+dts_aggregate <- function(x, dtt = "DateTime", colname = dts_colnames(x), 
+                          units = dttr::dtt_units(x[[dtt]]), .fun = mean, ...) {
+  check_dts(x, dtt = dtt, colname = colname)
+  x <- x[c(dtt, colname)]
   rownames(x) <- NULL
   if(!nrow(x)) return(x)
   
-  x[[date_time]] <- dtt_floor(x[[date_time]], units = units)
+  x[[dtt]] <- dtt_floor(x[[dtt]], units = units)
   if(length(colname)) {
-    x <- split(x, x[[date_time]])
+    x <- split(x, x[[dtt]])
     x <- lapply(x, agg, .fun = .fun, ...)
     x <- do.call("rbind", x)
   }

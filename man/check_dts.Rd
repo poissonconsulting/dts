@@ -4,16 +4,16 @@
 \alias{check_dts}
 \title{Check DateTime-Series Data Frame}
 \usage{
-check_dts(x, date_time = "DateTime", colname = character(0),
-  nrow = NA, floored = TRUE, sorted = FALSE, unique = FALSE,
-  complete = FALSE, units = dttr::dtt_units(x[[date_time]]),
-  tz = dttr::dtt_tz(x[[date_time]]), exclusive = FALSE,
-  order = FALSE, x_name = substitute(x), error = TRUE)
+check_dts(x, dtt = "DateTime", colname = character(0), nrow = NA,
+  floored = TRUE, sorted = FALSE, unique = FALSE, complete = FALSE,
+  units = dttr::dtt_units(x[[dtt]]), tz = dttr::dtt_tz(x[[dtt]]),
+  exclusive = FALSE, order = FALSE, x_name = substitute(x),
+  error = TRUE)
 }
 \arguments{
 \item{x}{A dts data frame}
 
-\item{date_time}{A string specifying the column with the Date or POSIXct values.}
+\item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
 \item{colname}{A character vector specifying the column(s) with the other values.}
 

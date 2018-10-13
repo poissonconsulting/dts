@@ -4,12 +4,12 @@
 \alias{dts_disaggregate}
 \title{Disaggregate}
 \usage{
-dts_disaggregate(x, date_time = "DateTime", colname = dts_colnames(x))
+dts_disaggregate(x, dtt = "DateTime", colname = dts_colnames(x))
 }
 \arguments{
 \item{x}{A dts data frame}
 
-\item{date_time}{A string specifying the column with the Date or POSIXct values.}
+\item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
 \item{colname}{A character vector specifying the column(s) with the other values.}
 }

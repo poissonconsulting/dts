@@ -18,11 +18,11 @@
 #' @examples
 #' dts_separate(dts_data[c(1,3),])
 dts_separate <- function(
-  x, date_time = "DateTime", year = TRUE, month = TRUE, day = TRUE, 
+  x, dtt = "DateTime", year = TRUE, month = TRUE, day = TRUE, 
   hour = FALSE, minute = FALSE, second = FALSE, dayte = TRUE,
   prefix = "", suffix = "") {
   
-  check_dts(x, date_time)
+  check_dts(x, dtt)
 
   check_flag(year)
   check_flag(month)
@@ -34,12 +34,12 @@ dts_separate <- function(
   check_string(prefix)
   check_string(suffix)
 
-  if(year) x[[paste0(suffix, "Year", prefix)]] <- dtt_year(x[[date_time]])
-  if(month) x[[paste0(suffix, "Month", prefix)]] <- dtt_month(x[[date_time]])
-  if(day) x[[paste0(suffix, "Day", prefix)]] <- dtt_day(x[[date_time]])
-  if(hour) x[[paste0(suffix, "Hour", prefix)]] <- dtt_hour(x[[date_time]])
-  if(minute) x[[paste0(suffix, "Minute", prefix)]] <- dtt_minute(x[[date_time]])
-  if(second) x[[paste0(suffix, "Second", prefix)]] <- dtt_second(x[[date_time]])
-  if(dayte) x[[paste0(suffix, "Dayte", prefix)]] <- dtt_dayte(x[[date_time]])
+  if(year) x[[paste0(suffix, "Year", prefix)]] <- dtt_year(x[[dtt]])
+  if(month) x[[paste0(suffix, "Month", prefix)]] <- dtt_month(x[[dtt]])
+  if(day) x[[paste0(suffix, "Day", prefix)]] <- dtt_day(x[[dtt]])
+  if(hour) x[[paste0(suffix, "Hour", prefix)]] <- dtt_hour(x[[dtt]])
+  if(minute) x[[paste0(suffix, "Minute", prefix)]] <- dtt_minute(x[[dtt]])
+  if(second) x[[paste0(suffix, "Second", prefix)]] <- dtt_second(x[[dtt]])
+  if(dayte) x[[paste0(suffix, "Dayte", prefix)]] <- dtt_dayte(x[[dtt]])
   x
 }

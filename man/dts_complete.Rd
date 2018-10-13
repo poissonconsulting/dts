@@ -4,14 +4,14 @@
 \alias{dts_complete}
 \title{Completes a data time series}
 \usage{
-dts_complete(x, date_time = "DateTime", colname = dts_colnames(x),
+dts_complete(x, dtt = "DateTime", colname = dts_colnames(x),
   floor = TRUE, unique = TRUE, sort = TRUE,
-  units = dttr::dtt_units(x[[date_time]]), .fun = mean, ...)
+  units = dttr::dtt_units(x[[dtt]]), .fun = mean, ...)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
-\item{date_time}{A string specifying the column with the Date or POSIXct values.}
+\item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
 \item{colname}{A character vector specifying the column(s) with the other values.}
 

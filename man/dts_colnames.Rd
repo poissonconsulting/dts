@@ -4,12 +4,12 @@
 \alias{dts_colnames}
 \title{DateTime Data Frame Column Names}
 \usage{
-dts_colnames(x, date_time = "DateTime")
+dts_colnames(x, dtt = "DateTime")
 }
 \arguments{
 \item{x}{A dts data frame}
 
-\item{date_time}{A string specifying the column with the Date or POSIXct values.}
+\item{dtt}{A string specifying the column with the Date or POSIXct values.}
 }
 \value{
 A character vector of the other column names.

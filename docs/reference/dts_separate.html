@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fill Date or DateTime of the Year — dts_fill_dayte_time • dts</title>
+<title>Separates the Date or POSIXct column of a data frame into its component parts. — dts_separate • dts</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Fill Date or DateTime of the Year — dts_fill_dayte_time" />
+<meta property="og:title" content="Separates the Date or POSIXct column of a data frame into its component parts. — dts_separate" />
 
-<meta property="og:description" content="Fills in missing values based on Date or DateTime of year." />
+<meta property="og:description" content="Separates the Date or POSIXct column of a data frame into its component parts." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,72 +92,81 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fill Date or DateTime of the Year</h1>
+    <h1>Separates the Date or POSIXct column of a data frame into its component parts.</h1>
     
-    <div class="hidden name"><code>dts_fill_dayte_time.Rd</code></div>
+    <div class="hidden name"><code>dts_separate.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Fills in missing values based on Date or DateTime of year.</p>
+    <p>Separates the Date or POSIXct column of a data frame into its component parts.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dts_fill_dayte_time</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>,
-  <span class='kw'>min_gap</span> <span class='kw'>=</span> <span class='fl'>0L</span>, <span class='kw'>min_n</span> <span class='kw'>=</span> <span class='fl'>2L</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>date_time</span>]]),
-  <span class='kw'>.fun</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dts_separate</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>month</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>day</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hour</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>minute</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>second</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>dayte</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>suffix</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A dts data frame</p></td>
+      <td><p>A data frame with a Date or POSIXct column.</p></td>
     </tr>
     <tr>
-      <th>date_time</th>
+      <th>dtt</th>
       <td><p>A string specifying the column with the Date or POSIXct values.</p></td>
     </tr>
     <tr>
-      <th>value</th>
-      <td><p>A string specifying the column with the double values.</p></td>
+      <th>year</th>
+      <td><p>A flag indicating whether to add a Year column.</p></td>
     </tr>
     <tr>
-      <th>min_gap</th>
-      <td><p>An integer of the minimum gap to leave between existing values.</p></td>
+      <th>month</th>
+      <td><p>A flag indicating whether to add a Month column.</p></td>
     </tr>
     <tr>
-      <th>min_n</th>
-      <td><p>A count of the minimum of data points to require.</p></td>
+      <th>day</th>
+      <td><p>A flag indicating whether to add a Day column.</p></td>
     </tr>
     <tr>
-      <th>units</th>
-      <td><p>A string of the time units.</p></td>
+      <th>hour</th>
+      <td><p>A flag indicating whether to add a Hour column.</p></td>
     </tr>
     <tr>
-      <th>.fun</th>
-      <td><p>A function which returns a scalar.</p></td>
+      <th>minute</th>
+      <td><p>A flag indicating whether to add a Minute column.</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>Optional Additional arguments passed to .fun.</p></td>
+      <th>second</th>
+      <td><p>A flag indicating whether to add a Second column.</p></td>
+    </tr>
+    <tr>
+      <th>dayte</th>
+      <td><p>A flag indicating whether to add a Dayte column.</p></td>
+    </tr>
+    <tr>
+      <th>prefix</th>
+      <td><p>A string to add to the start of the column names.</p></td>
+    </tr>
+    <tr>
+      <th>suffix</th>
+      <td><p>A string to add to the end of the column names.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame</p>
+    <p>The updated data frame.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dts_fill_dayte_time</span>(<span class='no'>dts_data</span>, <span class='kw'>min_gap</span> <span class='kw'>=</span> <span class='fl'>0L</span>)[<span class='fl'>1</span>:<span class='fl'>5</span>,]</div><div class='output co'>#&gt; # A tibble: 5 x 4
-#&gt;   DateTime            Value Value2 Value3
-#&gt;   &lt;dttm&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-#&gt; 1 1999-11-29 22:00:00  -9     20.1   4.10
-#&gt; 2 1999-11-29 23:00:00  NA     20.3   4.07
-#&gt; 3 1999-11-30 00:00:00  NA     19.9   4.10
-#&gt; 4 1999-11-30 01:00:00  NA     20.5   4.11
-#&gt; 5 1999-11-30 02:00:00  10.3   20.4   4.12</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>dts_separate</span>(<span class='no'>dts_data</span>[<span class='fu'>c</span>(<span class='fl'>1</span>,<span class='fl'>3</span>),])</div><div class='output co'>#&gt; # A tibble: 2 x 8
+#&gt;   DateTime            Value Value2 Value3  Year Month   Day Dayte              
+#&gt;   &lt;dttm&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dttm&gt;             
+#&gt; 1 1999-11-29 22:00:00    -9   20.1   4.10  1999    11    29 1972-11-29 22:00:00
+#&gt; 2 1999-11-30 00:00:00    NA   19.9   4.10  1999    11    30 1972-11-30 00:00:00</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

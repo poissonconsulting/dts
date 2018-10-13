@@ -4,14 +4,13 @@
 \alias{dts_completed}
 \title{Test if the DateTime in a DateTime-Series is complete.}
 \usage{
-dts_completed(x, date_time = "DateTime", floored = TRUE,
-  unique = TRUE, sorted = TRUE,
-  units = dttr::dtt_units(x[[date_time]]))
+dts_completed(x, dtt = "DateTime", floored = TRUE, unique = TRUE,
+  sorted = TRUE, units = dttr::dtt_units(x[[dtt]]))
 }
 \arguments{
 \item{x}{A dts data frame}
 
-\item{date_time}{A string specifying the column with the Date or POSIXct values.}
+\item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
 \item{floored}{A flag indicating whether x should be floored.}
 

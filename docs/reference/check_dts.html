@@ -32,8 +32,7 @@
 
 <meta property="og:title" content="Check DateTime-Series Data Frame — check_dts" />
 
-<meta property="og:description" content="A dts data frame is a data frame with a column of non-missing Date or POSIXct values and
-at least one column of numeric values." />
+<meta property="og:description" content="A dts data frame is a data frame with a column of Date or POSIXct values." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,15 +99,15 @@ at least one column of numeric values." />
 
     <div class="ref-description">
     
-    <p>A dts data frame is a data frame with a column of non-missing Date or POSIXct values and
-at least one column of numeric values.</p>
+    <p>A dts data frame is a data frame with a column of Date or POSIXct values.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>check_dts</span>(<span class='no'>x</span>, <span class='kw'>date_time</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>"Value"</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>sorted</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>date_time</span>]]), <span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>),
-  <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='fu'>substitute</span>(<span class='no'>x</span>))</pre>
+    <pre class="usage"><span class='fu'>check_dts</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
+  <span class='kw'>floored</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sorted</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]), <span class='kw'>tz</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_tz'>dtt_tz</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]),
+  <span class='kw'>exclusive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='fu'>substitute</span>(<span class='no'>x</span>),
+  <span class='kw'>error</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -118,40 +117,56 @@ at least one column of numeric values.</p>
       <td><p>A dts data frame</p></td>
     </tr>
     <tr>
-      <th>date_time</th>
+      <th>dtt</th>
       <td><p>A string specifying the column with the Date or POSIXct values.</p></td>
     </tr>
     <tr>
-      <th>value</th>
-      <td><p>A string specifying the column with the double values.</p></td>
+      <th>colname</th>
+      <td><p>A character vector specifying the column(s) with the other values.</p></td>
     </tr>
     <tr>
       <th>nrow</th>
       <td><p>A flag indicating whether x should have rows (versus no rows) or a missing value indicating no requirements or a count or count range of the number of rows.</p></td>
     </tr>
     <tr>
+      <th>floored</th>
+      <td><p>A flag indicating whether x should be floored.</p></td>
+    </tr>
+    <tr>
       <th>sorted</th>
-      <td><p>A flag indicating whether the DateTime values must be sorted (in ascending order).</p></td>
+      <td><p>A flag indicating whether the vector must be sorted.</p></td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td><p>A flag indicating whether the values must be unique.</p></td>
     </tr>
     <tr>
       <th>complete</th>
-      <td><p>A flag indicating whether the DateTime values must be complete.</p></td>
-    </tr>
-    <tr>
-      <th>values</th>
-      <td><p>An optional vector specifying the permitted values.</p></td>
+      <td><p>A flag indicating whether x should be complete.</p></td>
     </tr>
     <tr>
       <th>units</th>
-      <td><p>A string of the time units.</p></td>
+      <td><p>A string of the units.</p></td>
     </tr>
     <tr>
-      <th>key</th>
-      <td><p>A character vector of the columns that represent a unique key.</p></td>
+      <th>tz</th>
+      <td><p>A string of the time zone.</p></td>
+    </tr>
+    <tr>
+      <th>exclusive</th>
+      <td><p>A flag indicating whether other columns are not permitted.</p></td>
+    </tr>
+    <tr>
+      <th>order</th>
+      <td><p>A flag indicating whether the columns have to occur in the same order as values.</p></td>
     </tr>
     <tr>
       <th>x_name</th>
       <td><p>A string of the name of the object.</p></td>
+    </tr>
+    <tr>
+      <th>error</th>
+      <td><p>A flag indicating whether to throw an informative error or immediately generate an informative message if the check fails.</p></td>
     </tr>
     </table>
     
