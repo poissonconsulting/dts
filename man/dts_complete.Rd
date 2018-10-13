@@ -4,20 +4,28 @@
 \alias{dts_complete}
 \title{Completes a data time series}
 \usage{
-dts_complete(x, date_time = "DateTime", value = "Value",
-  floor = TRUE, sort = TRUE, unique = TRUE,
-  units = dttr::dtt_units(x[[date_time]]))
+dts_complete(x, date_time = "DateTime", colname = dts_colnames(x),
+  floor = TRUE, unique = TRUE, sort = TRUE,
+  units = dttr::dtt_units(x[[date_time]]), .fun = mean, ...)
 }
 \arguments{
-\item{x}{A dts data frame}
+\item{x}{A Date or POSIXct vector.}
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other values.}
 
-\item{unique}{A flag indicating whether the values must be unique.}
+\item{floor}{A flag indicating whether to floor the values.}
+
+\item{unique}{A flag indicating whether to return distinct values.}
+
+\item{sort}{A flag indicating whether the returned vector must be sorted.}
 
 \item{units}{A string of the units.}
+
+\item{.fun}{A function which returns a scalar.}
+
+\item{...}{Unused.}
 }
 \value{
 The completed data time series.

@@ -4,22 +4,22 @@
 \alias{dts_fill_dayte_time}
 \title{Fill Date or DateTime of the Year}
 \usage{
-dts_fill_dayte_time(x, date_time = "DateTime", value = "Value",
-  min_gap = 0L, min_n = 2L, units = dttr::dtt_units(x[[date_time]]),
-  .fun = mean, ...)
+dts_fill_dayte_time(x, date_time = "DateTime",
+  colname = dts_colnames(x), min_gap = 0L, min_n = 2L,
+  feb29_to_28 = TRUE, .fun = mean, ...)
 }
 \arguments{
 \item{x}{A dts data frame}
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other values.}
 
 \item{min_gap}{An integer of the minimum gap to leave between existing values.}
 
 \item{min_n}{A count of the minimum of data points to require.}
 
-\item{units}{A string of the units.}
+\item{feb29_to_28}{A flag indicating whether to treat February 29th as if it is February 28th.}
 
 \item{.fun}{A function which returns a scalar.}
 

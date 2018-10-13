@@ -4,14 +4,14 @@
 \alias{dts_plot}
 \title{Plot DateTime Series}
 \usage{
-dts_plot(x, date_time = "DateTime", value = "Value")
+dts_plot(x, date_time = "DateTime", colname = "Value")
 }
 \arguments{
 \item{x}{A data frame with}
 
 \item{date_time}{A string specifying the column with the POSIXct values}
 
-\item{value}{A string specifying the column with the time series values}
+\item{colname}{A string specifying the column with the time series values}
 }
 \value{
 A ggplot object

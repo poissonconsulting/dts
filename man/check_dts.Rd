@@ -4,9 +4,9 @@
 \alias{check_dts}
 \title{Check DateTime-Series Data Frame}
 \usage{
-check_dts(x, date_time = "DateTime", value = character(0), nrow = NA,
-  floored = TRUE, sorted = FALSE, unique = FALSE, complete = FALSE,
-  units = dttr::dtt_units(x[[date_time]]),
+check_dts(x, date_time = "DateTime", colname = character(0),
+  nrow = NA, floored = TRUE, sorted = FALSE, unique = FALSE,
+  complete = FALSE, units = dttr::dtt_units(x[[date_time]]),
   tz = dttr::dtt_tz(x[[date_time]]), exclusive = FALSE,
   order = FALSE, key = character(0), x_name = substitute(x),
   error = TRUE)
@@ -16,7 +16,7 @@ check_dts(x, date_time = "DateTime", value = character(0), nrow = NA,
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other values.}
 
 \item{nrow}{A flag indicating whether x should have rows (versus no rows) or a missing value indicating no requirements or a count or count range of the number of rows.}
 

@@ -4,7 +4,7 @@
 #'
 #' @param x A dts data frame
 #' @param date_time A string specifying the column with the Date or POSIXct values.
-#' @param value A character vector specifying the column(s) with the other values.
+#' @param colname A character vector specifying the column(s) with the other values.
 #' @inheritParams checkr::check_data
 #' @inheritParams dttr::check_dtt
 #' @return An invisible copy of x (if it doesn't throw an error).
@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' check_dts(dts_data)
-check_dts <- function(x, date_time = "DateTime", value = character(0), 
+check_dts <- function(x, date_time = "DateTime", colname = character(0), 
                       nrow = NA, floored = TRUE, sorted = FALSE, unique = FALSE, 
                       complete = FALSE,
                       units = dttr::dtt_units(x[[date_time]]),
@@ -23,9 +23,9 @@ check_dts <- function(x, date_time = "DateTime", value = character(0),
   x_name <- chk_deparse(x_name)
   
   check_string(date_time)
-  check_vector(value, "")
+  check_vector(colname, "")
 
-  check_data(x, c(date_time, value), nrow = nrow, 
+  check_data(x, c(date_time, colname), nrow = nrow, 
              exclusive = exclusive, order = order, key = key, x_name = x_name, 
              error = TRUE)
   

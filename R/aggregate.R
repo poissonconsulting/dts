@@ -1,6 +1,6 @@
 #' Aggregate
 #'
-#' @inheritParams dts_check
+#' @inheritParams check_dts
 #' @param .fun A function which returns a scalar.
 #' @param ... Optional Additional arguments passed to .fun.
 #'
@@ -9,14 +9,19 @@
 #'
 #' @examples
 #' dts_aggregate(dts_data, units = "years", na.rm = TRUE)
-dts_aggregate <- function(x, date_time = "DateTime", value = "Value", 
+dts_aggregate <- function(x, date_time = "DateTime", colname = dts_colnames(x), 
                           units = dttr::dtt_units(x[[date_time]]), .fun = mean, ...) {
-  check_dts(x, date_time = date_time, value = value)
-  x <- x[c(date_time, value)]
+  check_dts(x, date_time = date_time, colname = colname)
+  x <- x[c(date_time, colname)]
+  rownames(x) <- NULL
+  if(!nrow(x)) return(x)
+  
   x[[date_time]] <- dtt_floor(x[[date_time]], units = units)
-  x <- split(x, x[[date_time]])
-  x <- lapply(x, agg, .fun = .fun, ...)
-  x <- do.call("rbind", x)
+  if(length(colname)) {
+    x <- split(x, x[[date_time]])
+    x <- lapply(x, agg, .fun = .fun, ...)
+    x <- do.call("rbind", x)
+  }
   rownames(x) <- NULL
   x
 }

@@ -4,7 +4,7 @@
 \alias{dts_regress}
 \title{Regress}
 \usage{
-dts_regress(x, date_time = "DateTime", value = c("Value", "Value2"),
+dts_regress(x, date_time = "DateTime", colname = c("Value", "Value2"),
   intercept = TRUE, min_gap = 0L, min_n = 4L)
 }
 \arguments{
@@ -12,7 +12,7 @@ dts_regress(x, date_time = "DateTime", value = c("Value", "Value2"),
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other values.}
 
 \item{intercept}{A flag indicating whether an intercept should be estimated (or fixed at 0)}
 

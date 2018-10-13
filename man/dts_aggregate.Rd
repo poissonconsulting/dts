@@ -4,10 +4,18 @@
 \alias{dts_aggregate}
 \title{Aggregate}
 \usage{
-dts_aggregate(x, date_time = "DateTime", value = "Value",
+dts_aggregate(x, date_time = "DateTime", colname = dts_colnames(x),
   units = dttr::dtt_units(x[[date_time]]), .fun = mean, ...)
 }
 \arguments{
+\item{x}{A dts data frame}
+
+\item{date_time}{A string specifying the column with the Date or POSIXct values.}
+
+\item{colname}{A character vector specifying the column(s) with the other values.}
+
+\item{units}{A string of the units.}
+
 \item{.fun}{A function which returns a scalar.}
 
 \item{...}{Optional Additional arguments passed to .fun.}

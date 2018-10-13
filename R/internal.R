@@ -1,7 +1,11 @@
+is_min_n <- function(x, min_n) sum(!is.na(x)) >= min_n
+
 agg <- function(x, .fun, ...) {
-  x[[2]] <- .fun(x[[2]], ...)
+  x[2:ncol(x)] <- lapply(x[2:ncol(x)], .fun, ...)
   x[1,]
 }
+
+dot <- function(x) paste0("..", x)
 
 which_replace <- function(x, max_span = .Machine$integer.max, 
                           min_gap = 0L, ends = TRUE) {
@@ -29,4 +33,11 @@ which_replace <- function(x, max_span = .Machine$integer.max,
   which <- unlist(which)
   which <- sort(which)
   which
+}
+
+interpolate <- function(x, max_span) {
+  which <- which_replace(x, max_span = max_span, ends = FALSE)
+  if(!length(which)) return(x)
+  x[which] <- stats::approx(x, xout = which)$y
+  x
 }

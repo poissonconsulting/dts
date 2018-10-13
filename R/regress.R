@@ -12,29 +12,29 @@
 #'
 #' @examples
 #' dts_regress(dts_data)[1:5,]
-dts_regress <- function(x, date_time = "DateTime", value = c("Value", "Value2"),
+dts_regress <- function(x, date_time = "DateTime", colname = c("Value", "Value2"),
                         intercept = TRUE, min_gap = 0L, min_n = 4L) {
-  check_vector(value, "", length = 2L)
-  check_dts(x, date_time = date_time, value = value)
+  check_vector(colname, "", length = 2L)
+  check_dts(x, date_time = date_time, colname = colname)
   check_flag(intercept)
   check_count(min_gap)
   check_scalar(min_n, c(4L, .Machine$integer.max))
   
-  which <- which_replace(x[[value[1]]], min_gap = min_gap)
+  which <- which_replace(x[[colname[1]]], min_gap = min_gap)
   
   if(!length(which)) return(x)
   
-  data <- x[!is.na(x[[value[1]]]) & !is.na(x[[value[2]]]),]
+  data <- x[!is.na(x[[colname[1]]]) & !is.na(x[[colname[2]]]),]
   if(nrow(data) < min_n)
     err(cn(min_n, "there %r less than %n value%s to fit the regression"))
 
   formula <- if(intercept) y ~ x else y ~ x - 1
 
-  data <- x[value]
+  data <- x[colname]
   names(data) <- c("y", "x")
   
   mod <- stats::lm(formula, data = data)
-  newdata <- data.frame(x = x[[value[2]]][which])
-  x[[value[1]]][which] <- stats::predict(mod, newdata = newdata)
+  newdata <- data.frame(x = x[[colname[2]]][which])
+  x[[colname[1]]][which] <- stats::predict(mod, newdata = newdata)
   x
 }

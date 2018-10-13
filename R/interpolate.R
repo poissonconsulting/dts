@@ -11,16 +11,13 @@
 #'
 #' @examples
 #' dts_interpolate(dts_data[1:5,])
-dts_interpolate <- function(x, date_time = "DateTime", value = "Value", 
+dts_interpolate <- function(x, date_time = "DateTime", colname = dts_colnames(x), 
                             max_span = .Machine$integer.max) {
-  check_string(value)
-  check_dts(x, date_time = date_time, value = value, sorted = TRUE, 
-            complete = TRUE, key = date_time)
+  check_dts(x, date_time = date_time, colname = colname, sorted = TRUE,
+            unique = TRUE, complete = TRUE)
   check_scalar(max_span, c(1L, .Machine$integer.max))
 
-  which <- which_replace(x[[value]], max_span = max_span, ends = FALSE)
-  if(!length(which)) return(x)
-  
-  x[[value]][which] <- stats::approx(x[[value]], xout = which)$y
+  if(!length(colname)) return(x)
+  x[2:ncol(x)] <- lapply(x[2:ncol(x)], interpolate, max_span)
   x
 }

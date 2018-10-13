@@ -4,7 +4,7 @@
 \alias{dts_bound}
 \title{Bound}
 \usage{
-dts_bound(x, date_time = "DateTime", value = "Value",
+dts_bound(x, date_time = "DateTime", colname = "Value",
   bounds = c(-Inf, Inf), adjust = FALSE)
 }
 \arguments{
@@ -12,7 +12,7 @@ dts_bound(x, date_time = "DateTime", value = "Value",
 
 \item{date_time}{A string specifying the column with the Date or POSIXct values.}
 
-\item{value}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other values.}
 
 \item{bounds}{A sorted double vector of the lower and upper permitted bounds.}
 
