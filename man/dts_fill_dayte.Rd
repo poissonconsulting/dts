@@ -5,7 +5,8 @@
 \title{Fill Date or POSIXct of the Year}
 \usage{
 dts_fill_dayte(x, dtt = "DateTime", colname = dts_colnames(x),
-  min_gap = 0L, min_n = 1L, feb29_to_28 = TRUE, .fun = mean, ...)
+  min_gap = 0L, min_n = 1L, feb29_to_28 = TRUE, .fun = mean_na_rm,
+  ...)
 }
 \arguments{
 \item{x}{A dts data frame}

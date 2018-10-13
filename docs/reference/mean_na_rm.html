@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • dts</title>
+<title>Arithmetic Mean Without Missing Values — mean_na_rm • dts</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,7 +30,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Arithmetic Mean Without Missing Values — mean_na_rm" />
+
+<meta property="og:description" content="Arithmetic Mean Without Missing Values" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -46,7 +49,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -87,126 +90,48 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Arithmetic Mean Without Missing Values</h1>
+    
+    <div class="hidden name"><code>mean_na_rm.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Arithmetic Mean Without Missing Values</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="check_dts.html">check_dts()</a></code> </p>
-        </td>
-        <td><p>Check DateTime-Series Data Frame</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_aggregate.html">dts_aggregate()</a></code> </p>
-        </td>
-        <td><p>Aggregate</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_bound.html">dts_bound()</a></code> </p>
-        </td>
-        <td><p>Bound</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_colnames.html">dts_colnames()</a></code> </p>
-        </td>
-        <td><p>DateTime Data Frame Column Names</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_complete.html">dts_complete()</a></code> </p>
-        </td>
-        <td><p>Completes a data time series</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_completed.html">dts_completed()</a></code> </p>
-        </td>
-        <td><p>Test if the DateTime in a DateTime-Series is complete.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_data.html">dts_data</a></code> </p>
-        </td>
-        <td><p>dts_data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_disaggregate.html">dts_disaggregate()</a></code> </p>
-        </td>
-        <td><p>Disaggregate</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_fill_dayte.html">dts_fill_dayte()</a></code> </p>
-        </td>
-        <td><p>Fill Date or POSIXct of the Year</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_interpolate.html">dts_interpolate()</a></code> </p>
-        </td>
-        <td><p>Interpolate</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_plot.html">dts_plot()</a></code> </p>
-        </td>
-        <td><p>Plot DateTime Series</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_regress.html">dts_regress()</a></code> </p>
-        </td>
-        <td><p>Regress</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_regress2.html">dts_regress2()</a></code> </p>
-        </td>
-        <td><p>Regress2</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dts_separate.html">dts_separate()</a></code> </p>
-        </td>
-        <td><p>Separates the Date or POSIXct column of a data frame into its component parts.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mean_na_rm.html">mean_na_rm()</a></code> </p>
-        </td>
-        <td><p>Arithmetic Mean Without Missing Values</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>mean_na_rm</span>(<span class='no'>x</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>An R object.</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>The arithmetic mean of x after removing missing values.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>mean_na_rm</span>(<span class='fu'>c</span>(<span class='fl'>1</span>:<span class='fl'>2</span>, <span class='fl'>NA</span>))</div><div class='output co'>#&gt; [1] 1.5</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

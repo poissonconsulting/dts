@@ -12,7 +12,7 @@
 #' @export
 dts_fill_dayte <- function(x, dtt = "DateTime", colname = dts_colnames(x), 
                                 min_gap = 0L, min_n = 1L, feb29_to_28 = TRUE, 
-                                .fun = mean, ...) {
+                                .fun = mean_na_rm, ...) {
   check_dts(x, dtt = dtt, colname = colname, unique = TRUE)
   check_missing_colnames(x, dot(c(dtt, colname)))
   check_count(min_gap)
