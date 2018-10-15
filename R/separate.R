@@ -1,4 +1,4 @@
-#' Separates the Date or POSIXct column of a data frame into its component parts.
+#' Separates the DateTime column of a data frame into its component parts.
 #'
 #' @param x A data frame with a Date or POSIXct column.
 #' @inheritParams check_dts
@@ -16,14 +16,15 @@
 #' @export
 #'
 #' @examples
-#' dts_separate(dts_data[c(1,3),])
-dts_separate <- function(
+#' dts_separate_date_time(dts_data[c(1,3),])
+dts_separate_date_time <- function(
   x, dtt = "DateTime", year = TRUE, month = TRUE, day = TRUE, 
-  hour = FALSE, minute = FALSE, second = FALSE, dayte = TRUE,
+  hour = TRUE, minute = TRUE, 
+  second = TRUE, dayte = FALSE,
   prefix = "", suffix = "") {
   
   check_dts(x, dtt)
-
+  
   check_flag(year)
   check_flag(month)
   check_flag(day)
@@ -33,7 +34,7 @@ dts_separate <- function(
   check_flag(dayte)
   check_string(prefix)
   check_string(suffix)
-
+  
   if(year) x[[paste0(suffix, "Year", prefix)]] <- dtt_year(x[[dtt]])
   if(month) x[[paste0(suffix, "Month", prefix)]] <- dtt_month(x[[dtt]])
   if(day) x[[paste0(suffix, "Day", prefix)]] <- dtt_day(x[[dtt]])
@@ -42,4 +43,14 @@ dts_separate <- function(
   if(second) x[[paste0(suffix, "Second", prefix)]] <- dtt_second(x[[dtt]])
   if(dayte) x[[paste0(suffix, "Dayte", prefix)]] <- dtt_dayte(x[[dtt]])
   x
+}
+
+#' @describeIn dts_separate_date_time Separate Date
+#' @export
+dts_separate_date <- function(
+  x, dtt = "DateTime", year = TRUE, month = TRUE, day = TRUE, dayte = FALSE,
+  prefix = "", suffix = "") {
+  dts_separate_date_time(x, dtt = dtt, year = year, month = month, day = day,
+                         hour = FALSE, minute = FALSE, second = FALSE, dayte = dayte,
+                         prefix = prefix, suffix = suffix)
 }
