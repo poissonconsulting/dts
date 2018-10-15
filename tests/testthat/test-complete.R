@@ -12,6 +12,8 @@ test_that("complete", {
   complete <- dts_data[c(1,3,2),c("DateTime", "Value")]
   complete$Value[3] <- NA
   rownames(complete) <- NULL
-  expect_equal(dts_complete(dts_data[c(1,3),c("DateTime", "Value")])$DateTime, 
+  expect_identical(dts_complete(dts_data[c(1,3),c("DateTime", "Value")])$DateTime, 
                complete[order(complete$DateTime),]$DateTime)
+  expect_identical(dts_complete(dts_data[1:2,], from = as.POSIXct("1999-11-28", tz = "UTC"))$DateTime[1], 
+               as.POSIXct("1999-11-27 16:00:00", tz = "Etc/GMT+8"))
 })

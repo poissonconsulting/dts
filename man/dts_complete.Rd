@@ -5,8 +5,9 @@
 \title{Completes a data time series}
 \usage{
 dts_complete(x, dtt = "DateTime", colname = dts_colnames(x),
-  floor = TRUE, unique = TRUE, sort = TRUE,
-  units = dttr::dtt_units(x[[dtt]]), .fun = mean, ...)
+  from = min(x[[dtt]]), to = max(x[[dtt]]), floor = TRUE,
+  unique = TRUE, sort = TRUE, units = dttr::dtt_units(x[[dtt]]),
+  .fun = mean, ...)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
@@ -14,6 +15,10 @@ dts_complete(x, dtt = "DateTime", colname = dts_colnames(x),
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
 \item{colname}{A character vector specifying the column(s) with the other values.}
+
+\item{from}{A Date or POSIXct scalar of the start date.}
+
+\item{to}{A Date or POSIXct scalar of the to date.}
 
 \item{floor}{A flag indicating whether to floor the values.}
 

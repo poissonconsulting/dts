@@ -13,7 +13,8 @@
 #' @examples
 #' check_dts(dts_data)
 check_dts <- function(x, dtt = "DateTime", colname = character(0), 
-                      nrow = NA, floored = TRUE, sorted = FALSE, unique = FALSE, 
+                      nrow = NA, nas = TRUE, floored = TRUE, 
+                      sorted = FALSE, unique = FALSE, 
                       complete = FALSE,
                       units = dttr::dtt_units(x[[dtt]]),
                       tz = dttr::dtt_tz(x[[dtt]]),
@@ -28,7 +29,7 @@ check_dts <- function(x, dtt = "DateTime", colname = character(0),
              exclusive = exclusive, order = order, x_name = x_name, 
              error = TRUE)
   
-  check_dtt(x[[dtt]], floored = floored, sorted = sorted, 
+  check_dtt(x[[dtt]], nas = nas, floored = floored, sorted = sorted, 
             unique = unique, complete = complete, 
             units = units, tz = tz, x_name = 
               paste0("column '", dtt, "' of ", x_name))

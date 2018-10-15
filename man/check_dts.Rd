@@ -5,10 +5,10 @@
 \title{Check DateTime-Series Data Frame}
 \usage{
 check_dts(x, dtt = "DateTime", colname = character(0), nrow = NA,
-  floored = TRUE, sorted = FALSE, unique = FALSE, complete = FALSE,
-  units = dttr::dtt_units(x[[dtt]]), tz = dttr::dtt_tz(x[[dtt]]),
-  exclusive = FALSE, order = FALSE, x_name = substitute(x),
-  error = TRUE)
+  nas = TRUE, floored = TRUE, sorted = FALSE, unique = FALSE,
+  complete = FALSE, units = dttr::dtt_units(x[[dtt]]),
+  tz = dttr::dtt_tz(x[[dtt]]), exclusive = FALSE, order = FALSE,
+  x_name = substitute(x), error = TRUE)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -18,6 +18,8 @@ check_dts(x, dtt = "DateTime", colname = character(0), nrow = NA,
 \item{colname}{A character vector specifying the column(s) with the other values.}
 
 \item{nrow}{A flag indicating whether x should have rows (versus no rows) or a missing value indicating no requirements or a count or count range of the number of rows.}
+
+\item{nas}{A flag indicating whether missing values are permitted.}
 
 \item{floored}{A flag indicating whether x should be floored.}
 

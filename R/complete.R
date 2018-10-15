@@ -9,19 +9,20 @@
 #' @examples
 #' dts_complete(dts_data[c(1,3),])
 dts_complete <- function(x, dtt = "DateTime", colname = dts_colnames(x),
+                         from = min(x[[dtt]]), to = max(x[[dtt]]),
                          floor = TRUE, 
                          unique = TRUE, sort = TRUE, 
                          units = dttr::dtt_units(x[[dtt]]),
                          .fun = mean, ...) {
-  check_dts(x, dtt = dtt, colname = colname)
+  check_dts(x, dtt = dtt, colname = colname, nas = FALSE)
   
   x <- x[c(dtt, colname)]
   
   if(floor) x[[dtt]] <- dtt_floor(x[[dtt]], units = units)
-  if(unique) x <- dts_aggregate(x, dtt = dtt, colname = colname,
+  if(unique) x <- dts_aggregate(x, dtt = dtt, colname = colname, units = units,
                                 .fun = .fun, ...)
 
-  seq <- dtt_complete(x[[dtt]], floor = FALSE, unique = FALSE, 
+  seq <- dtt_complete(x[[dtt]], from = from, to = to, floor = FALSE, unique = FALSE, 
                       sort = FALSE, units = units)
   
   data <- data.frame(seq)
