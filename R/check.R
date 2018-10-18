@@ -26,8 +26,7 @@ check_dts <- function(x, dtt = "DateTime", colname = character(0),
   check_vector(colname, "")
 
   check_data(x, c(dtt, colname), nrow = nrow, 
-             exclusive = exclusive, order = order, x_name = x_name, 
-             error = TRUE)
+             exclusive = exclusive, order = order, x_name = x_name)
   
   check_dtt(x[[dtt]], nas = nas, floored = floored, sorted = sorted, 
             unique = unique, complete = complete, 
