@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dts</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9004</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9005</span>
       </span>
     </div>
 
@@ -103,8 +103,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>dts_delay</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>),
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]), <span class='kw'>delay</span> <span class='kw'>=</span> <span class='fl'>0L</span>)</pre>
+    <pre class="usage"><span class='fu'>dts_delay</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>), <span class='kw'>delay</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"days"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -122,36 +122,30 @@
       <td><p>A character vector specifying the column(s) with the other values.</p></td>
     </tr>
     <tr>
-      <th>units</th>
-      <td><p>A string of the units.</p></td>
+      <th>delay</th>
+      <td><p>A number (numeric scalar) of the delay.</p></td>
     </tr>
     <tr>
-      <th>delay</th>
-      <td><p>An int (integer scalar) of the delay.</p></td>
+      <th>units</th>
+      <td><p>A string of the delay units.</p></td>
     </tr>
     </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>The completed data time series.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>dts_delay</span>(<span class='no'>dts_data</span>[<span class='fl'>1</span>:<span class='fl'>4</span>,], <span class='kw'>delay</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; # A tibble: 4 x 4
 #&gt;   DateTime            Value Value2 Value3
 #&gt;   &lt;dttm&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-#&gt; 1 1999-11-29 22:00:00    NA   NA    NA   
-#&gt; 2 1999-11-29 23:00:00    NA   NA    NA   
-#&gt; 3 1999-11-30 00:00:00    -9   20.1   4.10
-#&gt; 4 1999-11-30 01:00:00    NA   20.3   4.07</div></pre>
+#&gt; 1 1999-11-29 22:00:00    NA     NA     NA
+#&gt; 2 1999-11-29 23:00:00    NA     NA     NA
+#&gt; 3 1999-11-30 00:00:00    NA     NA     NA
+#&gt; 4 1999-11-30 01:00:00    NA     NA     NA</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 
