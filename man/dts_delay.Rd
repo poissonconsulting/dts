@@ -4,8 +4,8 @@
 \alias{dts_delay}
 \title{Delay a data time series}
 \usage{
-dts_delay(x, dtt = "DateTime", colname = dts_colnames(x),
-  units = dttr::dtt_units(x[[dtt]]), delay = 0L)
+dts_delay(x, dtt = "DateTime", colname = dts_colnames(x), delay = 0,
+  units = "days")
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
@@ -14,12 +14,9 @@ dts_delay(x, dtt = "DateTime", colname = dts_colnames(x),
 
 \item{colname}{A character vector specifying the column(s) with the other values.}
 
-\item{units}{A string of the units.}
+\item{delay}{A number (numeric scalar) of the delay.}
 
-\item{delay}{An int (integer scalar) of the delay.}
-}
-\value{
-The completed data time series.
+\item{units}{A string of the delay units.}
 }
 \description{
 Delay a data time series

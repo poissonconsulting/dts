@@ -5,7 +5,7 @@
 \title{Accumulated}
 \usage{
 dts_accumulated(x, dtt = "DateTime", colname = "Value",
-  accum = list(Hatch = dttr::dtt_duration(320, "days")))
+  accum = c(Hatch = 320), units = "days")
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -14,7 +14,11 @@ dts_accumulated(x, dtt = "DateTime", colname = "Value",
 
 \item{colname}{A character vector specifying the column(s) with the other values.}
 
-\item{accum}{A uniquely named list do durations.}
+\item{accum}{A uniquely named vector of the accumulation thresholds.}
+
+\item{units}{A string of the accumulation units.
+If the accumulation units differ from the dtt units the accumulation units 
+are automatically converted.}
 }
 \value{
 The modified DateTime series data frame.
@@ -24,5 +28,5 @@ Calculates DateTime when reach accumulated total.
 }
 \examples{
 dts_accumulated(dts_data[1:5,], colname = "Value2", 
-  accum = list(Hatch = dttr::dtt_duration(40, "hours")))
+  accum = c(Hatch = 40), units = "hours")
 }
