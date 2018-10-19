@@ -3,6 +3,17 @@ agg <- function(x, .fun, ...) {
   x[1,]
 }
 
+delay <- function(x, delay) {
+  n <- length(x)
+  if(!n || delay == 0) return(x)
+  na <- x[1]
+  is.na(na) <- TRUE
+  if(abs(delay) >= n) return(rep(na, n))
+  if(delay > 0) return(c(rep(na, delay), x[1:(n-delay)]))
+  delay <- abs(delay)
+  return(c(x[(1 + delay):n], rep(na, delay)))
+}
+
 dot <- function(x) paste0("..", x)
 
 which_replace <- function(x, max_span = .Machine$integer.max, 

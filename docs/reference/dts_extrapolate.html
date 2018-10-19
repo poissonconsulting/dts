@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Completes a data time series — dts_complete • dts</title>
+<title>F — dts_extrapolate • dts</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Completes a data time series — dts_complete" />
+<meta property="og:title" content="F — dts_extrapolate" />
 
-<meta property="og:description" content="Completes a data time series" />
+<meta property="og:description" content="Fill in missing values by linear interpolation." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,28 +92,25 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Completes a data time series</h1>
+    <h1>F</h1>
     
-    <div class="hidden name"><code>dts_complete.Rd</code></div>
+    <div class="hidden name"><code>dts_extrapolate.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Completes a data time series</p>
+    <p>Fill in missing values by linear interpolation.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dts_complete</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>),
-  <span class='kw'>from</span> <span class='kw'>=</span> <span class='fu'>min</span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]), <span class='kw'>to</span> <span class='kw'>=</span> <span class='fu'>max</span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]), <span class='kw'>floor</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]),
-  <span class='kw'>.fun</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dts_extrapolate</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A Date or POSIXct vector.</p></td>
+      <td><p>A dts data frame</p></td>
     </tr>
     <tr>
       <th>dtt</th>
@@ -123,52 +120,22 @@
       <th>colname</th>
       <td><p>A character vector specifying the column(s) with the other values.</p></td>
     </tr>
-    <tr>
-      <th>from</th>
-      <td><p>A Date or POSIXct scalar of the start date.</p></td>
-    </tr>
-    <tr>
-      <th>to</th>
-      <td><p>A Date or POSIXct scalar of the to date.</p></td>
-    </tr>
-    <tr>
-      <th>floor</th>
-      <td><p>A flag indicating whether to floor the values.</p></td>
-    </tr>
-    <tr>
-      <th>unique</th>
-      <td><p>A flag indicating whether to return distinct values.</p></td>
-    </tr>
-    <tr>
-      <th>sort</th>
-      <td><p>A flag indicating whether the returned vector must be sorted.</p></td>
-    </tr>
-    <tr>
-      <th>units</th>
-      <td><p>A string of the units.</p></td>
-    </tr>
-    <tr>
-      <th>.fun</th>
-      <td><p>A function which returns a scalar.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Unused.</p></td>
-    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The completed data time series.</p>
+    <p>A data frame</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dts_complete</span>(<span class='no'>dts_data</span>[<span class='fu'>c</span>(<span class='fl'>1</span>,<span class='fl'>3</span>),])</div><div class='output co'>#&gt; # A tibble: 3 x 4
+    <pre class="examples"><div class='input'><span class='fu'>dts_extrapolate</span>(<span class='no'>dts_data</span>[<span class='fl'>2</span>:<span class='fl'>6</span>,])</div><div class='output co'>#&gt; # A tibble: 5 x 4
 #&gt;   DateTime            Value Value2 Value3
 #&gt;   &lt;dttm&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-#&gt; 1 1999-11-29 22:00:00    -9   20.1   4.10
-#&gt; 2 1999-11-29 23:00:00    NA   NA    NA   
-#&gt; 3 1999-11-30 00:00:00    NA   19.9   4.10</div></pre>
+#&gt; 1 1999-11-29 23:00:00  10.3   20.3   4.07
+#&gt; 2 1999-11-30 00:00:00  10.3   19.9   4.10
+#&gt; 3 1999-11-30 01:00:00  10.3   20.5   4.11
+#&gt; 4 1999-11-30 02:00:00  10.3   20.4   4.12
+#&gt; 5 1999-11-30 03:00:00  10.3   20.4   4.12</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -104,10 +104,10 @@
     </div>
 
     <pre class="usage"><span class='fu'>check_dts</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'>character</span>(<span class='fl'>0</span>), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>floored</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sorted</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]), <span class='kw'>tz</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_tz'>dtt_tz</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]),
-  <span class='kw'>exclusive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='fu'>substitute</span>(<span class='no'>x</span>),
-  <span class='kw'>error</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+  <span class='kw'>nas</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>floored</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sorted</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_units'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]),
+  <span class='kw'>tz</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/dttr/topics/dtt_tz'>dtt_tz</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]), <span class='kw'>exclusive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='fu'>substitute</span>(<span class='no'>x</span>), <span class='kw'>error</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -127,6 +127,10 @@
     <tr>
       <th>nrow</th>
       <td><p>A flag indicating whether x should have rows (versus no rows) or a missing value indicating no requirements or a count or count range of the number of rows.</p></td>
+    </tr>
+    <tr>
+      <th>nas</th>
+      <td><p>A flag indicating whether missing values are permitted.</p></td>
     </tr>
     <tr>
       <th>floored</th>

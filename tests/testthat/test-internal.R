@@ -18,3 +18,14 @@ test_that("which_replace", {
   expect_identical(which_replace(c(NA, 1, NA, 1, NA), ends = FALSE), 3L)
   expect_identical(length(which_replace(dts_data$Value, min_gap = 0L)), 103L)
 })
+
+test_that("delay", {
+  expect_identical(delay(character(0)), character(0))
+  expect_identical(delay(1:3, 0), 1:3)
+  expect_identical(delay(1:3, 1), c(NA, 1:2))
+  expect_identical(delay(1:3, 3), rep(NA_integer_, 3))
+  expect_identical(delay(1:3, -3), rep(NA_integer_, 3))
+  expect_identical(delay(1:3, -1), c(2:3, NA))
+  expect_identical(delay(1:3, -2L), c(3L, NA, NA))
+})
+
