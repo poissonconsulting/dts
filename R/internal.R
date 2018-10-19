@@ -1,3 +1,19 @@
+set_na <- function(x) {
+  is.na(x) <- TRUE
+  x
+}
+
+calc_atu <- function(start, atu, cumsum) {
+  cumsum <- cumsum - start
+  wch <- which(cumsum >= atu)
+  if(!length(wch)) return(0L)
+  wch[1]
+}
+
+calc_atus <- function(atu, cumsum) {
+  vapply(cumsum, calc_atu, 1L, atu = atu, cumsum = cumsum)
+}
+
 agg <- function(x, .fun, ...) {
   x[2:ncol(x)] <- lapply(x[2:ncol(x)], .fun, ...)
   x[1,]
