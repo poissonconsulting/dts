@@ -39,7 +39,7 @@ To install the latest development version from the Poisson drat
 To cite package 'dts' in publications use:
 
   Joe Thorley (2018). dts: Manipulate Date/POSIXct Time Series
-  Data Frames. R package version 0.0.0.9004.
+  Data Frames. R package version 0.0.0.9005.
 
 A BibTeX entry for LaTeX users is
 
@@ -47,7 +47,7 @@ A BibTeX entry for LaTeX users is
     title = {dts: Manipulate Date/POSIXct Time Series Data Frames},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.0.0.9004},
+    note = {R package version 0.0.0.9005},
   }
 ```
 
@@ -61,4 +61,4 @@ always welcome.
 
 Please note that the ‘dts’ project is released with a [Contributor Code
 of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you
-agree to abide by its terms
+agree to abide by its terms.
