@@ -1,7 +1,6 @@
-#' Density
+#' Distribution
 #'
-#' Calculates density by DateTime based on a function.
-#' Its important to realize that the densities are unlikely to sum to zero.
+#' Calculates distribution by DateTime.
 #' 
 #' The date time values in x are converted into a numeric vector and 
 #' passed as the first argument to .fun.
@@ -9,8 +8,9 @@
 #' @inheritParams check_dts
 #' @param units A string of the time units for the variation (3rd and more) 
 #' arguments of .fun.
+#' @param normalize A flag indicating whether to normalize the values (ensure they sum to 1).
 #' @param .fun A string of the name of a function which takes a numeric vector as its first argument 
-#' (the values to calculate the density for), a numeric scalar as it second argument
+#' (the values to calculate the distribution for), a numeric scalar as it second argument
 #' (the timing of the event) and one or more numeric scalars (representing the
 #' variation in the timing of the event).
 #' @param .timing A Date or POSIXct vector each element of which 
@@ -19,17 +19,18 @@
 #' @param ... Additional arguments passed as named arguments to .fun 
 #' which should all be numeric vectors
 #' of the same length as .dtt or numeric scalars (which are reused). 
-#' @return The modified DateTime series data frame with a column of the density values.
+#' @return The modified DateTime series data frame with a column of the distribution
 #' @export
 #'
 #' @examples
-#' dts_density(dts_data[1:10,], .timing = dts_data$DateTime[2], sd = 2, units = "hours")
-dts_density <- function(x, dtt = "DateTime", colname = "Density", 
-                        units = "days", .fun = "dnorm", .timing, ...) {
+#' dts_distribution(dts_data[1:10,], .timing = dts_data$DateTime[2], sd = 2, units = "hours")
+dts_distribution <- function(x, dtt = "DateTime", colname = "Distribution", 
+                        units = "days", normalize = TRUE, .fun = "dnorm", .timing, ...) {
   check_string(colname)
   check_dts(x, dtt = dtt, sorted = TRUE, unique = TRUE, complete = TRUE)
-  if(colname == dtt) err("Density column must not be '", dtt, "'")
+  if(colname == dtt) err("colname must not be '", dtt, "'")
   check_time_units(units)
+  check_flag(normalize)
   check_string(.fun)
   check_dtt(.timing, nas = FALSE, unique = TRUE)
   
@@ -57,6 +58,7 @@ dts_density <- function(x, dtt = "DateTime", colname = "Density",
     arg <- c(list(.dtt), .timing[i], arg)
     x[[colname]] <- x[[colname]] + do.call(.fun, arg)
   }
-  x[[dot(dtt)]] <- NULL
+  if(normalize)
+    x[[colname]] <- x[[colname]] / sum(x[[colname]])
   x
 }

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Density — dts_density • dts</title>
+<title>Distribution — dts_distribution • dts</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,10 +30,9 @@
 
 
 
-<meta property="og:title" content="Density — dts_density" />
+<meta property="og:title" content="Distribution — dts_distribution" />
 
-<meta property="og:description" content="Calculates density by DateTime based on a function.
-Its important to realize that the densities are unlikely to sum to zero." />
+<meta property="og:description" content="Calculates distribution by DateTime." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -93,20 +92,19 @@ Its important to realize that the densities are unlikely to sum to zero." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Density</h1>
+    <h1>Distribution</h1>
     
-    <div class="hidden name"><code>dts_density.Rd</code></div>
+    <div class="hidden name"><code>dts_distribution.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Calculates density by DateTime based on a function.
-Its important to realize that the densities are unlikely to sum to zero.</p>
+    <p>Calculates distribution by DateTime.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dts_density</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='st'>"Density"</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"days"</span>,
-  <span class='kw'>.fun</span> <span class='kw'>=</span> <span class='st'>"dnorm"</span>, <span class='no'>.timing</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dts_distribution</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='st'>"Distribution"</span>,
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"days"</span>, <span class='kw'>normalize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>.fun</span> <span class='kw'>=</span> <span class='st'>"dnorm"</span>, <span class='no'>.timing</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -129,9 +127,13 @@ Its important to realize that the densities are unlikely to sum to zero.</p>
 arguments of .fun.</p></td>
     </tr>
     <tr>
+      <th>normalize</th>
+      <td><p>A flag indicating whether to normalize the values (ensure they sum to 1).</p></td>
+    </tr>
+    <tr>
       <th>.fun</th>
       <td><p>A string of the name of a function which takes a numeric vector as its first argument 
-(the values to calculate the density for), a numeric scalar as it second argument
+(the values to calculate the distribution for), a numeric scalar as it second argument
 (the timing of the event) and one or more numeric scalars (representing the
 variation in the timing of the event).</p></td>
     </tr>
@@ -151,7 +153,7 @@ of the same length as .dtt or numeric scalars (which are reused).</p></td>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The modified DateTime series data frame with a column of the density values.</p>
+    <p>The modified DateTime series data frame with a column of the distribution</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -160,19 +162,19 @@ passed as the first argument to .fun.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dts_density</span>(<span class='no'>dts_data</span>[<span class='fl'>1</span>:<span class='fl'>10</span>,], <span class='kw'>.timing</span> <span class='kw'>=</span> <span class='no'>dts_data</span>$<span class='no'>DateTime</span>[<span class='fl'>2</span>], <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"hours"</span>)</div><div class='output co'>#&gt; # A tibble: 10 x 5
-#&gt;    DateTime            Value Value2 Value3      Density
+    <pre class="examples"><div class='input'><span class='fu'>dts_distribution</span>(<span class='no'>dts_data</span>[<span class='fl'>1</span>:<span class='fl'>10</span>,], <span class='kw'>.timing</span> <span class='kw'>=</span> <span class='no'>dts_data</span>$<span class='no'>DateTime</span>[<span class='fl'>2</span>], <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"hours"</span>)</div><div class='output co'>#&gt; # A tibble: 10 x 5
+#&gt;    DateTime            Value Value2 Value3 Distribution
 #&gt;    &lt;dttm&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;
-#&gt;  1 1999-11-29 22:00:00  -9     20.1   4.10 0.0000489   
-#&gt;  2 1999-11-29 23:00:00  NA     20.3   4.07 0.0000554   
-#&gt;  3 1999-11-30 00:00:00  NA     19.9   4.10 0.0000489   
-#&gt;  4 1999-11-30 01:00:00  NA     20.5   4.11 0.0000336   
-#&gt;  5 1999-11-30 02:00:00  10.3   20.4   4.12 0.0000180   
-#&gt;  6 1999-11-30 03:00:00  10.3   NA    NA    0.00000750  
-#&gt;  7 1999-11-30 04:00:00  10.3   20.3   4.11 0.00000243  
-#&gt;  8 1999-11-30 05:00:00  10.2   20.6   4.10 0.000000616 
-#&gt;  9 1999-11-30 06:00:00  10.3   20.5   4.09 0.000000121 
-#&gt; 10 1999-11-30 07:00:00  10.2   NA     4.10 0.0000000186</div></pre>
+#&gt;  1 1999-11-29 22:00:00  -9     20.1   4.10    0.227    
+#&gt;  2 1999-11-29 23:00:00  NA     20.3   4.07    0.257    
+#&gt;  3 1999-11-30 00:00:00  NA     19.9   4.10    0.227    
+#&gt;  4 1999-11-30 01:00:00  NA     20.5   4.11    0.156    
+#&gt;  5 1999-11-30 02:00:00  10.3   20.4   4.12    0.0835   
+#&gt;  6 1999-11-30 03:00:00  10.3   NA    NA       0.0348   
+#&gt;  7 1999-11-30 04:00:00  10.3   20.3   4.11    0.0113   
+#&gt;  8 1999-11-30 05:00:00  10.2   20.6   4.10    0.00286  
+#&gt;  9 1999-11-30 06:00:00  10.3   20.5   4.09    0.000562 
+#&gt; 10 1999-11-30 07:00:00  10.2   NA     4.10    0.0000863</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
