@@ -34,8 +34,8 @@ dts_distribution <- function(x, dtt = "DateTime", colname = "Distribution",
   check_string(.fun)
   check_dtt(.timing, nas = FALSE, unique = TRUE)
   
-  args <- eval(substitute(alist(...)))
-  
+  args <- list(...)
+
   lapply(args, check_vector, values = 1, length = c(1L, 1L, length(.timing)))
   
   x[[colname]] <- 0
