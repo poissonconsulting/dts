@@ -27,3 +27,36 @@ pnorm_arrival_departure <- function(x, mean = 0, sd = 1, residence = 6) {
   check_number(residence)
   stats::pnorm(x, mean, sd) - stats::pnorm(x, mean + residence, sd)
 }
+
+#' Normalize
+#' 
+#' Normalizes the values in x so that they sum to 1.
+#' Proportion indicates whether to set values to 0.
+#'
+#' @param x A numeric vector
+#' @param proportion A number between 0 and 1
+#'
+#' @return A numeric vector of the normalized values.
+#' @export
+#'
+#' @examples
+#' normalize(c(0.1, 100, 10), proportion = 0.95)
+normalize <- function(x, proportion = 1) {
+  check_vector(x, c(0, chk_max_dbl()))
+  check_prob(proportion)
+  
+  if(!length(x)) return(x)
+  
+  x <- x / sum(x)
+  
+  y <- x
+  values <- c(0, sort(unique(x)))
+  for(i in seq_along(values)) {
+    y[y == values[i]] <- 0
+    if(sum(y) <= proportion) break
+  }
+  if(i > 1)
+  x[x <= values[i-1]] <- 0
+  x <- x / sum(x)
+  x
+}

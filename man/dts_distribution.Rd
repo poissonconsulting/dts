@@ -17,7 +17,8 @@ dts_distribution(x, dtt = "DateTime", colname = "Distribution",
 \item{units}{A string of the time units for the variation (3rd and more) 
 arguments of .fun.}
 
-\item{normalize}{A flag indicating whether to normalize the values (ensure they sum to 1).}
+\item{normalize}{A flag indicating whether to normalize the values (ensure they sum to 1) or
+the proportion of the summed values to retain before renormalizing.}
 
 \item{.fun}{A string of the name of a function which takes a numeric vector as its first argument 
 (the values to calculate the distribution for), a numeric scalar as it second argument
@@ -33,7 +34,7 @@ which should all be numeric vectors
 of the same length as .dtt or numeric scalars (which are reused).}
 }
 \value{
-The modified DateTime series data frame with a column of the distribution
+The modified DateTime series data frame with a column of the distribution.
 }
 \description{
 Calculates distribution by DateTime.
@@ -44,4 +45,7 @@ passed as the first argument to .fun.
 }
 \examples{
 dts_distribution(dts_data[1:10,], .timing = dts_data$DateTime[2], sd = 2, units = "hours")
+}
+\seealso{
+\code{\link{normalize}}
 }

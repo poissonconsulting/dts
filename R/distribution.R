@@ -8,7 +8,8 @@
 #' @inheritParams check_dts
 #' @param units A string of the time units for the variation (3rd and more) 
 #' arguments of .fun.
-#' @param normalize A flag indicating whether to normalize the values (ensure they sum to 1).
+#' @param normalize A flag indicating whether to normalize the values (ensure they sum to 1) or
+#' the proportion of the summed values to retain before renormalizing.
 #' @param .fun A string of the name of a function which takes a numeric vector as its first argument 
 #' (the values to calculate the distribution for), a numeric scalar as it second argument
 #' (the timing of the event) and one or more numeric scalars (representing the
@@ -19,7 +20,8 @@
 #' @param ... Additional arguments passed as named arguments to .fun 
 #' which should all be numeric vectors
 #' of the same length as .dtt or numeric scalars (which are reused). 
-#' @return The modified DateTime series data frame with a column of the distribution
+#' @return The modified DateTime series data frame with a column of the distribution.
+#' @seealso \code{\link{normalize}}
 #' @export
 #'
 #' @examples
@@ -30,7 +32,7 @@ dts_distribution <- function(x, dtt = "DateTime", colname = "Distribution",
   check_dts(x, dtt = dtt, sorted = TRUE, unique = TRUE, complete = TRUE)
   if(colname == dtt) err("colname must not be '", dtt, "'")
   check_time_units(units)
-  check_flag(normalize)
+  checkor(check_flag(normalize), check_prob(normalize))
   check_string(.fun)
   check_dtt(.timing, nas = FALSE, unique = TRUE)
   
@@ -58,7 +60,9 @@ dts_distribution <- function(x, dtt = "DateTime", colname = "Distribution",
     arg <- c(list(.dtt), .timing[i], arg)
     x[[colname]] <- x[[colname]] + do.call(.fun, arg)
   }
-  if(normalize)
-    x[[colname]] <- x[[colname]] / sum(x[[colname]])
+  if(isTRUE(normalize)) {
+    x[[colname]] <- normalize(x[[colname]])
+  } else if (!isFALSE(normalize))
+    x[[colname]] <- normalize(x[[colname]], proportion = normalize)
   x
 }

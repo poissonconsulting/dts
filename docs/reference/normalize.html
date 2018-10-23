@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Distribution — dts_distribution • dts</title>
+<title>Normalize — normalize • dts</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,10 @@
 
 
 
-<meta property="og:title" content="Distribution — dts_distribution" />
+<meta property="og:title" content="Normalize — normalize" />
 
-<meta property="og:description" content="Calculates distribution by DateTime." />
+<meta property="og:description" content="Normalizes the values in x so that they sum to 1.
+Proportion indicates whether to set values to 0." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,94 +93,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Distribution</h1>
+    <h1>Normalize</h1>
     
-    <div class="hidden name"><code>dts_distribution.Rd</code></div>
+    <div class="hidden name"><code>normalize.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Calculates distribution by DateTime.</p>
+    <p>Normalizes the values in x so that they sum to 1.
+Proportion indicates whether to set values to 0.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dts_distribution</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='st'>"Distribution"</span>,
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"days"</span>, <span class='kw'>normalize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>.fun</span> <span class='kw'>=</span> <span class='st'>"dnorm"</span>, <span class='no'>.timing</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>normalize</span>(<span class='no'>x</span>, <span class='kw'>proportion</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A dts data frame</p></td>
+      <td><p>A numeric vector</p></td>
     </tr>
     <tr>
-      <th>dtt</th>
-      <td><p>A string specifying the column with the Date or POSIXct values.</p></td>
-    </tr>
-    <tr>
-      <th>colname</th>
-      <td><p>A character vector specifying the column(s) with the other values.</p></td>
-    </tr>
-    <tr>
-      <th>units</th>
-      <td><p>A string of the time units for the variation (3rd and more) 
-arguments of .fun.</p></td>
-    </tr>
-    <tr>
-      <th>normalize</th>
-      <td><p>A flag indicating whether to normalize the values (ensure they sum to 1) or
-the proportion of the summed values to retain before renormalizing.</p></td>
-    </tr>
-    <tr>
-      <th>.fun</th>
-      <td><p>A string of the name of a function which takes a numeric vector as its first argument 
-(the values to calculate the distribution for), a numeric scalar as it second argument
-(the timing of the event) and one or more numeric scalars (representing the
-variation in the timing of the event).</p></td>
-    </tr>
-    <tr>
-      <th>.timing</th>
-      <td><p>A Date or POSIXct vector each element of which 
-will be converted into a numeric value to be passed as the second argument to
-.fun.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments passed as named arguments to .fun 
-which should all be numeric vectors
-of the same length as .dtt or numeric scalars (which are reused).</p></td>
+      <th>proportion</th>
+      <td><p>A number between 0 and 1</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The modified DateTime series data frame with a column of the distribution.</p>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>The date time values in x are converted into a numeric vector and 
-passed as the first argument to .fun.</p>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='normalize.html'>normalize</a></code></p></div>
+    <p>A numeric vector of the normalized values.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dts_distribution</span>(<span class='no'>dts_data</span>[<span class='fl'>1</span>:<span class='fl'>10</span>,], <span class='kw'>.timing</span> <span class='kw'>=</span> <span class='no'>dts_data</span>$<span class='no'>DateTime</span>[<span class='fl'>2</span>], <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"hours"</span>)</div><div class='output co'>#&gt; # A tibble: 10 x 5
-#&gt;    DateTime            Value Value2 Value3 Distribution
-#&gt;    &lt;dttm&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;
-#&gt;  1 1999-11-29 22:00:00  -9     20.1   4.10    0.227    
-#&gt;  2 1999-11-29 23:00:00  NA     20.3   4.07    0.257    
-#&gt;  3 1999-11-30 00:00:00  NA     19.9   4.10    0.227    
-#&gt;  4 1999-11-30 01:00:00  NA     20.5   4.11    0.156    
-#&gt;  5 1999-11-30 02:00:00  10.3   20.4   4.12    0.0835   
-#&gt;  6 1999-11-30 03:00:00  10.3   NA    NA       0.0348   
-#&gt;  7 1999-11-30 04:00:00  10.3   20.3   4.11    0.0113   
-#&gt;  8 1999-11-30 05:00:00  10.2   20.6   4.10    0.00286  
-#&gt;  9 1999-11-30 06:00:00  10.3   20.5   4.09    0.000562 
-#&gt; 10 1999-11-30 07:00:00  10.2   NA     4.10    0.0000863</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>normalize</span>(<span class='fu'>c</span>(<span class='fl'>0.1</span>, <span class='fl'>100</span>, <span class='fl'>10</span>), <span class='kw'>proportion</span> <span class='kw'>=</span> <span class='fl'>0.95</span>)</div><div class='output co'>#&gt; [1] 0.00000000 0.90909091 0.09090909</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -187,10 +134,6 @@ passed as the first argument to .fun.</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
