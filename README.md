@@ -3,7 +3,7 @@
 
 # dts
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build
 status](https://travis-ci.org/poissonconsulting/dts.svg?branch=master)](https://travis-ci.org/poissonconsulting/dts)
 [![AppVeyor build
@@ -14,7 +14,12 @@ status](https://codecov.io/gh/poissonconsulting/dts/branch/master/graph/badge.sv
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 `dts` is a light-weight R package to manipulate data frames with a Date
-or POSIXct column.
+or POSIXct column aka Date-Time-Series (dts) data.
+
+`dts` allows the user to complete (and test completed), aggregate (and
+disaggregate), separate, bound and delay dts data. It also allows the
+user to infer missing values by interpolation, extrapolation, regression
+and based on the dayte.
 
 ## Installation
 

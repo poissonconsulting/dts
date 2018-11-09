@@ -9,6 +9,14 @@
 Manipulates data frames with a Date or POSIXct column and one or more
     double columns representing time series values.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/poissonconsulting/dts}
+  \item Report bugs at \url{https://github.com/poissonconsulting/dts/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (0000-0002-7683-4592)
 
