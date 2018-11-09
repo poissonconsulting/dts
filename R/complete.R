@@ -18,7 +18,7 @@ dts_complete <- function(x, dtt = "DateTime", colname = dts_colnames(x),
   
   x <- x[c(dtt, colname)]
   
-  if(floor) x[[dtt]] <- dtt_floor(x[[dtt]], units = units)
+  if(floor) x <- dts_floor(x, dtt, units = units)
   if(unique) x <- dts_aggregate(x, dtt = dtt, colname = colname, units = units,
                                 .fun = .fun, ...)
 

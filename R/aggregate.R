@@ -16,7 +16,7 @@ dts_aggregate <- function(x, dtt = "DateTime", colname = dts_colnames(x),
   rownames(x) <- NULL
   if(!nrow(x)) return(x)
   
-  x[[dtt]] <- dtt_floor(x[[dtt]], units = units)
+  x <- dts_floor(x, dtt, units = units)
   if(length(colname)) {
     x <- split(x, x[[dtt]])
     x <- lapply(x, agg, .fun = .fun, ...)

@@ -9,6 +9,8 @@ dts_floor(x, dtt = "DateTime", units = dttr::dtt_units(x[[dtt]]))
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
+\item{dtt}{A string specifying the column with the Date or POSIXct values.}
+
 \item{units}{A string of the units.}
 }
 \value{
