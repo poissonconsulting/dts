@@ -22,11 +22,11 @@ dts_fill_dayte <- function(x, dtt = "DateTime", colname = dts_colnames(x),
   if(!nrow(x) || !length(colname)) return(x)
 
   x[[dot(dtt)]] <- x[[dtt]]
-  dtt_years(x[[dot(dtt)]]) <- 1972L
+  dtt_year(x[[dot(dtt)]]) <- 1972L
   
   data <- x[c(dtt, colname)]
   colnames(data) <- dot(colnames(data))
-  dtt_years(data[[dot(dtt)]]) <- 1972L
+  dtt_year(data[[dot(dtt)]]) <- 1972L
   
   if(feb29_to_28) {
     data[[dot(dtt)]] <- dtt_feb29_to_28(data[[dot(dtt)]])

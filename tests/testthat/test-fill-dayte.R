@@ -19,7 +19,7 @@ test_that("fill-dayte-time", {
 
 test_that("fill-dayte-time", {
   data <- data.frame(DateTime = seq(as.Date("2000-01-01"), as.Date("2003-01-03"), by = "days"))
-  data$Value <- dttr::dtt_days(data$DateTime)
+  data$Value <- dtt_day(data$DateTime)
   data$Value[1:5] <- NA
   expect_identical(dts_fill_dayte(data)$Value[1:5], as.double(1:5))
 })

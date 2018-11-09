@@ -5,7 +5,7 @@ dts_data <- data.frame(DateTime = seq(as.POSIXct("1999-11-29 22:00:00", tz = "Et
 
 dts_data$Value <- 10
 dts_data$Value <- dts_data$Value - 0.5 + 1:nrow(dts_data)/nrow(dts_data) * 1
-dts_data$Value <- dts_data$Value + abs(dttr::dtt_doy(dts_data$DateTime) - 366/2) * 0.005 
+dts_data$Value <- dts_data$Value + abs(dtt_doy(dts_data$DateTime) - 366/2) * 0.005 
 
 set.seed(-99)
 dts_data$Value <- dts_data$Value + rnorm(length(dts_data$Value), sd = 0.01)

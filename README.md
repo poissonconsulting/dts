@@ -14,8 +14,7 @@ status](https://codecov.io/gh/poissonconsulting/dts/branch/master/graph/badge.sv
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 `dts` is a light-weight R package to manipulate data frames with a Date
-or POSIXct column and one or more double columns representing time
-series values.
+or POSIXct column.
 
 ## Installation
 
@@ -23,6 +22,9 @@ To install the latest development version from
 [GitHub](https://github.com/poissonconsulting/dts)
 
     # install.packages("devtools")
+    devtools::install_github("poissonconsulting/err")
+    devtools::install_github("poissonconsulting/checkr")
+    devtools::install_github("poissonconsulting/dttr")
     devtools::install_github("poissonconsulting/dts")
 
 To install the latest development version from the Poisson drat
@@ -31,26 +33,6 @@ To install the latest development version from the Poisson drat
     # install.packages("drat")
     drat::addRepo("poissonconsulting")
     install.packages("dts")
-
-## Citation
-
-    Warning in citation(package = "dts"): no date field in DESCRIPTION file of
-    package 'dts'
-    Warning in citation(package = "dts"): could not determine year for 'dts'
-    from package DESCRIPTION file
-    
-    To cite package 'dts' in publications use:
-    
-      Joe Thorley (NA). dts: Manipulate Date/POSIXct Time Series Data
-      Frames. R package version 0.0.0.9006.
-    
-    A BibTeX entry for LaTeX users is
-    
-      @Manual{,
-        title = {dts: Manipulate Date/POSIXct Time Series Data Frames},
-        author = {Joe Thorley},
-        note = {R package version 0.0.0.9006},
-      }
 
 ## Contribution
 
@@ -62,4 +44,4 @@ always welcome.
 
 Please note that the ‘dts’ project is released with a [Contributor Code
 of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you
-agree to abide by its terms
+agree to abide by its terms.

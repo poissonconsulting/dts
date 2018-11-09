@@ -43,7 +43,7 @@ dts_distribution <- function(x, dtt = "DateTime", colname = "Distribution",
   x[[colname]] <- 0
   if(!length(.timing)) return(x)
   
-  if(dtt_is_date(x[[dtt]])) {
+  if(is.Date(x[[dtt]])) {
     .timing <- dtt_date(.timing)
     args <- lapply(args, dtt_adjust_units, from = units, to = "days")
   } else {
