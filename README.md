@@ -17,7 +17,7 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org
 or POSIXct column aka Date-Time-Series (dts) data.
 
 `dts` allows the user to complete (and test completed), aggregate (and
-disaggregate), separate, bound and delay dts data. It also allows the
+disaggregate), separate, bound and lag/lead dts data. It also allows the
 user to infer missing values by interpolation, extrapolation, regression
 and based on the dayte.
 
