@@ -5,7 +5,7 @@
 \title{Aggregate}
 \usage{
 dts_aggregate(x, dtt = "DateTime", colname = dts_colnames(x),
-  units = dttr::dtt_units(x[[dtt]]), .fun = mean, ...)
+  units = dttr::dtt_units(x[[dtt]]), .dts_fun = mean, ...)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -16,9 +16,9 @@ dts_aggregate(x, dtt = "DateTime", colname = dts_colnames(x),
 
 \item{units}{A string of the units.}
 
-\item{.fun}{A function which returns a scalar.}
+\item{.dts_fun}{A function which returns a scalar.}
 
-\item{...}{Optional Additional arguments passed to .fun.}
+\item{...}{Optional Additional arguments passed to .dts_fun.}
 }
 \value{
 A data frame

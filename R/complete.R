@@ -13,14 +13,14 @@ dts_complete <- function(x, dtt = "DateTime", colname = dts_colnames(x),
                          floor = TRUE, 
                          unique = TRUE, sort = TRUE, 
                          units = dttr::dtt_units(x[[dtt]]),
-                         .fun = mean, ...) {
+                         .dts_fun = mean, ...) {
   check_dts(x, dtt = dtt, colname = colname, nas = FALSE)
   
   x <- x[c(dtt, colname)]
   
   if(floor) x <- dts_floor(x, dtt, units = units)
   if(unique) x <- dts_aggregate(x, dtt = dtt, colname = colname, units = units,
-                                .fun = .fun, ...)
+                                .dts_fun = .dts_fun, ...)
 
   seq <- dtt_complete(x[[dtt]], from = from, to = to, floor = FALSE, unique = FALSE, 
                       sort = FALSE, units = units)

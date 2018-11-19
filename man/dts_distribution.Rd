@@ -5,7 +5,7 @@
 \title{Distribution}
 \usage{
 dts_distribution(x, dtt = "DateTime", colname = "Distribution",
-  units = "days", normalize = TRUE, .fun = "dnorm", .timing, ...)
+  units = "days", normalize = TRUE, .dts_fun = "dnorm", .timing, ...)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -15,21 +15,21 @@ dts_distribution(x, dtt = "DateTime", colname = "Distribution",
 \item{colname}{A character vector specifying the column(s) with the other values.}
 
 \item{units}{A string of the time units for the variation (3rd and more) 
-arguments of .fun.}
+arguments of .dts_fun.}
 
 \item{normalize}{A flag indicating whether to normalize the values (ensure they sum to 1) or
 the proportion of the summed values to retain before renormalizing.}
 
-\item{.fun}{A string of the name of a function which takes a numeric vector as its first argument 
+\item{.dts_fun}{A string of the name of a function which takes a numeric vector as its first argument 
 (the values to calculate the distribution for), a numeric scalar as it second argument
 (the timing of the event) and one or more numeric scalars (representing the
 variation in the timing of the event).}
 
 \item{.timing}{A Date or POSIXct vector each element of which 
 will be converted into a numeric value to be passed as the second argument to
-.fun.}
+.dts_fun.}
 
-\item{...}{Additional arguments passed as named arguments to .fun 
+\item{...}{Additional arguments passed as named arguments to .dts_fun 
 which should all be numeric vectors
 of the same length as .dtt or numeric scalars (which are reused).}
 }
@@ -41,7 +41,7 @@ Calculates distribution by DateTime.
 }
 \details{
 The date time values in x are converted into a numeric vector and 
-passed as the first argument to .fun.
+passed as the first argument to .dts_fun.
 }
 \examples{
 dts_distribution(dts_data[1:10,], .timing = dts_data$DateTime[2], sd = 2, units = "hours")

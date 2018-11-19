@@ -16,8 +16,8 @@ calc_atus <- function(atu, cumsum) {
 
 adjust_units <- function(x, units, unit) x * dtt_units_per_unit(units, unit)
 
-agg <- function(x, .fun, ...) {
-  x[2:ncol(x)] <- lapply(x[2:ncol(x)], .fun, ...)
+agg <- function(x, .dts_fun, ...) {
+  x[2:ncol(x)] <- lapply(x[2:ncol(x)], .dts_fun, ...)
   x[1,]
 }
 

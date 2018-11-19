@@ -5,8 +5,8 @@
 \title{Fill Date or POSIXct of the Year}
 \usage{
 dts_fill_dayte(x, dtt = "DateTime", colname = dts_colnames(x),
-  min_gap = 0L, min_n = 1L, feb29_to_28 = TRUE, .fun = mean_na_rm,
-  ...)
+  min_gap = 0L, min_n = 1L, feb29_to_28 = TRUE,
+  .dts_fun = mean_na_rm, ...)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -21,9 +21,9 @@ dts_fill_dayte(x, dtt = "DateTime", colname = dts_colnames(x),
 
 \item{feb29_to_28}{A flag indicating whether to treat February 29th as if it is February 28th.}
 
-\item{.fun}{A function which returns a scalar.}
+\item{.dts_fun}{A function which returns a scalar.}
 
-\item{...}{Optional Additional arguments passed to .fun.}
+\item{...}{Optional Additional arguments passed to .dts_fun.}
 }
 \value{
 A data frame

@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dts</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9007</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9008</span>
       </span>
     </div>
 
@@ -109,7 +109,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>dts_distribution</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='st'>"Distribution"</span>,
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"days"</span>, <span class='kw'>normalize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>.fun</span> <span class='kw'>=</span> <span class='st'>"dnorm"</span>, <span class='no'>.timing</span>, <span class='no'>...</span>)</pre>
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"days"</span>, <span class='kw'>normalize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>.dts_fun</span> <span class='kw'>=</span> <span class='st'>"dnorm"</span>, <span class='no'>.timing</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -129,7 +129,7 @@
     <tr>
       <th>units</th>
       <td><p>A string of the time units for the variation (3rd and more) 
-arguments of .fun.</p></td>
+arguments of .dts_fun.</p></td>
     </tr>
     <tr>
       <th>normalize</th>
@@ -137,7 +137,7 @@ arguments of .fun.</p></td>
 the proportion of the summed values to retain before renormalizing.</p></td>
     </tr>
     <tr>
-      <th>.fun</th>
+      <th>.dts_fun</th>
       <td><p>A string of the name of a function which takes a numeric vector as its first argument 
 (the values to calculate the distribution for), a numeric scalar as it second argument
 (the timing of the event) and one or more numeric scalars (representing the
@@ -147,11 +147,11 @@ variation in the timing of the event).</p></td>
       <th>.timing</th>
       <td><p>A Date or POSIXct vector each element of which 
 will be converted into a numeric value to be passed as the second argument to
-.fun.</p></td>
+.dts_fun.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments passed as named arguments to .fun 
+      <td><p>Additional arguments passed as named arguments to .dts_fun 
 which should all be numeric vectors
 of the same length as .dtt or numeric scalars (which are reused).</p></td>
     </tr>
@@ -164,7 +164,7 @@ of the same length as .dtt or numeric scalars (which are reused).</p></td>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The date time values in x are converted into a numeric vector and 
-passed as the first argument to .fun.</p>
+passed as the first argument to .dts_fun.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

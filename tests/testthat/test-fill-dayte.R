@@ -3,7 +3,7 @@ context("fill-dayte")
 test_that("fill-dayte", {
   data <- data.frame(DateTime = as.Date(c("2000-01-01", "2001-01-01", "2002-01-01", "2003-01-01", "2004-01-01")),
                      Value = c(NA, NA, 10, 16, NA))
-  expect_identical(dts_fill_dayte(data, .fun = mean)$Value, c(NA, NA, 10, 16, NA))
+  expect_identical(dts_fill_dayte(data, .dts_fun = mean)$Value, c(NA, NA, 10, 16, NA))
   expect_equal(dts_fill_dayte(data)$Value, c(13, 13, 10, 16, 13),
                tolerance = 1e-06)
   expect_equal(dts_fill_dayte(data, min_gap = 1L)$Value, c(13, NA, 10, 16, NA),

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Delay a data time series — dts_delay • dts</title>
+<title>Lag (or lead) columns in a Date Time Series data frame — dts_lag • dts</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Delay a data time series — dts_delay" />
+<meta property="og:title" content="Lag (or lead) columns in a Date Time Series data frame — dts_lag" />
 
-<meta property="og:description" content="Delay a data time series" />
+<meta property="og:description" content="Lag (or lead) columns in a Date Time Series data frame" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dts</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9007</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9008</span>
       </span>
     </div>
 
@@ -97,19 +97,25 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Delay a data time series</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/dts/blob/master/R/delay.R'><code>R/delay.R</code></a></small>
-    <div class="hidden name"><code>dts_delay.Rd</code></div>
+    <h1>Lag (or lead) columns in a Date Time Series data frame</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/dts/blob/master/R/lag.R'><code>R/lag.R</code></a></small>
+    <div class="hidden name"><code>dts_lag.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Delay a data time series</p>
+    <p>Lag (or lead) columns in a Date Time Series data frame</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dts_delay</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>), <span class='kw'>delay</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"days"</span>)</pre>
+    <pre class="usage"><span class='fu'>dts_lag</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'>dtt_units</span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]))
+
+<span class='fu'>dts_lead</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'>dtt_units</span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]))
+
+<span class='fu'>dts_delay</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'>dtt_units</span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -127,24 +133,24 @@
       <td><p>A character vector specifying the column(s) with the other values.</p></td>
     </tr>
     <tr>
-      <th>delay</th>
-      <td><p>A number (numeric scalar) of the delay.</p></td>
+      <th>n</th>
+      <td><p>A int (integer scalar) of the lag.</p></td>
     </tr>
     <tr>
       <th>units</th>
-      <td><p>A string of the delay units.</p></td>
+      <td><p>A string of the lag time units.</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dts_delay</span>(<span class='no'>dts_data</span>[<span class='fl'>1</span>:<span class='fl'>4</span>,], <span class='kw'>delay</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; # A tibble: 4 x 4
+    <pre class="examples"><div class='input'><span class='fu'>dts_lag</span>(<span class='no'>dts_data</span>[<span class='fl'>1</span>:<span class='fl'>4</span>,], <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; # A tibble: 4 x 4
 #&gt;   DateTime            Value Value2 Value3
 #&gt;   &lt;dttm&gt;              &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-#&gt; 1 1999-11-29 22:00:00    NA     NA     NA
-#&gt; 2 1999-11-29 23:00:00    NA     NA     NA
-#&gt; 3 1999-11-30 00:00:00    NA     NA     NA
-#&gt; 4 1999-11-30 01:00:00    NA     NA     NA</div></pre>
+#&gt; 1 1999-11-29 22:00:00    NA   NA    NA   
+#&gt; 2 1999-11-29 23:00:00    NA   NA    NA   
+#&gt; 3 1999-11-30 00:00:00    -9   20.1   4.10
+#&gt; 4 1999-11-30 01:00:00    NA   20.3   4.07</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

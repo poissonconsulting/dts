@@ -7,7 +7,7 @@
 dts_complete(x, dtt = "DateTime", colname = dts_colnames(x),
   from = min(x[[dtt]]), to = max(x[[dtt]]), floor = TRUE,
   unique = TRUE, sort = TRUE, units = dttr::dtt_units(x[[dtt]]),
-  .fun = mean, ...)
+  .dts_fun = mean, ...)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
@@ -28,7 +28,7 @@ dts_complete(x, dtt = "DateTime", colname = dts_colnames(x),
 
 \item{units}{A string of the units.}
 
-\item{.fun}{A function which returns a scalar.}
+\item{.dts_fun}{A function which returns a scalar.}
 
 \item{...}{Unused.}
 }

@@ -12,7 +12,7 @@
 #' @export
 dts_fill_dayte <- function(x, dtt = "DateTime", colname = dts_colnames(x), 
                                 min_gap = 0L, min_n = 1L, feb29_to_28 = TRUE, 
-                                .fun = mean_na_rm, ...) {
+                                .dts_fun = mean_na_rm, ...) {
   check_dts(x, dtt = dtt, colname = colname, unique = TRUE)
   check_missing_colnames(x, dot(c(dtt, colname)))
   check_count(min_gap)
@@ -34,9 +34,9 @@ dts_fill_dayte <- function(x, dtt = "DateTime", colname = dts_colnames(x),
   }
   
   n <- dts_aggregate(data, dtt = dot(dtt), 
-                     colname = dot(colname), .fun = function(x) sum(!is.na(x)))
+                     colname = dot(colname), .dts_fun = function(x) sum(!is.na(x)))
   data <- dts_aggregate(data, dtt = dot(dtt), 
-                        colname = dot(colname), .fun = .fun, ...)
+                        colname = dot(colname), .dts_fun = .dts_fun, ...)
   
   stopifnot(identical(n[[dot(dtt)]], data[[dot(dtt)]]))
   
