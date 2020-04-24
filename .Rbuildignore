@@ -11,3 +11,4 @@
 ^\.Rproj\.user$
 ^scripts$
 ^\.github$
+^pkgdown$
