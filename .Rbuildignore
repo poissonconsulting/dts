@@ -9,4 +9,5 @@
 ^data-raw$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^build\.R$
+^scripts$
+^\.github$

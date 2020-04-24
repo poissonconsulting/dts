@@ -15,11 +15,12 @@ knitr::opts_chunk$set(
 
 # dts
 
+<!-- badges: start -->
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![Travis build status](https://travis-ci.org/poissonconsulting/dts.svg?branch=master)](https://travis-ci.org/poissonconsulting/dts)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/dts?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/dts)
+[![R build status](https://github.com/poissonconsulting/dts/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/dts/actions)
 [![Coverage status](https://codecov.io/gh/poissonconsulting/dts/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/dts?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+<!-- badges: end -->
 
 `dts` is a light-weight R package to manipulate data frames with a Date or POSIXct column aka Date-Time-Series (dts) data.
 
@@ -30,18 +31,8 @@ It also allows the user to infer missing values by interpolation, extrapolation,
 
 To install the latest development version from [GitHub](https://github.com/poissonconsulting/dts)
 ```
-# install.packages("devtools")
-devtools::install_github("poissonconsulting/err")
-devtools::install_github("poissonconsulting/checkr")
-devtools::install_github("poissonconsulting/dttr")
-devtools::install_github("poissonconsulting/dts")
-```
-
-To install the latest development version from the Poisson drat [repository](https://github.com/poissonconsulting/drat)
-```
-# install.packages("drat")
-drat::addRepo("poissonconsulting")
-install.packages("dts")
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/dts")
 ```
 
 ## Contribution
