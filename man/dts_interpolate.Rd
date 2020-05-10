@@ -4,8 +4,12 @@
 \alias{dts_interpolate}
 \title{Interpolate}
 \usage{
-dts_interpolate(x, dtt = "DateTime", colname = dts_colnames(x),
-  max_span = .Machine$integer.max)
+dts_interpolate(
+  x,
+  dtt = "DateTime",
+  colname = dts_colnames(x),
+  max_span = .Machine$integer.max
+)
 }
 \arguments{
 \item{x}{A dts data frame}

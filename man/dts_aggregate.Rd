@@ -4,8 +4,14 @@
 \alias{dts_aggregate}
 \title{Aggregate}
 \usage{
-dts_aggregate(x, dtt = "DateTime", colname = dts_colnames(x),
-  units = dttr::dtt_units(x[[dtt]]), .dts_fun = mean, ...)
+dts_aggregate(
+  x,
+  dtt = "DateTime",
+  colname = dts_colnames(x),
+  units = dttr::dtt_units(x[[dtt]]),
+  .dts_fun = mean,
+  ...
+)
 }
 \arguments{
 \item{x}{A dts data frame}

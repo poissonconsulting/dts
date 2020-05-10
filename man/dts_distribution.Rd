@@ -4,8 +4,16 @@
 \alias{dts_distribution}
 \title{Distribution}
 \usage{
-dts_distribution(x, dtt = "DateTime", colname = "Distribution",
-  units = "days", normalize = TRUE, .dts_fun = "dnorm", .timing, ...)
+dts_distribution(
+  x,
+  dtt = "DateTime",
+  colname = "Distribution",
+  units = "days",
+  normalize = TRUE,
+  .dts_fun = "dnorm",
+  .timing,
+  ...
+)
 }
 \arguments{
 \item{x}{A dts data frame}

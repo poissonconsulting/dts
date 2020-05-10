@@ -6,14 +6,29 @@
 \alias{dts_delay}
 \title{Lag (or lead) columns in a Date Time Series data frame}
 \usage{
-dts_lag(x, dtt = "DateTime", colname = dts_colnames(x), n = 1L,
-  units = dtt_units(x[[dtt]]))
+dts_lag(
+  x,
+  dtt = "DateTime",
+  colname = dts_colnames(x),
+  n = 1L,
+  units = dtt_units(x[[dtt]])
+)
 
-dts_lead(x, dtt = "DateTime", colname = dts_colnames(x), n = 1L,
-  units = dtt_units(x[[dtt]]))
+dts_lead(
+  x,
+  dtt = "DateTime",
+  colname = dts_colnames(x),
+  n = 1L,
+  units = dtt_units(x[[dtt]])
+)
 
-dts_delay(x, dtt = "DateTime", colname = dts_colnames(x), n = 1L,
-  units = dtt_units(x[[dtt]]))
+dts_delay(
+  x,
+  dtt = "DateTime",
+  colname = dts_colnames(x),
+  n = 1L,
+  units = dtt_units(x[[dtt]])
+)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}

@@ -5,12 +5,30 @@
 \alias{dts_separate_date}
 \title{Separates the DateTime column of a data frame into its component parts.}
 \usage{
-dts_separate_date_time(x, dtt = "DateTime", year = TRUE,
-  month = TRUE, day = TRUE, hour = TRUE, minute = TRUE,
-  second = TRUE, dayte = FALSE, prefix = "", suffix = "")
+dts_separate_date_time(
+  x,
+  dtt = "DateTime",
+  year = TRUE,
+  month = TRUE,
+  day = TRUE,
+  hour = TRUE,
+  minute = TRUE,
+  second = TRUE,
+  dayte = FALSE,
+  prefix = "",
+  suffix = ""
+)
 
-dts_separate_date(x, dtt = "DateTime", year = TRUE, month = TRUE,
-  day = TRUE, dayte = FALSE, prefix = "", suffix = "")
+dts_separate_date(
+  x,
+  dtt = "DateTime",
+  year = TRUE,
+  month = TRUE,
+  day = TRUE,
+  dayte = FALSE,
+  prefix = "",
+  suffix = ""
+)
 }
 \arguments{
 \item{x}{A data frame with a Date or POSIXct column.}

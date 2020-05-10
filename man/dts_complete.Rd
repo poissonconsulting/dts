@@ -4,10 +4,19 @@
 \alias{dts_complete}
 \title{Completes a data time series}
 \usage{
-dts_complete(x, dtt = "DateTime", colname = dts_colnames(x),
-  from = min(x[[dtt]]), to = max(x[[dtt]]), floor = TRUE,
-  unique = TRUE, sort = TRUE, units = dttr::dtt_units(x[[dtt]]),
-  .dts_fun = mean, ...)
+dts_complete(
+  x,
+  dtt = "DateTime",
+  colname = dts_colnames(x),
+  from = min(x[[dtt]]),
+  to = max(x[[dtt]]),
+  floor = TRUE,
+  unique = TRUE,
+  sort = TRUE,
+  units = dttr::dtt_units(x[[dtt]]),
+  .dts_fun = mean,
+  ...
+)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}

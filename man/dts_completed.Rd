@@ -4,8 +4,14 @@
 \alias{dts_completed}
 \title{Test if the DateTime in a DateTime-Series is complete.}
 \usage{
-dts_completed(x, dtt = "DateTime", floored = TRUE, unique = TRUE,
-  sorted = TRUE, units = dttr::dtt_units(x[[dtt]]))
+dts_completed(
+  x,
+  dtt = "DateTime",
+  floored = TRUE,
+  unique = TRUE,
+  sorted = TRUE,
+  units = dttr::dtt_units(x[[dtt]])
+)
 }
 \arguments{
 \item{x}{A dts data frame}

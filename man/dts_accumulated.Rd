@@ -4,8 +4,13 @@
 \alias{dts_accumulated}
 \title{Accumulated}
 \usage{
-dts_accumulated(x, dtt = "DateTime", colname = "Value",
-  accum = c(Hatch = 320), units = "days")
+dts_accumulated(
+  x,
+  dtt = "DateTime",
+  colname = "Value",
+  accum = c(Hatch = 320),
+  units = "days"
+)
 }
 \arguments{
 \item{x}{A dts data frame}

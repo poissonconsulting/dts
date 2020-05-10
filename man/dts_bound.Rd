@@ -4,8 +4,13 @@
 \alias{dts_bound}
 \title{Bound}
 \usage{
-dts_bound(x, dtt = "DateTime", colname = "Value", bounds = c(-Inf,
-  Inf), adjust = FALSE)
+dts_bound(
+  x,
+  dtt = "DateTime",
+  colname = "Value",
+  bounds = c(-Inf, Inf),
+  adjust = FALSE
+)
 }
 \arguments{
 \item{x}{A dts data frame}

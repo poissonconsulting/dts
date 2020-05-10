@@ -4,11 +4,23 @@
 \alias{check_dts}
 \title{Check DateTime-Series Data Frame}
 \usage{
-check_dts(x, dtt = "DateTime", colname = character(0), nrow = NA,
-  nas = TRUE, floored = TRUE, sorted = FALSE, unique = FALSE,
-  complete = FALSE, units = dttr::dtt_units(x[[dtt]]),
-  tz = dttr::dtt_tz(x[[dtt]]), exclusive = FALSE, order = FALSE,
-  x_name = substitute(x), error = TRUE)
+check_dts(
+  x,
+  dtt = "DateTime",
+  colname = character(0),
+  nrow = NA,
+  nas = TRUE,
+  floored = TRUE,
+  sorted = FALSE,
+  unique = FALSE,
+  complete = FALSE,
+  units = dttr::dtt_units(x[[dtt]]),
+  tz = dttr::dtt_tz(x[[dtt]]),
+  exclusive = FALSE,
+  order = FALSE,
+  x_name = substitute(x),
+  error = TRUE
+)
 }
 \arguments{
 \item{x}{A dts data frame}

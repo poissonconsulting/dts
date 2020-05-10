@@ -4,8 +4,14 @@
 \alias{dts_regress2}
 \title{Regress2}
 \usage{
-dts_regress2(x, dtt = "DateTime", colname = c("Value", "Value2",
-  "Value3"), intercept = TRUE, min_gap = 0L, min_n = 5L)
+dts_regress2(
+  x,
+  dtt = "DateTime",
+  colname = c("Value", "Value2", "Value3"),
+  intercept = TRUE,
+  min_gap = 0L,
+  min_n = 5L
+)
 }
 \arguments{
 \item{x}{A dts data frame}
