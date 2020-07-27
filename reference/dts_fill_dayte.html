@@ -117,9 +117,16 @@
     <p>Fills in missing values based on Date or DateTime of year.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dts_fill_dayte</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>),
-  <span class='kw'>min_gap</span> <span class='kw'>=</span> <span class='fl'>0L</span>, <span class='kw'>min_n</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>feb29_to_28</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>.dts_fun</span> <span class='kw'>=</span> <span class='no'>mean_na_rm</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dts_fill_dayte</span>(
+  <span class='kw'>x</span>,
+  dtt = <span class='st'>"DateTime"</span>,
+  colname = <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='kw'>x</span>),
+  min_gap = <span class='fl'>0L</span>,
+  min_n = <span class='fl'>1L</span>,
+  feb29_to_28 = <span class='fl'>TRUE</span>,
+  .dts_fun = <span class='kw'>mean_na_rm</span>,
+  <span class='kw'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

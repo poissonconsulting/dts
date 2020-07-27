@@ -117,12 +117,30 @@
     <p>Separates the DateTime column of a data frame into its component parts.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dts_separate_date_time</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>month</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>day</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hour</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>minute</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>second</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>dayte</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>suffix</span> <span class='kw'>=</span> <span class='st'>""</span>)
+    <pre class="usage"><span class='fu'>dts_separate_date_time</span>(
+  <span class='kw'>x</span>,
+  dtt = <span class='st'>"DateTime"</span>,
+  year = <span class='fl'>TRUE</span>,
+  month = <span class='fl'>TRUE</span>,
+  day = <span class='fl'>TRUE</span>,
+  hour = <span class='fl'>TRUE</span>,
+  minute = <span class='fl'>TRUE</span>,
+  second = <span class='fl'>TRUE</span>,
+  dayte = <span class='fl'>FALSE</span>,
+  prefix = <span class='st'>""</span>,
+  suffix = <span class='st'>""</span>
+)
 
-<span class='fu'>dts_separate_date</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>month</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>day</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>dayte</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>suffix</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
+<span class='fu'>dts_separate_date</span>(
+  <span class='kw'>x</span>,
+  dtt = <span class='st'>"DateTime"</span>,
+  year = <span class='fl'>TRUE</span>,
+  month = <span class='fl'>TRUE</span>,
+  day = <span class='fl'>TRUE</span>,
+  dayte = <span class='fl'>FALSE</span>,
+  prefix = <span class='st'>""</span>,
+  suffix = <span class='st'>""</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -184,7 +202,7 @@
 </ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dts_separate_date_time</span>(<span class='no'>dts_data</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>),])</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 10</span><span>
+    <pre class="examples"><div class='input'><span class='fu'>dts_separate_date_time</span>(<span class='kw'>dts_data</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>),])</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 10</span><span>
 #&gt;   DateTime            Value Value2 Value3  Year Month   Day  Hour Minute Second
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> 1999-11-29 </span><span style='color: #555555;'>22:00:00</span><span>    -</span><span style='color: #BB0000;'>9</span><span>   20.1   4.10  </span><span style='text-decoration: underline;'>1</span><span>999    11    29    22      0      0

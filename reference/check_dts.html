@@ -117,11 +117,23 @@
     <p>A dts data frame is a data frame with a column of Date or POSIXct values.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>check_dts</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>), <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>nas</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>floored</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sorted</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>complete</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/dttr/man/dtt_units.html'>dtt_units</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]),
-  <span class='kw'>tz</span> <span class='kw'>=</span> <span class='kw pkg'>dttr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/dttr/man/dtt_tz.html'>dtt_tz</a></span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]), <span class='kw'>exclusive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='no'>x</span>), <span class='kw'>error</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>check_dts</span>(
+  <span class='kw'>x</span>,
+  dtt = <span class='st'>"DateTime"</span>,
+  colname = <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>(<span class='fl'>0</span>),
+  nrow = <span class='fl'>NA</span>,
+  nas = <span class='fl'>TRUE</span>,
+  floored = <span class='fl'>TRUE</span>,
+  sorted = <span class='fl'>FALSE</span>,
+  unique = <span class='fl'>FALSE</span>,
+  complete = <span class='fl'>FALSE</span>,
+  units = <span class='kw'>dttr</span>::<span class='fu'><a href='https://rdrr.io/pkg/dttr/man/dtt_units.html'>dtt_units</a></span>(<span class='kw'>x</span>[[<span class='kw'>dtt</span>]]),
+  tz = <span class='kw'>dttr</span>::<span class='fu'><a href='https://rdrr.io/pkg/dttr/man/dtt_tz.html'>dtt_tz</a></span>(<span class='kw'>x</span>[[<span class='kw'>dtt</span>]]),
+  exclusive = <span class='fl'>FALSE</span>,
+  order = <span class='fl'>FALSE</span>,
+  x_name = <span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='kw'>x</span>),
+  error = <span class='fl'>TRUE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -193,7 +205,7 @@
     <p>An invisible copy of x (if it doesn't throw an error).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>check_dts</span>(<span class='no'>dts_data</span>)</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>check_dts</span>(<span class='kw'>dts_data</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -117,14 +117,29 @@
     <p>Lag (or lead) columns in a Date Time Series data frame</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dts_lag</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'>dtt_units</span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]))
+    <pre class="usage"><span class='fu'>dts_lag</span>(
+  <span class='kw'>x</span>,
+  dtt = <span class='st'>"DateTime"</span>,
+  colname = <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='kw'>x</span>),
+  n = <span class='fl'>1L</span>,
+  units = <span class='fu'>dtt_units</span>(<span class='kw'>x</span>[[<span class='kw'>dtt</span>]])
+)
 
-<span class='fu'>dts_lead</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'>dtt_units</span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]))
+<span class='fu'>dts_lead</span>(
+  <span class='kw'>x</span>,
+  dtt = <span class='st'>"DateTime"</span>,
+  colname = <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='kw'>x</span>),
+  n = <span class='fl'>1L</span>,
+  units = <span class='fu'>dtt_units</span>(<span class='kw'>x</span>[[<span class='kw'>dtt</span>]])
+)
 
-<span class='fu'>dts_delay</span>(<span class='no'>x</span>, <span class='kw'>dtt</span> <span class='kw'>=</span> <span class='st'>"DateTime"</span>, <span class='kw'>colname</span> <span class='kw'>=</span> <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='no'>x</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1L</span>,
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'>dtt_units</span>(<span class='no'>x</span><span class='kw'>[[</span><span class='no'>dtt</span>]]))</pre>
+<span class='fu'>dts_delay</span>(
+  <span class='kw'>x</span>,
+  dtt = <span class='st'>"DateTime"</span>,
+  colname = <span class='fu'><a href='dts_colnames.html'>dts_colnames</a></span>(<span class='kw'>x</span>),
+  n = <span class='fl'>1L</span>,
+  units = <span class='fu'>dtt_units</span>(<span class='kw'>x</span>[[<span class='kw'>dtt</span>]])
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,7 +168,7 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dts_lag</span>(<span class='no'>dts_data</span>[<span class='fl'>1</span>:<span class='fl'>4</span>,], <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 4 x 4</span><span>
+    <pre class="examples"><div class='input'><span class='fu'>dts_lag</span>(<span class='kw'>dts_data</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>,], n = <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 4 x 4</span><span>
 #&gt;   DateTime            Value Value2 Value3
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> 1999-11-29 </span><span style='color: #555555;'>22:00:00</span><span>    </span><span style='color: #BB0000;'>NA</span><span>   </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>   
