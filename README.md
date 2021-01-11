@@ -8,8 +8,8 @@
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
 status](https://github.com/poissonconsulting/dts/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/dts/actions)
-[![Coverage
-status](https://codecov.io/gh/poissonconsulting/dts/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/dts?branch=master)
+[![Codecov test
+coverage](https://codecov.io/gh/poissonconsulting/dts/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/dts?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
@@ -38,6 +38,8 @@ Please report any
 [Pull requests](https://github.com/poissonconsulting/dts/pulls) are
 always welcome.
 
-Please note that the ‘dts’ project is released with a [Contributor Code
-of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you
-agree to abide by its terms.
+## Code of Conduct
+
+Please note that the dts project is released with a [Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
