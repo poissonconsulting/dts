@@ -45,6 +45,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -79,19 +81,13 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/poissonconsulting/dts/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -117,30 +113,30 @@
     <p>Separates the DateTime column of a data frame into its component parts.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dts_separate_date_time</span>(
-  <span class='kw'>x</span>,
-  dtt = <span class='st'>"DateTime"</span>,
-  year = <span class='fl'>TRUE</span>,
-  month = <span class='fl'>TRUE</span>,
-  day = <span class='fl'>TRUE</span>,
-  hour = <span class='fl'>TRUE</span>,
-  minute = <span class='fl'>TRUE</span>,
-  second = <span class='fl'>TRUE</span>,
-  dayte = <span class='fl'>FALSE</span>,
-  prefix = <span class='st'>""</span>,
-  suffix = <span class='st'>""</span>
-)
+    <pre class="usage"><span class='fu'>dts_separate_date_time</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  dtt <span class='op'>=</span> <span class='st'>"DateTime"</span>,
+  year <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  month <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  day <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  hour <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  minute <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  second <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  dayte <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  prefix <span class='op'>=</span> <span class='st'>""</span>,
+  suffix <span class='op'>=</span> <span class='st'>""</span>
+<span class='op'>)</span>
 
-<span class='fu'>dts_separate_date</span>(
-  <span class='kw'>x</span>,
-  dtt = <span class='st'>"DateTime"</span>,
-  year = <span class='fl'>TRUE</span>,
-  month = <span class='fl'>TRUE</span>,
-  day = <span class='fl'>TRUE</span>,
-  dayte = <span class='fl'>FALSE</span>,
-  prefix = <span class='st'>""</span>,
-  suffix = <span class='st'>""</span>
-)</pre>
+<span class='fu'>dts_separate_date</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  dtt <span class='op'>=</span> <span class='st'>"DateTime"</span>,
+  year <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  month <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  day <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  dayte <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  prefix <span class='op'>=</span> <span class='st'>""</span>,
+  suffix <span class='op'>=</span> <span class='st'>""</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -202,7 +198,8 @@
 </ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dts_separate_date_time</span>(<span class='kw'>dts_data</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>3</span>),])</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 10</span><span>
+    <pre class="examples"><div class='input'><span class='fu'>dts_separate_date_time</span><span class='op'>(</span><span class='va'>dts_data</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>3</span><span class='op'>)</span>,<span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 10</span><span>
 #&gt;   DateTime            Value Value2 Value3  Year Month   Day  Hour Minute Second
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dttm&gt;</span><span>              </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> 1999-11-29 </span><span style='color: #555555;'>22:00:00</span><span>    -</span><span style='color: #BB0000;'>9</span><span>   20.1   4.10  </span><span style='text-decoration: underline;'>1</span><span>999    11    29    22      0      0
@@ -222,7 +219,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
