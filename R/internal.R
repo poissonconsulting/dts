@@ -69,11 +69,22 @@ interpolate <- function(x, max_span) {
   x
 }
 
-extrapolate <- function(x) {
+extrapolate <- function(x, max_span) {
   wch <- which(!is.na(x))
   if(!length(wch)) return(x)
   wch <- wch[c(1L, length(wch))]
-  x[1:wch[1]] <- x[wch[1]]
-  x[wch[2]:length(x)] <- x[wch[2]]
+  start_value <- x[wch[1]]
+  end_value <- x[wch[2]]
+  start_indices <- 1:wch[1]
+  end_indices <- wch[2]:length(x)
+  
+  nstart <- length(start_indices)
+  nend <- length(end_indices)
+  
+  start_indices <- start_indices[(max(1, nstart - max_span)):nstart]
+  end_indices <- end_indices[1:(min(max_span + 1, nend))]
+  
+  x[start_indices] <- start_value
+  x[end_indices] <- end_value
   x
 }

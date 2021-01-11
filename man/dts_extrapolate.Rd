@@ -2,9 +2,14 @@
 % Please edit documentation in R/extrapolate.R
 \name{dts_extrapolate}
 \alias{dts_extrapolate}
-\title{F}
+\title{Extrapolation}
 \usage{
-dts_extrapolate(x, dtt = "DateTime", colname = dts_colnames(x))
+dts_extrapolate(
+  x,
+  dtt = "DateTime",
+  colname = dts_colnames(x),
+  max_span = .Machine$integer.max
+)
 }
 \arguments{
 \item{x}{A dts data frame}
@@ -12,12 +17,14 @@ dts_extrapolate(x, dtt = "DateTime", colname = dts_colnames(x))
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
 \item{colname}{A character vector specifying the column(s) with the other values.}
+
+\item{max_span}{An integer of the maximum span to extrapolate.}
 }
 \value{
 A data frame
 }
 \description{
-Fill in missing values by linear interpolation.
+Fill in missing values by padding with the first or last non-missing value.
 }
 \examples{
 dts_extrapolate(dts_data[2:6,])
