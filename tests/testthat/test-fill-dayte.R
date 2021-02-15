@@ -1,5 +1,3 @@
-context("fill-dayte")
-
 test_that("fill-dayte", {
   data <- data.frame(DateTime = as.Date(c("2000-01-01", "2001-01-01", "2002-01-01", "2003-01-01", "2004-01-01")),
                      Value = c(NA, NA, 10, 16, NA))

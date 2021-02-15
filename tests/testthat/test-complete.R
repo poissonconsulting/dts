@@ -1,5 +1,3 @@
-context("complete")
-
 test_that("completed", {
   expect_true(dts_completed(dts_data[1:3,]))
   expect_true(dts_completed(dts_data[c(1,3,2),], sorted = FALSE))

@@ -1,5 +1,3 @@
-context("floor")
-
 test_that("floor", {
   floored <- dts_floor(dts_data[c(1,3),], units = "years")
   expect_identical(floored[c("Value", "Value2", "Value3")],

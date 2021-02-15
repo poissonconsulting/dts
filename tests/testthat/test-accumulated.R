@@ -1,5 +1,3 @@
-context("accumulated")
-
 test_that("accumulated", {
   data <- dts_accumulated(dts_data[1:5,], colname = "Value2",
                           accum = c(Hatch = 40), units = "hours")

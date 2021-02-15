@@ -1,5 +1,3 @@
-context("separate")
-
 test_that("separate", {
   x <- dts_separate_date_time(dts_data[1:3,], suffix = "o", prefix = "b", minute = FALSE)
   expect_identical(colnames(x), c("DateTime", "Value", "Value2", "Value3", 

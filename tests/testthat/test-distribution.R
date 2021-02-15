@@ -1,5 +1,3 @@
-context("distribution")
-
 test_that("distribution", {
   data <- data.frame(DateTime = seq(as.Date("1972-01-01"), as.Date("1973-01-01"),
                                     by = 1))

@@ -1,5 +1,3 @@
-context("check")
-
 test_that("check", {
   expect_identical(check_dts(dts_data), dts_data)
   data <- data.frame(DateTime = as.Date(c("2001-01-01", "2001-01-02")), Value = c(1,2))

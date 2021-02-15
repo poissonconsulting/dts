@@ -1,5 +1,3 @@
-context("internal")
-
 test_that("which_replace", {
   expect_identical(which_replace(logical(0)), integer(0))
   expect_identical(which_replace(1), integer(0))

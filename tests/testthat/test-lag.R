@@ -1,5 +1,3 @@
-context("lag")
-
 test_that("lag", {
   data <- dts_data[1:3,]
   expect_identical(dts_lag(data, n = 1, units = "hours")$Value2[2:3], data$Value2[1:2])

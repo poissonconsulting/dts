@@ -1,5 +1,3 @@
-context("extrapolate")
-
 test_that("extrapolate", {
   x <- dts_data[4:6,]
   x$Value2[2] <- NA

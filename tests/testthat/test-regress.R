@@ -1,5 +1,3 @@
-context("regress")
-
 test_that("regress", {
   expect_error(dts_regress(dts_data[1:5,], min_gap = 0L), 
                    "there are less than 4 values to fit the regression")
