@@ -12,8 +12,8 @@ dts_disaggregate <- function(x, dtt = "DateTime", colname = dts_colnames(x)) {
             sorted = TRUE, unique = TRUE, complete = TRUE)
   
   x <- x[c(dtt, colname)]
-  check_missing_colnames(x, dot(dtt))
-  
+  chk_not_subset(names(x), dot(dtt))
+
   data <- data.frame(dtt_disaggregate(x[[dtt]]))
   colnames(data) <- dot(dtt)
   data[[dtt]] <- dtt_floor(data[[dot(dtt)]], units = dtt_units(x[[dtt]]))

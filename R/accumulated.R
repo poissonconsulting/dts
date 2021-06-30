@@ -17,12 +17,15 @@
 dts_accumulated <- function(x, dtt = "DateTime", colname = "Value", 
                             accum = c(Hatch = 320),
                             units = "days") {
-  check_string(colname)
+  chk_string(colname)
   check_dts(x, dtt = dtt, colname = colname, sorted = TRUE,
             unique = TRUE, complete = TRUE)
-  check_vector(accum, c(0, chk_max_dbl()))
-  check_named(accum, unique = TRUE)
-  check_missing_names(accum, c(dtt, colname))
+  chk_vector(accum)
+  chk_gt(accum, 0) 
+  chk_dbl(accum)
+  chk_named(accum)
+  chk_unique(accum)
+  chk_not_subset(accum, c(dtt, colname))
 
   if(!length(accum)) return(x)
   

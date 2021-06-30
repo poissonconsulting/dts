@@ -8,7 +8,7 @@
 #' @export
 dts_plot <- function(x, dtt = "DateTime", colname = "Value") {
   requireNamespace("ggplot2")
-  check_string(colname)
+  chk_string(colname)
   check_dts(x, dtt, colname)
   
   ggplot2::ggplot(data = x, ggplot2::aes_string(x = dtt, y = colname)) +

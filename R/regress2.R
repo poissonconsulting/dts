@@ -13,11 +13,15 @@
 dts_regress2 <- function(x, dtt = "DateTime", 
                          colname = c("Value", "Value2", "Value3"),
                         intercept = TRUE, min_gap = 0L, min_n = 5L) {
-  check_vector(colname, "", length = 3L)
+  chk_vector(colname)
+  check_values(colname, "")
+  check_dim(colname, values = 3L)
   check_dts(x, dtt = dtt, colname = colname)
-  check_flag(intercept)
-  check_count(min_gap)
-  check_scalar(min_n, c(5L, .Machine$integer.max))
+  chk_flag(intercept)
+  chk_whole_number(min_gap)
+  chk_gte(min_gap)
+  chk_scalar(min_n)
+  chk_gte(min_n)
   
   which <- which_replace(x[[colname[1]]], min_gap = min_gap)
   

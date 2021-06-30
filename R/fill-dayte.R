@@ -14,10 +14,13 @@ dts_fill_dayte <- function(x, dtt = "DateTime", colname = dts_colnames(x),
                                 min_gap = 0L, min_n = 1L, feb29_to_28 = TRUE, 
                                 .dts_fun = mean_na_rm, ...) {
   check_dts(x, dtt = dtt, colname = colname, unique = TRUE)
-  check_missing_colnames(x, dot(c(dtt, colname)))
-  check_count(min_gap)
-  check_count(min_n)
-  check_flag(feb29_to_28)
+  chk_not_subset(names(x), dot(c(dtt, colname)))
+  chk_whole_number(min_gap)
+  chk_gte(min_gap)
+  chk_whole_number(min_n)
+  chk_gte(min_n)
+  
+  chk_flag(feb29_to_28)
 
   if(!nrow(x) || !length(colname)) return(x)
 

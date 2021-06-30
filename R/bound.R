@@ -14,10 +14,11 @@
 #' dts_bound(dts_data[1:5,], bounds = c(0,Inf))
 dts_bound <- function(x, dtt = "DateTime", colname = "Value",
                       bounds = c(-Inf, Inf), adjust = FALSE) {
-  check_string(colname)
+  chk_string(colname)
   check_dts(x, dtt = dtt, colname = colname)
-  check_vector(bounds, length = 2L)
-  check_flag(adjust)
+  chk_vector(bounds)
+  check_dim(bounds, values = 2L)
+  chk_flag(adjust)
   
   bounds <- sort(bounds)
   

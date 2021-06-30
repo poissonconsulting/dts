@@ -5,5 +5,5 @@ test_that("check", {
   is.na(data$DateTime[1]) <- TRUE
   expect_identical(check_dts(data, colname = "Value"), data)
   expect_error(check_dts(data, colname = c("Value", "Value2")), 
-                         "data column names must include 'DateTime', 'Value' and 'Value2'")
+                         "`data` column names must include 'DateTime', 'Value' and 'Value2'")
 })

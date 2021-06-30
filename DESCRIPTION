@@ -10,9 +10,10 @@ BugReports: https://github.com/poissonconsulting/dts/issues
 License: MIT + file LICENSE
 Depends: R (>= 3.4.0)
 Imports: 
-    err,
     checkr,
+    err,
     dttr,
+    chk,
     stats
 Suggests: 
     ggplot2,
@@ -20,9 +21,10 @@ Suggests:
     tibble,
     covr
 Remotes:
-  poissonconsulting/err,
   poissonconsulting/checkr,
-  poissonconsulting/dttr
+  poissonconsulting/dttr,
+  poissonconsulting/chk,
+  poissonconsulting/err
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
