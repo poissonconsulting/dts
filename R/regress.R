@@ -14,11 +14,17 @@
 #' dts_regress(dts_data)[1:5,]
 dts_regress <- function(x, dtt = "DateTime", colname = c("Value", "Value2"),
                         intercept = TRUE, min_gap = 0L, min_n = 4L) {
-  check_vector(colname, "", length = 2L)
+  chk_vector(colname)
+  check_dim(colname, values = 2L)
+  check_values(colname, "")
   check_dts(x, dtt = dtt, colname = colname)
-  check_flag(intercept)
-  check_count(min_gap)
-  check_scalar(min_n, c(4L, .Machine$integer.max))
+  chk_flag(intercept)
+  
+  chk_whole_number(min_gap)
+  chk_gte(min_gap)
+  
+  chk_whole_number(min_n)
+  chk_gte(min_n)
   
   which <- which_replace(x[[colname[1]]], min_gap = min_gap)
   

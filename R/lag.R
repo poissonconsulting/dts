@@ -14,7 +14,8 @@ dts_lag <- function(x, dtt = "DateTime", colname = dts_colnames(x),
   check_dts(x, dtt = dtt, colname = colname, nas = FALSE,
             sorted = TRUE, unique = TRUE, complete = TRUE)
   
-  n <- check_int(n, coerce = TRUE)
+  n <- as.integer(n)
+  chk_integer(n)
 
   if(!nrow(x) || !n || !length(colname)) return(x)
   

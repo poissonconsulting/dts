@@ -19,15 +19,17 @@ check_dts <- function(x, dtt = "DateTime", colname = character(0),
                       units = dttr::dtt_units(x[[dtt]]),
                       tz = dttr::dtt_tz(x[[dtt]]),
                       exclusive = FALSE, order = FALSE,
-                      x_name = substitute(x), error = TRUE) {
-  x_name <- chk_deparse(x_name)
-  
-  check_string(dtt)
-  check_vector(colname, "")
+                      x_name = NULL, error = TRUE) {
+  if (is.null(x_name)) 
+    x_name <- deparse_backtick_chk((substitute(x))) 
+  chk_string(x_name)   
+  chk_string(dtt)
+  chk_vector(colname)
+  check_values(colname, "")
 
-  check_data(x, c(dtt, colname), nrow = nrow, 
-             exclusive = exclusive, order = order, x_name = x_name)
-  
+  check_data(x, values = c(dtt, colname), nrow = nrow, exclusive = exclusive, 
+             order = order, x_name = x_name)
+
   check_dtt(x[[dtt]], nas = nas, floored = floored, sorted = sorted, 
             unique = unique, complete = complete, 
             units = units, tz = tz, x_name = 

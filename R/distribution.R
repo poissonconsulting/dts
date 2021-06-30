@@ -28,17 +28,19 @@
 #' dts_distribution(dts_data[1:10,], .timing = dts_data$DateTime[2], sd = 2, units = "hours")
 dts_distribution <- function(x, dtt = "DateTime", colname = "Distribution", 
                         units = "days", normalize = TRUE, .dts_fun = "dnorm", .timing, ...) {
-  check_string(colname)
+  chk_string(colname)
   check_dts(x, dtt = dtt, sorted = TRUE, unique = TRUE, complete = TRUE)
   if(colname == dtt) err("colname must not be '", dtt, "'")
   check_time_units(units)
-  checkor(check_flag(normalize), check_prob(normalize))
-  check_string(.dts_fun)
+  chkor(chk_flag(normalize), chk_dbl(normalize), chk_range(normalize))
+  chk_string(.dts_fun)
   check_dtt(.timing, nas = FALSE, unique = TRUE)
   
   args <- list(...)
 
-  lapply(args, check_vector, values = 1, length = c(1L, 1L, length(.timing)))
+  lapply(args, check_dim, values = c(1L, 1L, length(.timing)))
+  lapply(args, check_values, values = 1)
+  
   
   x[[colname]] <- 0
   if(!length(.timing)) return(x)
