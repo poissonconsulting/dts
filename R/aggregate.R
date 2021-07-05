@@ -10,7 +10,7 @@
 #' @examples
 #' dts_aggregate(dts_data, units = "years", na.rm = TRUE)
 dts_aggregate <- function(x, dtt = "DateTime", colname = dts_colnames(x), 
-                          units = dttr::dtt_units(x[[dtt]]), .dts_fun = mean, ...) {
+                          units = dttr2::dtt_units(x[[dtt]]), .dts_fun = mean, ...) {
   check_dts(x, dtt = dtt, colname = colname)
   x <- x[c(dtt, colname)]
   rownames(x) <- NULL

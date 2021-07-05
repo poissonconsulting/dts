@@ -4,7 +4,7 @@
 \alias{dts_floor}
 \title{Floors the Date or POSIXct column of a date time series data frame.}
 \usage{
-dts_floor(x, dtt = "DateTime", units = dttr::dtt_units(x[[dtt]]))
+dts_floor(x, dtt = "DateTime", units = dttr2::dtt_units(x[[dtt]]))
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}

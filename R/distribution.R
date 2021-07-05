@@ -31,11 +31,16 @@ dts_distribution <- function(x, dtt = "DateTime", colname = "Distribution",
   chk_string(colname)
   check_dts(x, dtt = dtt, sorted = TRUE, unique = TRUE, complete = TRUE)
   if(colname == dtt) err("colname must not be '", dtt, "'")
-  check_time_units(units)
+  if (is.null(x)) 
+    x <- deparse_backtick_chk(x) 
+  chk_string(units)
+  chk_scalar(units)
   chkor(chk_flag(normalize), chk_dbl(normalize), chk_range(normalize))
   chk_string(.dts_fun)
-  check_dtt(.timing, nas = FALSE, unique = TRUE)
-  
+  is_date_time(.timing)
+  chk_unique(.timing)
+  chk_not_any_na(.timing)
+
   args <- list(...)
 
   lapply(args, check_dim, values = c(1L, 1L, length(.timing)))

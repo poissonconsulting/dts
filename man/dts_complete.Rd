@@ -13,7 +13,7 @@ dts_complete(
   floor = TRUE,
   unique = TRUE,
   sort = TRUE,
-  units = dttr::dtt_units(x[[dtt]]),
+  units = dttr2::dtt_units(x[[dtt]]),
   .dts_fun = mean,
   ...
 )

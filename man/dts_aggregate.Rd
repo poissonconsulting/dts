@@ -8,7 +8,7 @@ dts_aggregate(
   x,
   dtt = "DateTime",
   colname = dts_colnames(x),
-  units = dttr::dtt_units(x[[dtt]]),
+  units = dttr2::dtt_units(x[[dtt]]),
   .dts_fun = mean,
   ...
 )

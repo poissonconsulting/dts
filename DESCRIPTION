@@ -13,6 +13,7 @@ Imports:
     checkr,
     err,
     dttr,
+    dttr2,
     chk,
     stats
 Suggests: 
@@ -23,6 +24,7 @@ Suggests:
 Remotes:
   poissonconsulting/checkr,
   poissonconsulting/dttr,
+  poissonconsulting/dttr2,
   poissonconsulting/chk,
   poissonconsulting/err
 Encoding: UTF-8
