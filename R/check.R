@@ -16,8 +16,8 @@ check_dts <- function(x, dtt = "DateTime", colname = character(0),
                       nrow = NA, nas = TRUE, floored = TRUE, 
                       sorted = FALSE, unique = FALSE, 
                       complete = FALSE,
-                      units = dttr::dtt_units(x[[dtt]]),
-                      tz = dttr::dtt_tz(x[[dtt]]),
+                      units = dttr2::dtt_units(x[[dtt]]),
+                      tz = dttr2::dtt_tz(as.POSIXct(x[[dtt]])),
                       exclusive = FALSE, order = FALSE,
                       x_name = NULL, error = TRUE) {
   if (is.null(x_name)) 
@@ -27,12 +27,12 @@ check_dts <- function(x, dtt = "DateTime", colname = character(0),
   chk_vector(colname)
   check_values(colname, "")
 
-  check_data(x, values = c(dtt, colname), nrow = nrow, exclusive = exclusive, 
+  check_data(x, c(dtt, colname), nrow = nrow, exclusive = exclusive, 
              order = order, x_name = x_name)
 
-  check_dtt(x[[dtt]], nas = nas, floored = floored, sorted = sorted, 
-            unique = unique, complete = complete, 
-            units = units, tz = tz, x_name = 
+  check_dtt(x[[dtt]], nas = nas, floored = floored, sorted = sorted,
+            unique = unique, complete = complete,
+            units = units, tz = tz, x_name =
               paste0("column '", dtt, "' of ", x_name))
   invisible(x)
 }

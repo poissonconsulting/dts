@@ -12,7 +12,7 @@ dts_complete <- function(x, dtt = "DateTime", colname = dts_colnames(x),
                          from = min(x[[dtt]]), to = max(x[[dtt]]),
                          floor = TRUE, 
                          unique = TRUE, sort = TRUE, 
-                         units = dttr::dtt_units(x[[dtt]]),
+                         units = dttr2::dtt_units(x[[dtt]]),
                          .dts_fun = mean, ...) {
   check_dts(x, dtt = dtt, colname = colname, nas = FALSE)
   

@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' dts_floor(dts_data[c(1,3),], units = "years")
-dts_floor <- function(x, dtt = "DateTime", units = dttr::dtt_units(x[[dtt]])) {
+dts_floor <- function(x, dtt = "DateTime", units = dttr2::dtt_units(x[[dtt]])) {
   check_dts(x, dtt = dtt)
   
   x[[dtt]] <- dtt_floor(x[[dtt]], units = units)
