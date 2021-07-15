@@ -22,7 +22,7 @@ dts_accumulated <- function(x, dtt = "DateTime", colname = "Value",
             unique = TRUE, complete = TRUE)
   chk_vector(accum)
   chk_gt(accum, 0) 
-  chk_dbl(accum)
+  chk_numeric(accum)
   chk_named(accum)
   chk_unique(accum)
   chk_not_subset(accum, c(dtt, colname))
