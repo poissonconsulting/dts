@@ -35,7 +35,11 @@ dts_distribution <- function(x, dtt = "DateTime", colname = "Distribution",
     x <- deparse_backtick_chk(x) 
   chk_string(units)
   chk_scalar(units)
-  chkor(chk_flag(normalize), chk_dbl(normalize), chk_range(normalize))
+
+  if(!vld_flag(normalize) && !vld_dbl(normalize) && !vld_range(normalize)) {
+    chkor_vld(vld_flag(normalize), vld_dbl(normalize), vld_range(normalize))
+  }
+  
   chk_string(.dts_fun)
   is_date_time(.timing)
   chk_unique(.timing)
