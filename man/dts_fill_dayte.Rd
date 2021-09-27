@@ -20,7 +20,8 @@ dts_fill_dayte(
 
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
-\item{colname}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other
+values.}
 
 \item{min_gap}{An integer of the minimum gap to leave between existing values.}
 

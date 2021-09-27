@@ -20,7 +20,8 @@ dts_distribution(
 
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
-\item{colname}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other
+values.}
 
 \item{units}{A string of the time units for the variation (3rd and more) 
 arguments of .dts_fun.}

@@ -17,7 +17,8 @@ dts_bound(
 
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
-\item{colname}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other
+values.}
 
 \item{bounds}{A sorted double vector of the lower and upper permitted bounds.}
 
