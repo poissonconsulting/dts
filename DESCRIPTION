@@ -10,23 +10,21 @@ BugReports: https://github.com/poissonconsulting/dts/issues
 License: MIT + file LICENSE
 Depends: R (>= 3.4.0)
 Imports: 
-    checkr,
-    err,
+    chk,
     dttr,
     dttr2,
-    chk,
-    stats
+    err,
+    stats,
+    units
 Suggests: 
+    covr,
     ggplot2,
     testthat,
     tibble,
-    covr
 Remotes:
-  poissonconsulting/checkr,
   poissonconsulting/dttr,
   poissonconsulting/dttr2,
-  poissonconsulting/chk,
   poissonconsulting/err
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2

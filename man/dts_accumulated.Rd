@@ -17,7 +17,8 @@ dts_accumulated(
 
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
-\item{colname}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other
+values.}
 
 \item{accum}{A uniquely named vector of the accumulation thresholds.}
 

@@ -18,7 +18,8 @@ dts_regress(
 
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
-\item{colname}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other
+values.}
 
 \item{intercept}{A flag indicating whether an intercept should be estimated (or fixed at 0)}
 

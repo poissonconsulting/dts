@@ -35,7 +35,8 @@ dts_delay(
 
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
-\item{colname}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other
+values.}
 
 \item{n}{A int (integer scalar) of the lag.}
 

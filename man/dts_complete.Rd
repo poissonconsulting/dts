@@ -23,7 +23,8 @@ dts_complete(
 
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
-\item{colname}{A character vector specifying the column(s) with the other values.}
+\item{colname}{A character vector specifying the column(s) with the other
+values.}
 
 \item{from}{A Date or POSIXct scalar of the start date.}
 
