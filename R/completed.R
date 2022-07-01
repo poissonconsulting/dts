@@ -10,9 +10,12 @@
 #' dts_completed(dts_data[c(1,3),])
 dts_completed <- function(x, dtt = "DateTime", 
                           floored = TRUE, unique = TRUE, sorted = TRUE, 
-                          units = dttr::dtt_units(x[[dtt]])) {
+                          units = dttr2::dtt_units(x[[dtt]])) {
   check_dts(x, dtt = dtt)
-
-  dtt_completed(x[[dtt]], floored = floored, sorted = sorted, 
-                unique = unique, units = units)
+  
+  if(floored && !dtt_floored(x[[dtt]], units = units)) return(FALSE)
+  if(!floored & dtt_floored(x[[dtt]], units = units)) return(FALSE)
+  x[[dtt]] <- dtt_floor(x[[dtt]], units)
+  dtt_completed(x[[dtt]], sorted = sorted, 
+                  unique = unique, units = units)
 }

@@ -10,7 +10,7 @@ dts_completed(
   floored = TRUE,
   unique = TRUE,
   sorted = TRUE,
-  units = dttr::dtt_units(x[[dtt]])
+  units = dttr2::dtt_units(x[[dtt]])
 )
 }
 \arguments{

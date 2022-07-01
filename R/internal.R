@@ -920,3 +920,22 @@ check_data <- function(x,
   
   invisible(x)
 }
+
+cn <- function(n, one = "there %r %n value%s", 
+               some = one, none = some, lots = some, nlots = 10) {
+  if((!is.integer(n) && !is.numeric(n))
+     || !identical(length(n), 1L) || is.na(n) || n < 0)
+    err("n must be a count")
+  string <- n_string(n, one = one, some = some, none = none, lots = lots, 
+                     nlots = nlots)
+  string <- gsub("%s", if(n == 1) "" else "s", string, fixed = TRUE)
+  string <- gsub("%r", if(n == 1) "is" else "are", string, fixed = TRUE)
+  gsub("%n", n, string, fixed = TRUE)  
+}
+
+n_string <- function(n, one, some, none, lots, nlots) {
+  if(n == 1) return(one)
+  if(n == 0) return(none)
+  if(n >= nlots) return(lots)
+  some
+}

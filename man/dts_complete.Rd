@@ -19,24 +19,25 @@ dts_complete(
 )
 }
 \arguments{
-\item{x}{A Date or POSIXct vector.}
+\item{x}{A date/time vector.}
 
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
 \item{colname}{A character vector specifying the column(s) with the other
 values.}
 
-\item{from}{A Date or POSIXct scalar of the start date.}
+\item{from}{A date/time scalar of the start.}
 
-\item{to}{A Date or POSIXct scalar of the to date.}
+\item{to}{A date/time scalar of the end.}
 
 \item{floor}{A flag indicating whether to floor the values.}
 
-\item{unique}{A flag indicating whether to return distinct values.}
+\item{unique}{A flag specifying whether to only return unique values.}
 
-\item{sort}{A flag indicating whether the returned vector must be sorted.}
+\item{sort}{A flag specifying whether to sort the vector.}
 
-\item{units}{A string of the units.}
+\item{units}{A string of the time units. The possible values are "secs",
+"minutes", "hours", "days" or "weeks".}
 
 \item{.dts_fun}{A function which returns a scalar.}
 

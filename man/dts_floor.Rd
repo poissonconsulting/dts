@@ -7,11 +7,12 @@
 dts_floor(x, dtt = "DateTime", units = dttr2::dtt_units(x[[dtt]]))
 }
 \arguments{
-\item{x}{A Date or POSIXct vector.}
+\item{x}{A date/time vector.}
 
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 
-\item{units}{A string of the units.}
+\item{units}{A string of the time units. The possible values are "secs",
+"minutes", "hours", "days" or "weeks".}
 }
 \value{
 The completed data time series.
