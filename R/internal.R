@@ -115,19 +115,41 @@ is_NA <- function(x)  length(x) == 1 && is.na(x)
 
 is_length <- function(x) is_flag(x) || is_NA(x) || is_count_range(x) || is_count_vector(x)
 
+co_sub <- function(string, object, object_name, ...) {
+  n <- length(object)
+  string <- gsub("%s", if(identical(n, 1L)) "" else "s", string, fixed = TRUE)
+  string <- gsub("%r", if(identical(n, 1L)) "is" else "are", string, fixed = TRUE)
+  string <- gsub("%n", n, string, fixed = TRUE)
+  string <- gsub("%o", object_name, string, fixed = TRUE)
+  
+  gsub("%c", cc(object, ...), string, fixed = TRUE)
+}
+
+co <- function(
+    object, one = "%o has %n column%s\n%c", 
+    some = one, none = none, lots = some, nlots = 10, 
+    conjunction = NULL, ellipsis = nlots, oxford = FALSE, 
+    object_name = substitute(object), ...) {
+  object_name <- err_deparse(object_name)
+  string <- n_string(length(object), one = one, some = some, none = none, lots = lots, 
+                     nlots = nlots)
+  co_sub(string, object, object_name, conjunction = conjunction, 
+         ellipsis = ellipsis, oxford = oxford)
+}
+
 co_and <- function(object, 
                    one = "%o has %n value%s: %c", 
                    object_name = substitute(object)) {
   object_name <- err_deparse(object_name)
-  err::co(object, one = one, conjunction = "and", object_name = object_name)
+  co(object, one = one, conjunction = "and", object_name = object_name)
 }
 
 cc_and <- function(object) {
-  err::cc(object, conjunction = "and")
+  chk::cc(object, conj = " and ")
 }
 
 cc_or <- function(object) {
-  err::cc(object, conjunction = "or")
+  chk::cc(object, conj = " or ")
 }
 
 check_nas <- function(x,
