@@ -1,5 +1,6 @@
 test_that("completed", {
   expect_true(dts_completed(dts_data[1:3,]))
+  expect_false(dts_completed(dts_data[1:3,], floored = FALSE))
   expect_true(dts_completed(dts_data[c(1,3,2),], sorted = FALSE))
   expect_false(dts_completed(dts_data[c(1,3,2),]))
   expect_false(dts_completed(dts_data[c(1,3),]))
@@ -12,6 +13,6 @@ test_that("complete", {
   rownames(complete) <- NULL
   expect_identical(dts_complete(dts_data[c(1,3),c("DateTime", "Value")])$DateTime, 
                complete[order(complete$DateTime),]$DateTime)
-  expect_identical(dts_complete(dts_data[1:2,], from = as.POSIXct("1999-11-28", tz = "UTC"))$DateTime[1], 
-               as.POSIXct("1999-11-27 16:00:00", tz = "Etc/GMT+8"))
+  expect_identical(dts_complete(dts_data[1:2,], from = as.POSIXct("1999-11-28", tz = "Etc/GMT+8"))$DateTime[1], 
+               as.POSIXct("1999-11-27 24:00:00", tz = "Etc/GMT+8"))
 })

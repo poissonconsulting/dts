@@ -31,7 +31,7 @@ dts_delay(
 )
 }
 \arguments{
-\item{x}{A Date or POSIXct vector.}
+\item{x}{A date/time vector.}
 
 \item{dtt}{A string specifying the column with the Date or POSIXct values.}
 

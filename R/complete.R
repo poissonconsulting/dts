@@ -1,8 +1,9 @@
 #' Completes a data time series
 #'
-#' @inheritParams dttr::dtt_complete
+#' @inheritParams dttr2::dtt_complete
 #' @inheritParams check_dts
 #' @inheritParams dts_aggregate
+#' @param floor A flag indicating whether to floor the values.
 #' @return The completed data time series.
 #' @export
 #'
@@ -22,7 +23,7 @@ dts_complete <- function(x, dtt = "DateTime", colname = dts_colnames(x),
   if(unique) x <- dts_aggregate(x, dtt = dtt, colname = colname, units = units,
                                 .dts_fun = .dts_fun, ...)
 
-  seq <- dtt_complete(x[[dtt]], from = from, to = to, floor = FALSE, unique = FALSE, 
+  seq <- dtt_complete(x[[dtt]], from = from, to = to, unique = FALSE, 
                       sort = FALSE, units = units)
   
   data <- data.frame(seq)

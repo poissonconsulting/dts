@@ -1,6 +1,6 @@
 #' Lag (or lead) columns in a Date Time Series data frame
 #'
-#' @inheritParams dttr::dtt_complete
+#' @inheritParams dttr2::dtt_complete
 #' @inheritParams check_dts
 #' @param n A int (integer scalar) of the lag.
 #' @param units A string of the lag time units.

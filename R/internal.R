@@ -115,19 +115,41 @@ is_NA <- function(x)  length(x) == 1 && is.na(x)
 
 is_length <- function(x) is_flag(x) || is_NA(x) || is_count_range(x) || is_count_vector(x)
 
+co_sub <- function(string, object, object_name, ...) {
+  n <- length(object)
+  string <- gsub("%s", if(identical(n, 1L)) "" else "s", string, fixed = TRUE)
+  string <- gsub("%r", if(identical(n, 1L)) "is" else "are", string, fixed = TRUE)
+  string <- gsub("%n", n, string, fixed = TRUE)
+  string <- gsub("%o", object_name, string, fixed = TRUE)
+  
+  gsub("%c", cc(object, ...), string, fixed = TRUE)
+}
+
+co <- function(
+    object, one = "%o has %n column%s\n%c", 
+    some = one, none = none, lots = some, nlots = 10, 
+    conjunction = NULL, ellipsis = nlots, oxford = FALSE, 
+    object_name = substitute(object), ...) {
+  object_name <- err_deparse(object_name)
+  string <- n_string(length(object), one = one, some = some, none = none, lots = lots, 
+                     nlots = nlots)
+  co_sub(string, object, object_name, conjunction = conjunction, 
+         ellipsis = ellipsis, oxford = oxford)
+}
+
 co_and <- function(object, 
                    one = "%o has %n value%s: %c", 
                    object_name = substitute(object)) {
   object_name <- err_deparse(object_name)
-  err::co(object, one = one, conjunction = "and", object_name = object_name)
+  co(object, one = one, conjunction = "and", object_name = object_name)
 }
 
 cc_and <- function(object) {
-  err::cc(object, conjunction = "and")
+  chk::cc(object, conj = " and ")
 }
 
 cc_or <- function(object) {
-  err::cc(object, conjunction = "or")
+  chk::cc(object, conj = " or ")
 }
 
 check_nas <- function(x,
@@ -919,4 +941,23 @@ check_data <- function(x,
   check_key(x, key = key, x_name = x_name, error = error)
   
   invisible(x)
+}
+
+cn <- function(n, one = "there %r %n value%s", 
+               some = one, none = some, lots = some, nlots = 10) {
+  if((!is.integer(n) && !is.numeric(n))
+     || !identical(length(n), 1L) || is.na(n) || n < 0)
+    err("n must be a count")
+  string <- n_string(n, one = one, some = some, none = none, lots = lots, 
+                     nlots = nlots)
+  string <- gsub("%s", if(n == 1) "" else "s", string, fixed = TRUE)
+  string <- gsub("%r", if(n == 1) "is" else "are", string, fixed = TRUE)
+  gsub("%n", n, string, fixed = TRUE)  
+}
+
+n_string <- function(n, one, some, none, lots, nlots) {
+  if(n == 1) return(one)
+  if(n == 0) return(none)
+  if(n >= nlots) return(lots)
+  some
 }

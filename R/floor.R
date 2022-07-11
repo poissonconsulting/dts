@@ -1,6 +1,6 @@
 #' Floors the Date or POSIXct column of a date time series data frame.
 #'
-#' @inheritParams dttr::dtt_complete
+#' @inheritParams dttr2::dtt_complete
 #' @inheritParams check_dts
 #' @return The completed data time series.
 #' @export
