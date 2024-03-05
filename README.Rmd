@@ -20,6 +20,7 @@ knitr::opts_chunk$set(
 [![R build status](https://github.com/poissonconsulting/dts/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/dts/actions)
 [![Codecov test coverage](https://codecov.io/gh/poissonconsulting/dts/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/dts?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Lifecycle: deprecated](https://img.shields.io/badge/lifecycle-deprecated-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#deprecated)
 <!-- badges: end -->
 
 `dts` is a light-weight R package to manipulate data frames with a Date or POSIXct column aka Date-Time-Series (dts) data.
